@@ -1,0 +1,6 @@
+float64 q1_error
+float64 q2_error
+float64 relative_x_error
+float64 relative_y_error
+float64 relative_z_error
+bool leader_guiding

@@ -1,0 +1,31 @@
+<launch>
+  <arg name="mav_name" default="omnicopter"/>
+  <arg name="world_name" default="omnicopter"/>
+  <arg name="gui" default="true"/>
+  <arg name="paused" default="true"/>
+  <arg name="init_z" default="0.2"/>
+
+  <arg name="verbose" default="true"/>
+  <rosparam command="load" file="$(find uav_simulator)/config/omnicopter_params.yaml" />
+  <rosparam command="load" file="$(find uav_simulator)/config/vel_ctrl_gains.yaml" />
+  <rosparam command="load" file="$(find uav_simulator)/config/omni_att_ctrl_gains.yaml" />
+
+  <env name="GAZEBO_MODEL_PATH" value="${GAZEBO_MODEL_PATH}:$(find uav_simulator)/models"/>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find uav_simulator)/worlds/$(arg world_name).world"/>
+    <arg name="debug" value="false" />
+    <arg name="paused" value="$(arg paused)" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="verbose" value="$(arg verbose)"/>
+  </include>
+
+
+<!--
+	<include file="$(find uav_simulator)/launch/joystick.launch"/>
+
+	<node name="rc_sim" pkg="uav_simulator" type="joy_rc_node" args="$(arg mav_name)"/>
+-->
+
+  <node name="adapter" pkg="uav_simulator" type="adapter_node" output="screen" args="$(arg mav_name)"/>
+
+</launch>

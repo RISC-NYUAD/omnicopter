@@ -1,0 +1,8 @@
+mass: 2.85
+Ixx: 0.1
+Iyy: 0.09
+Izz: 0.16
+thr_const: 4.4086e-06
+drag_const: 0.001
+max_rpm: 30000
+num_of_props: 8
