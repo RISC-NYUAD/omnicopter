@@ -1,0 +1,12 @@
+<launch>
+
+  <arg name="pose" default="pose_full"/>
+  <arg name="pose_d" default="pose_d"/>
+  
+
+  <node name="maneuver" pkg="maneuver" type="maneuver_node">
+     <param name="pose" value="$(arg pose)"/>
+     <param name="pose_d" value="$(arg pose_d)"/>
+  </node>
+
+</launch>

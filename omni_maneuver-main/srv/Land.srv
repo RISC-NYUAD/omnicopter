@@ -1,0 +1,6 @@
+float32 height_1
+float32 duration_1
+float32 height_2
+float32 duration_2
+---
+bool status
