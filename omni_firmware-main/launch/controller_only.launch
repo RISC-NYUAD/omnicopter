@@ -1,0 +1,6 @@
+
+<launch>
+
+	<include file="$(find controller)/launch/control.launch"/>
+
+</launch>
