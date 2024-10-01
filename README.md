@@ -9,7 +9,7 @@ The software is based on ROS1 and it uses MSP to communicate with the INAV on th
 - Real flight: roslaunch omni_firmware system.launch
 - Check Raw IMU data and vicon topics.
 
- #Services 
+# Services 
 - ARM using Arm/Disarm service. [rosservice call /ArmDisarm]
 - Take-off [rosservice call /lift_off "height: 0.0 duration: 0.0"]
 - Pos + yaw Manuever always forcing 0 roll and pitch [rosservice call /go_to "{x: 0.0, y: 0.0, z: 0.0, yaw: 0.0, duration: 0.0}"]
@@ -20,5 +20,8 @@ The software is based on ROS1 and it uses MSP to communicate with the INAV on th
 
 - There are other services [LinearWrench, AngularWrench, ellipse5D (**under dev**)] but not fundametal for the flights.
 
-- Bash scripts
-- 
+# Bash scripts
+- Bash scripts are provided to do different manuevers each including the take-off and landing while recording all the topics as Rosbags. The scripts are using the above ROS services.
+
+# Killing the drone
+- Press ctrl+c in the launch file terminal to send a kill signal that drops the drone to ground on spot. Also, the INAV code is modified to send 0 thrust commands to the motors if the on board pc doesn't send thrust commands to the flight controller.
