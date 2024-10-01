@@ -1,5 +1,5 @@
 # omnicopter
-Software developed for the omnidrone
+Software developed for the omnidrone (6 DOF control)
 The software is based on ROS1 and it uses MSP to communicate with the INAV on the flight controller. The code is developed for Odroid XU4.
 **All units are SI including the angles (rad)**
 
