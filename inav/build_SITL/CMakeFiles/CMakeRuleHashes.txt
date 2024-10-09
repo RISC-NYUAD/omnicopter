@@ -1,0 +1,6 @@
+# Hashes of file build rules.
+18e5abb28799960d94b9fe6bd88ddeb3 CMakeFiles/release
+5f47daff281d4e335c662edde51631c5 CMakeFiles/targets
+f79404f342e6ab1bc47a81bd185c748e src/main/target/SITL/CMakeFiles/SITL
+d183e44c917987ea96ace4b1bb5933f3 src/main/target/SITL/CMakeFiles/clean_SITL
+b6bbb26fe3b9495690b895433c4a57a3 src/main/target/SITL/SITL/settings_generated.h
