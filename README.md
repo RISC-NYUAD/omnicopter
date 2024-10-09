@@ -26,3 +26,6 @@ The software is based on ROS1 and it uses MSP to communicate with the INAV on th
 
 # Killing the drone
 - Press ctrl+c in the launch file terminal to send a kill signal that drops the drone to ground on spot. Also, the INAV code is modified to send 0 thrust commands to the motors if the on board pc doesn't send thrust commands to the flight controller.
+
+# Pinlayout for the Flight Controller board
+- https://www.multirotorguide.com/reviews/t-motor-f7-pro-flight-controller/
