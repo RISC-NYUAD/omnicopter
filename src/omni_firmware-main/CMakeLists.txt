@@ -27,6 +27,7 @@ add_message_files(
 
 add_service_files(
    FILES
+   ZeroUKF.srv
 )
  
 generate_messages(
@@ -61,9 +62,15 @@ include_directories(
 #  ${GAZEBO_LIBRARIES}
 #  ${catkin_LIBRARIES})
 
+# Add the UKF library
+add_library(ukf src/ukf_filter.cc src/ukf_state.cc)  # Make sure you include the source file where update is defined
+
 
 add_executable(state_node src/state.cpp)
 target_link_libraries(state_node ${catkin_LIBRARIES}   ${Eigen_INCLUDE_DIRS} ${Eigen_LIBRARIES} Threads::Threads) 
+
+add_executable(filter_node src/filter.cpp)
+target_link_libraries(filter_node ${catkin_LIBRARIES}   ${Eigen_INCLUDE_DIRS} ${Eigen_LIBRARIES} ukf) 
 
 #add_dependencies(${PROJECT_NAME}_node 
 #    ${${PROJECT_NAME}_EXPORTED_TARGETS} 

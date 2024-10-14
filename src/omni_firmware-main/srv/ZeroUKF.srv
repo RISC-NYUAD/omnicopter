@@ -1,0 +1,3 @@
+# ZeroRotation.srv
+---
+bool success  # indicates whether the operation was successful

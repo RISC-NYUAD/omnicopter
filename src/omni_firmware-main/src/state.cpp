@@ -40,6 +40,8 @@
 #include <std_msgs/Empty.h>
 #include <nav_msgs/Odometry.h>
 
+#include "ukf.h"
+
 int16_t idle_pwm = 1000;
 // Signal-safe flag for whether shutdown is requested
 sig_atomic_t volatile g_request_shutdown = 0;

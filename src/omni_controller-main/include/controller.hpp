@@ -90,6 +90,7 @@ protected:
 	Eigen::Vector3d acc_d; // calculated desired virtual acceletaion
 	Eigen::Matrix<double, 6, 1> wrench; // calculated wrench
 	Eigen::Matrix<double, 8, 6> iG; // inverse allocation matrix
+	Eigen::Matrix<double, 8, 2> nB; // null space basis of allocation matrix
 	Eigen::VectorXd prop_cmd_d; // calculated propeller commands
 	Eigen::Vector3d ex, ev, eR, ew, ea;
 

@@ -29,3 +29,5 @@ The software is based on ROS1 and it uses MSP to communicate with the INAV on th
 
 # New features in this branch
 - Voltage monitoring package is added and it uses I2C through the GPIO pins of the onboard pc.
+- UKF filter implemented for sensor fusiuon.
+- Allocation matrix modified along with the accurate model of each motor.

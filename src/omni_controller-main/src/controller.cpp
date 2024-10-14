@@ -29,6 +29,8 @@
 #include <fcntl.h>
 #include <time.h>
 
+
+#include "utils.cpp"
 int serial = 0;
 
 void sendSerialData(uint8_t* data, size_t size) {
@@ -99,8 +101,9 @@ Controller::Controller() : nh_() {
 	std::vector<double> pos_ki_list;
 	std::vector<double> allocation_list;
 	std::vector<double> full_allocation_list;
-    std::vector<double> positives_array_list;
-
+    	std::vector<double> positives_array_list;
+	std::vector<double> null_space_list;
+	
 	// each will set the parameter to default value if
 	// the corresponding param is not set
 
@@ -232,6 +235,15 @@ Controller::Controller() : nh_() {
 	std::copy(allocation_list.begin(), allocation_list.end(), G_buffer);
 	this->n = allocation_list.size() / 6;
 	const int n = this->n;
+	
+	if(!nh_.getParam("controller/controller_gains/null_space", null_space_list)) {
+		ROS_ERROR("Could not find topic allocation_matirx parameter!, setting DEFAULT");
+		null_space_list = {0.301429102388748,0.735955403463547,-0.744949427323837,-0.421971587344518,0.172298872444366,-0.794293521479409,0.819043900300765,0.046510193764713,0.904741735148129,-0.593704394980915,-0.293022583675305,-0.421163826202063,0.953420437122514,0.265376405450306,-0.138753111972226,-0.751244359993357,-0.30096991363634,0.325399347714704,0.599323048268742,-0.802845571061326,-0.247593555310946,0.546509986337043,0.556699796387724,-0.658383409157718,-0.00888400144355125,0.215117903216544,0.206878060048819,-0.241382414880486,-0.0474608747180168,-0.217249131581812,-0.273493529619868,0.221027676501879,0.168915338845869,0.127629220480947,0.0214932509610041,-0.259584331122989,-0.0801275667833885,-0.107326620103627,-0.090396649549601,0.243303861879375,0.438758999209262,-0.333424682483333,0.291021295990369,0.258926401815371,-0.380895378375629,-0.293347679694737,0.402790861728662,-0.189524582517963};
+	}
+	double nB_buffer[null_space_list.size()];
+	std::copy(null_space_list.begin(),null_space_list.end(), nB_buffer);
+	Eigen::Map < Eigen::MatrixXd > nB(nB_buffer, n, 2);
+	this->nB = nB;
 
 	// the following is the storing of the allocation
 	// matrix in the RowMajor form with dynamic matrix
@@ -244,11 +256,14 @@ Controller::Controller() : nh_() {
 		   -0.0048, -0.0010,    0.0;
 	double drag_lift_ratio = 0.0130;//0.023;
 	Eigen::MatrixXd G_;
-	G_ = G.transpose();
+	G_ = G.transpose();	
+	
+	#undef solve
 	
 
 	this->iG = G_.jacobiSvd(Eigen::ComputeFullU | Eigen::ComputeFullV).solve(Eigen::Matrix<
 			double, 6, 6>::Identity());
+	#define solve lu_solve
     double u_min, u_max;
     u_min = cmd_min * cmd_min;
     u_max = cmd_max * cmd_max;
@@ -330,12 +345,12 @@ void Controller::apply_linear_wrench_test(){
         	}
       	}
 
-		for(int i = 0; i < this->n; i++) {
-			prop_cmd_d[i] += -min_prop_cmd;
-		}
+	Eigen::Matrix2d H = Eigen::Matrix2d::Identity();
+	Eigen::Vector2d f = prop_cmd_d.transpose() * this->nB;
+	Eigen::VectorXd x = Utils::solveQP(H, f, this->nB, -1*prop_cmd_d);
 
-		this->prop_cmd_d = prop_cmd_d.array();
-
+	prop_cmd_d = prop_cmd_d + this->nB * x;
+	this->prop_cmd_d = prop_cmd_d.array().max(0);
 	}
 	else
 	{
@@ -350,13 +365,14 @@ void Controller::apply_linear_wrench_test(){
         	{
 				min_prop_cmd = prop_cmd_d[i];
         	}
-      	}
+       }	
+	Eigen::Matrix2d H = Eigen::Matrix2d::Identity();
+	Eigen::Vector2d f = prop_cmd_d.transpose() * this->nB;
+	Eigen::VectorXd x = Utils::solveQP(H, f, this->nB, -1*prop_cmd_d);
 
-		for(int i = 0; i < this->n; i++) {
-			prop_cmd_d[i] += -min_prop_cmd;
-		}
+	prop_cmd_d = prop_cmd_d + this->nB * x;
 
-		this->prop_cmd_d = prop_cmd_d.array();	}
+	this->prop_cmd_d = prop_cmd_d.array().max(0);	}
 	last_wrench_sent = false;
 }
 
@@ -420,11 +436,13 @@ void Controller::apply_angular_wrench_test(){
         	}
       	}
 
-		for(int i = 0; i < this->n; i++) {
-			prop_cmd_d[i] += -min_prop_cmd;
-		}
+		Eigen::Matrix2d H = Eigen::Matrix2d::Identity();
+		Eigen::Vector2d f = prop_cmd_d.transpose() * this->nB;
+		Eigen::VectorXd x = Utils::solveQP(H, f, this->nB, -1*prop_cmd_d);
 
-		this->prop_cmd_d = prop_cmd_d.array();
+		prop_cmd_d = prop_cmd_d + this->nB * x;
+
+		this->prop_cmd_d = prop_cmd_d.array().max(0);
 
 	}
 	last_wrench_sent = false;
@@ -487,13 +505,40 @@ void Controller::update_prop_cmd() {
 			prop_vel[i] = this->cmd_min;
 	}
 
-	double a,b,c;
-	a = 95.67;
-	b = 8.34;
-	c = 1012;
+	Eigen::ArrayXd a_vals(this->n);  // Vector of 'a' values, one per row
+	Eigen::ArrayXd b_vals(this->n);  // Vector of 'b' values, one per row
+	Eigen::ArrayXd c_vals(this->n);  // Vector of 'c' values, one per row
+
+	// Initialize a, b, c values
+	a_vals << 128.8304,
+  			  105.0259,
+  			  110.1237,
+  			  110.4929,
+  			  104.4360,
+  			  118.3979,
+  			  126.6510,
+  			  109.5292; 
+	b_vals << 4.5982,
+    		  3.8684,
+    		  3.5600,
+    		  6.1778,
+    		  5.7502,
+    		  5.3335,
+    		  6.0286,
+    		  4.2650;
+	c_vals << 993.1251,
+  			  998.0056,
+  			  995.9796,
+  			  996.8340,
+  			  996.5013,
+  			  996.2702,
+  			  994.8973,
+  			  995.8504;
 	int xcount = 0;
 	Eigen::ArrayXd prop_PWM;
-	prop_PWM = a*prop_cmd_d.array().sqrt() + b*prop_cmd_d.array() + c;
+	prop_PWM = a_vals * prop_cmd_d.array().sqrt() +
+			   b_vals * prop_cmd_d.array() + 
+			   c_vals;
 	while (xcount <= 7)
 	{
 		if (prop_PWM[xcount] <= 1030)
@@ -784,11 +829,11 @@ void Controller::coplanar_collinear_actuation() {
         }
       }
 
-	lamda = prop_cmd_d[counter]/nullSpaceVector[counter];
-	for(int i = 0; i < this->n; i++) {
-			prop_cmd_d[i] += lamda*nullSpaceVector[i];
-	}
-	this->prop_cmd_d = prop_cmd_d.array();
+	Eigen::Matrix2d H = Eigen::Matrix2d::Identity();
+	Eigen::Vector2d f = prop_cmd_d.transpose() * this->nB;
+	Eigen::VectorXd x = Utils::solveQP(H, f, this->nB, -1*prop_cmd_d);
+	prop_cmd_d = prop_cmd_d + this->nB * x;
+	this->prop_cmd_d = prop_cmd_d.array().max(0);
 }
 
 
@@ -865,11 +910,11 @@ void Controller::full_allocation_actuation() {
         }
       }
 
-	for(int i = 0; i < this->n; i++) {
-			prop_cmd_d[i] += -min_prop_cmd;
-	}
-
-	this->prop_cmd_d = prop_cmd_d.array();
+	Eigen::Matrix2d H = Eigen::Matrix2d::Identity();
+	Eigen::Vector2d f = prop_cmd_d.transpose() * this->nB;
+	Eigen::VectorXd x = Utils::solveQP(H, f, this->nB, -1*prop_cmd_d);
+	prop_cmd_d = prop_cmd_d + this->nB * x;
+	this->prop_cmd_d = prop_cmd_d.array().max(0);
  
 }
 
