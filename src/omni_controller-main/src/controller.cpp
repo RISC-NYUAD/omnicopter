@@ -101,8 +101,9 @@ Controller::Controller() : nh_() {
 	std::vector<double> pos_ki_list;
 	std::vector<double> allocation_list;
 	std::vector<double> full_allocation_list;
-    	std::vector<double> positives_array_list;
+    std::vector<double> positives_array_list;
 	std::vector<double> null_space_list;
+	std::vector<double> inertia_list;
 	
 	// each will set the parameter to default value if
 	// the corresponding param is not set
@@ -237,13 +238,21 @@ Controller::Controller() : nh_() {
 	const int n = this->n;
 	
 	if(!nh_.getParam("controller/controller_gains/null_space", null_space_list)) {
-		ROS_ERROR("Could not find topic allocation_matirx parameter!, setting DEFAULT");
+		ROS_ERROR("Could not find topic null_space parameter!, setting DEFAULT");
 		null_space_list = {0.301429102388748,0.735955403463547,-0.744949427323837,-0.421971587344518,0.172298872444366,-0.794293521479409,0.819043900300765,0.046510193764713,0.904741735148129,-0.593704394980915,-0.293022583675305,-0.421163826202063,0.953420437122514,0.265376405450306,-0.138753111972226,-0.751244359993357,-0.30096991363634,0.325399347714704,0.599323048268742,-0.802845571061326,-0.247593555310946,0.546509986337043,0.556699796387724,-0.658383409157718,-0.00888400144355125,0.215117903216544,0.206878060048819,-0.241382414880486,-0.0474608747180168,-0.217249131581812,-0.273493529619868,0.221027676501879,0.168915338845869,0.127629220480947,0.0214932509610041,-0.259584331122989,-0.0801275667833885,-0.107326620103627,-0.090396649549601,0.243303861879375,0.438758999209262,-0.333424682483333,0.291021295990369,0.258926401815371,-0.380895378375629,-0.293347679694737,0.402790861728662,-0.189524582517963};
 	}
 	double nB_buffer[null_space_list.size()];
 	std::copy(null_space_list.begin(),null_space_list.end(), nB_buffer);
 	Eigen::Map < Eigen::MatrixXd > nB(nB_buffer, n, 2);
 	this->nB = nB;
+
+	if(!nh_.getParam("controller/controller_gains/Inertia_matrix", inertia_list)) {
+		ROS_ERROR("Could not find topic Inertia_matirx parameter!, setting DEFAULT");
+		inertia_list = { 0.001, 0., 0., 0., 0.001, 0., 0., 0., 0.001};
+	}
+	double J_buffer[inertia_list.size()];
+	Eigen::Map < Eigen::MatrixXd > J(J_buffer, 3, 3);
+	this->J = J;
 
 	// the following is the storing of the allocation
 	// matrix in the RowMajor form with dynamic matrix
@@ -916,6 +925,38 @@ void Controller::full_allocation_actuation() {
 	prop_cmd_d = prop_cmd_d + this->nB * x;
 	this->prop_cmd_d = prop_cmd_d.array().max(0);
  
+}
+
+void Controller::compute_external_wrench(){
+	// compute time difference between current and last state measurement
+	double dt = (this->pose_.header.stamp - this->last_exW_est_time).toSec();
+	this->last_exW_est_time = this->pose_.header.stamp;
+	Eigen::Vector3d acc, angV;
+	Eigen::Quaternion<double> q(this->pose_.pose.orientation.w,
+								this->pose_.pose.orientation.x,
+								this->pose_.pose.orientation.y,
+								this->pose_.pose.orientation.z);
+	acc << this->pose_.acc.linear.x,
+		   this->pose_.acc.linear.y,
+		   this->pose_.acc.linear.z;
+	angV << this->pose_.vel.angular.x,
+			this->pose_.vel.angular.y,
+			this->pose_.vel.angular.z;
+
+	Eigen::Vector3d exF_d, exM_d;
+	exF_d = this->LF.array() * (-this->exF
+         + this->weight*(acc + Eigen::Matrix<double, 3, 1>(0, 0, 9.80665))
+         - this->R*this->wrench.block<3,1>(0,0)).array();
+
+	Eigen::Vector3d L;
+	L = q * this->J * (q.conjugate() * angV);
+	exM_d = this->LM.array() * (L.cross(angV)
+      + this->wrench.segment<3>(3)
+      + this->exM ).array();
+
+	this->exF = this->exF + exF_d * dt;
+	this->exM = this->exM + exM_d * dt;
+	
 }
 
 int main(int argc, char **argv) {

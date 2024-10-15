@@ -12,6 +12,8 @@
 
 #include "ukf.h"
 
+
+u_int32_t seqID = 0;
 // SEN (State Estimation Node)
 namespace sen{
 
@@ -221,6 +223,11 @@ namespace sen{
       full_pose.acc.linear.x = (*context)->state.a()(0);
       full_pose.acc.linear.y = (*context)->state.a()(1);
       full_pose.acc.linear.z = (*context)->state.a()(2);
+
+      full_pose.header.stamp = (*context)->filter_time;
+      full_pose.header.frame_id = "UKF_filter";
+      full_pose.header.seq = seqID;
+      seqID++;
       pub.publish(full_pose);
 }
 

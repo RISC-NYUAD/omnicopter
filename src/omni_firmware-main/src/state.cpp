@@ -80,6 +80,8 @@ State::State() : nh_() {
 	this->filtered_signal_vicon_buffer_z.reserve(wind);
 	this->counter = 0;
 	this->pos_time = 0;
+
+	this->seqID = 0;
 }
 
 State::~State() {
@@ -89,6 +91,11 @@ void State::publishFullPose() {
   this->full_pose.pose = this->pose_;
   this->full_pose.vel = this->twist_;
   this->full_pose.acc = this->accel_;
+  this->full_pose.header.stamp = this->state_last_time;
+  this->full_pose.header.frame_id = "MSP_state";
+  this->full_pose.header.seq = seqID;
+  seqID++;
+
   this->pose_pub.publish(this->full_pose);
 }
 
@@ -129,6 +136,8 @@ void State::poseCallback(const geometry_msgs::PoseStamped &_pose) {
 		this->old_vicon_pose_x = _pose.pose.position.x;
 		this->old_vicon_pose_y = _pose.pose.position.y;
 		this->old_vicon_pose_z = _pose.pose.position.z;
+
+		this->state_last_time = thisTime;
 	
 }
 
@@ -226,6 +235,9 @@ void State::twistCallback(const geometry_msgs::TwistStamped &_twist) {
         filtered_signal_vicon_buffer_z.erase(filtered_signal_vicon_buffer_z.begin());
         vicon_twist_time.erase(vicon_twist_time.begin());
     }
+
+	this->state_last_time = thisTime;
+
 }
 
 
@@ -525,6 +537,9 @@ void State::IMU_callback()
 	this->twist_.angular.y = imu_data.angular_velocity.y*0.5 + this->twist_.angular.y*0.5;
 	this->twist_.angular.z = imu_data.angular_velocity.z*0.5 + this->twist_.angular.z*0.5;
 	this->pose_.orientation = imu_data.orientation;
+
+	this->state_last_time = time;
+
 }
 
 // Replacement "shutdown" XMLRPC callback

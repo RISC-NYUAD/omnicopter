@@ -80,6 +80,7 @@ protected:
 	int ground_start;
 	double ground_config_flag;
 	double weight; // platform weight
+	Eigen::Matrix3d J; //inertia Matrix
 	short n; //
 	Eigen::Vector3d Iex; // integral position error
 	Eigen::Vector3d Ier; // integral angular error
@@ -93,6 +94,11 @@ protected:
 	Eigen::Matrix<double, 8, 2> nB; // null space basis of allocation matrix
 	Eigen::VectorXd prop_cmd_d; // calculated propeller commands
 	Eigen::Vector3d ex, ev, eR, ew, ea;
+
+	// wrench observer variables:
+	Eigen::Vector3d exF,exM;
+	Eigen::Vector3d LF, LM; // gains for the force and moment computation
+	ros::Time last_exW_est_time;
 
 	ENUM_FLIGHT_STATE flight_state;				// onground/airbrone state indicator
 	bool active_integrator;						// flag used to enable and disable the integrators
@@ -126,6 +132,8 @@ public:
 	void apply_linear_wrench_test();
 	bool angular_wrench_callback(controller::AngularWrench::Request &req, controller::AngularWrench::Response &res);
 	void apply_angular_wrench_test();
+
+	void compute_external_wrench();
 
 	//void callbackDynamic(
 	//  controller::cntl_paramsConfig &config, uint32_t level);

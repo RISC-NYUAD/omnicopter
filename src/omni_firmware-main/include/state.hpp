@@ -74,6 +74,8 @@ protected:
 	
 	int counter;
 	double pos_time;
+	uint32_t seqID;
+	ros::Time state_last_time;
 
 public:
 	ros::NodeHandle nh_;
