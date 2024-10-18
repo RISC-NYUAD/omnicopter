@@ -1,0 +1,15 @@
+docker-compose up -d
+docker-compose up -d --build
+
+
+docker-compose down
+
+docker-compose exec omni bash
+
+
+
+docker-compose ps
+
+sudo service docker restart
+
+docker system prune -f

@@ -5,7 +5,7 @@ The software is based on ROS1 and it uses MSP to communicate with the INAV on th
 **All units are SI including the angles (rad)**
 
 - Upload the INAV to T-motor f7 flight controller.
-- Put the src in a workspace and build.
+- Put the src in a workspace and build (catkin_make).
 - Simulation: roslaunch omni_firmware simulate.launch
 - Real flight: roslaunch omni_firmware system.launch
 - Check Raw IMU data and vicon topics.
@@ -31,3 +31,9 @@ The software is based on ROS1 and it uses MSP to communicate with the INAV on th
 - Voltage monitoring package is added and it uses I2C through the GPIO pins of the onboard pc.
 - UKF filter implemented for sensor fusiuon.
 - Allocation matrix modified along with the accurate model of each motor.
+- Docker is setup to run the code as follows:
+    -Name your workspace flightSoftware and but it in the same directory with dockerfile and docker compose.
+    -Put the updates packages in src >>flighSoftware
+    -Build the image with docker-compose commands from commands txt file.
+    -Go interactively into the container and build the workspace.
+    -The flightSoftware is mounted so any change in it in the container is reflected on the host machine.

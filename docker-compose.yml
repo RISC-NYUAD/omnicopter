@@ -1,0 +1,17 @@
+version: '3.8'  # Specify the Compose file version
+
+services:
+  omni:
+    image: ros1_image  # Use the specified image
+    container_name: ros1_container  # Optional: name the container
+    privileged: true  # Use privileged mode
+    network_mode: host  # Use host network
+    volumes:
+      - /home/${USER}/ros1_docker/flightSoftware:/opt/ros/noetic/flightSoftware  # Bind mount for the flightSoftware directory
+
+    devices:
+      - "/dev/ttyACM0:/dev/ttyACM0"
+
+    tty: true  # Allocate a pseudo-TTY for interactive sessions
+    stdin_open: true  # Keep stdin open for the container
+
