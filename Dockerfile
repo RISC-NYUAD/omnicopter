@@ -8,7 +8,9 @@ ARG user_id=2000  # Default value, can be overridden by docker-compose.yml
 RUN useradd -U --uid ${user_id} -ms /bin/bash $USERNAME \
     && echo "$USERNAME:$USERNAME" | chpasswd \
     && adduser $USERNAME sudo \
-    && echo "$USERNAME ALL=NOPASSWD: ALL" >> /etc/sudoers.d/$USERNAME
+    && echo "$USERNAME ALL=NOPASSWD: ALL" >> /etc/sudoers.d/$USERNAME \
+    && adduser $USERNAME dialout  # Add the user to the dialout group
+
 
 # Base dependencies
 RUN sudo apt-get update
@@ -41,3 +43,4 @@ RUN echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc && \
 # Set the entrypoint and ensure ROS environment is sourced
 CMD ["bash", "-c", "source /opt/ros/noetic/setup.bash && \
                     if [ -f /opt/ros/noetic/flightSoftware/devel/setup.bash ]; then source /opt/ros/noetic/flightSoftware/devel/setup.bash; fi && exec bash"]
+

@@ -13,3 +13,6 @@ docker-compose ps
 sudo service docker restart
 
 docker system prune -f
+
+
+sudo chown -R 2000:2000 /opt/ros/noetic/flightSoftware

@@ -20,3 +20,4 @@ services:
 
     tty: true  # Allocate a pseudo-TTY for interactive sessions
     stdin_open: true  # Keep stdin open for the container
+
