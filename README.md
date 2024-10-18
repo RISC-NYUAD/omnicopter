@@ -1,4 +1,4 @@
-# omnicopter v1.0
+# omnicopter v2.0
 Softwares developed for the omnidrone
 
 The software is based on ROS1 and it uses MSP to communicate with the INAV on the flight controller. The code is developed for Odroid XU4.
