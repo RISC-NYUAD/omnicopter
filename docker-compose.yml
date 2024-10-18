@@ -2,7 +2,13 @@ version: '3.8'  # Specify the Compose file version
 
 services:
   omni:
-    image: ros1_image  # Use the specified image
+    build:  # Build the image from a Dockerfile
+      context: .  # Path to the Dockerfile (usually the current directory)
+      dockerfile: Dockerfile  # Name of the Dockerfile if not named 'Dockerfile'
+      args:
+        user_id: 2000  # Set the user_id argument here
+
+    image: ros1_image  # Name the image to be built
     container_name: ros1_container  # Optional: name the container
     privileged: true  # Use privileged mode
     network_mode: host  # Use host network
@@ -14,4 +20,3 @@ services:
 
     tty: true  # Allocate a pseudo-TTY for interactive sessions
     stdin_open: true  # Keep stdin open for the container
-
