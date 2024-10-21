@@ -17,6 +17,7 @@ services:
 
     devices:
       - "/dev/ttyACM0:/dev/ttyACM0"
+      - "/dev/i2c-1:/dev/i2c-1"      # Ensure access to I2C device
 
     tty: true  # Allocate a pseudo-TTY for interactive sessions
     stdin_open: true  # Keep stdin open for the container

@@ -14,6 +14,3 @@ sudo service docker restart
 
 docker system prune -f
 
-
-sudo chown -R 2000:2000 /opt/ros/noetic/flightSoftware
-sudo chmod 666 /dev/i2c-1
