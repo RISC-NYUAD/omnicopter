@@ -2,6 +2,7 @@
 <launch>
 
 <include file="$(find controller)/launch/control.launch"/>
+<include file="$(find ina226_driver)/launch/ina226_driver.launch"/>
 <include file="$(find maneuver)/launch/maneuver.launch"/>
 <include file="$(find vrpn_client_ros)/launch/sample.launch">
       <arg name="server" value="192.168.1.2" />
