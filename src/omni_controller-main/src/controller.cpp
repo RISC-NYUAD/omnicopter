@@ -2,6 +2,7 @@
 
 #include "ros/ros.h"
 #include "std_msgs/String.h"
+#include "std_msgs/Float32.h"
 #include <geometry_msgs/PoseStamped.h>
 #include <sensor_msgs/JointState.h>
 
@@ -31,6 +32,8 @@
 
 
 #include "utils.cpp"
+
+
 int serial = 0;
 
 void sendSerialData(uint8_t* data, size_t size) {
@@ -296,9 +299,19 @@ Controller::Controller() : nh_() {
 
 	this->prop_cmd_d  = Eigen::VectorXd::Zero(n);
 	this->weight_ = 1;
+
+	this->current_voltage = MAX_BATTERY_VOLTAGE;
+	voltage_sub = nh_.subscribe("ina226/voltage", 1000, &Controller::voltageCallback, this);
+
 }
 
 Controller::~Controller() {
+}
+
+// voltage Callback subscribes to the voltage msg
+// and stores its value in voltage variable
+void Controller::voltageCallback(const std_msgs::Float32::ConstPtr& msg){
+	this->current_voltage = msg->data;
 }
 
 
@@ -548,6 +561,15 @@ void Controller::update_prop_cmd() {
 	prop_PWM = a_vals * prop_cmd_d.array().sqrt() +
 			   b_vals * prop_cmd_d.array() + 
 			   c_vals;
+
+
+	// apply voltage correction
+	double voltage_correction = std::max(
+		std::min(MAX_BATTERY_VOLTAGE / this->current_voltage, BATTERY_MULTIPLIER_MAX),
+		1.0); 
+	prop_PWM = voltage_correction * prop_PWM;
+	
+	
 	while (xcount <= 7)
 	{
 		if (prop_PWM[xcount] <= 1030)

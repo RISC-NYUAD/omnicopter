@@ -3,6 +3,7 @@
 
 #include "ros/ros.h"
 #include "std_msgs/String.h"
+#include "std_msgs/Float32.h"
 #include <std_msgs/Bool.h>
 #include <geometry_msgs/PoseStamped.h>
 #include <sensor_msgs/JointState.h>
@@ -40,6 +41,9 @@
 #define POS_MOD_MAN				0
 #define POS_MOD_XY				1
 #define POS_MOD_XYZ				2
+
+#define MAX_BATTERY_VOLTAGE  33.6
+#define BATTERY_MULTIPLIER_MAX 1.05
 
 enum ENUM_FLIGHT_STATE {STATE_AIRBORNE, STATE_ONGROUND};
 enum ENUM_STATE_EVENT {evNOEVENT, evAIRBORNE, evONGROUND};
@@ -109,6 +113,10 @@ protected:
  	ros::Subscriber toggle_sub;
 
 	double YAW_MOMENT_LIMIT, RP_MOMENT_LIMIT;
+
+	// voltage subscriber and variable 
+	ros::Subscriber voltage_sub;
+	double current_voltage;
 public:
 	Controller();
 
@@ -134,6 +142,8 @@ public:
 	void apply_angular_wrench_test();
 
 	void compute_external_wrench();
+
+	void voltageCallback(const std_msgs::Float32::ConstPtr& msg);
 
 	//void callbackDynamic(
 	//  controller::cntl_paramsConfig &config, uint32_t level);
