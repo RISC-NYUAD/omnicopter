@@ -55,7 +55,7 @@ int main(int argc, char **argv) {
 
         // Create a Float32 message and publish the voltage
         std_msgs::Float32 voltage_msg;
-        voltage_msg.data = voltage;
+        voltage_msg.data = voltage * 1.25;
         voltage_pub.publish(voltage_msg);
 
         // Log the measured voltage
