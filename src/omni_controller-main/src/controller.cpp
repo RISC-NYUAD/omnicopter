@@ -567,7 +567,7 @@ void Controller::update_prop_cmd() {
 	double voltage_correction = std::max(
 		std::min(MAX_BATTERY_VOLTAGE / this->current_voltage, BATTERY_MULTIPLIER_MAX),
 		1.0); 
-	prop_PWM = voltage_correction * prop_PWM;
+	prop_PWM = 1040 + voltage_correction * (prop_PWM - 1040);
 	
 	
 	while (xcount <= 7)

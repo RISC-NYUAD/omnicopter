@@ -25,7 +25,7 @@ int main(int argc, char **argv) {
     ros::Publisher voltage_pub = nh.advertise<std_msgs::Float32>("ina226/voltage", 1000);
 
     int file;
-    char *filename = "/dev/i2c-5";  // Adjust based on your setup
+    char *filename = "/dev/i2c-1";  // Adjust based on your setup
 
     // Open I2C bus
     if ((file = open(filename, O_RDWR)) < 0) {
