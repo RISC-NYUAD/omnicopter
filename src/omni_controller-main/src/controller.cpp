@@ -439,7 +439,7 @@ void Controller::apply_angular_wrench_test(){
 	{
 		double phi = angularWrenchPhi_1 + (angularWrenchPhi_2 - angularWrenchPhi_1)*((seconds - (1./3.)*wrench_max_time)/wrench_max_time);
 		
-		this->wrench << 0, angularWrench_f*sin(phi), angularWrench_f*cos(phi), 0., 0., 0.;}
+		this->wrench <<  angularWrench_f*sin(phi), 0,  angularWrench_f*cos(phi), 0., 0., 0.;}
 		else{
 			double phi = angularWrenchPhi_1;
 			double force = angularWrench_f* (seconds/wrench_max_time)*3.0;
