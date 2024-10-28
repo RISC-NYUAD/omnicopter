@@ -31,6 +31,7 @@ The software is based on ROS1 and it uses MSP to communicate with the INAV on th
 - Voltage monitoring package is added and it uses I2C through the GPIO pins of the onboard pc.
 - UKF filter implemented for sensor fusiuon.
 - Allocation matrix modified along with the accurate model of each motor.
+- Control package for the two servos of the gripper.
 - Docker is setup to run the code as follows:
     -Name your workspace flightSoftware and but it in the same directory with dockerfile and docker compose.
     -Put the updates packages in src >>flighSoftware
