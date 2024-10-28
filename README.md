@@ -37,3 +37,11 @@ The software is based on ROS1 and it uses MSP to communicate with the INAV on th
     -Build the image with docker-compose commands from commands txt file.
     -Go interactively into the container and build the workspace.
     -The flightSoftware is mounted so any change in it in the container is reflected on the host machine.
+
+# Motors scripts
+This folder has C scripts that use MSP to test the motors onboard. 
+ -mototrs.c : applies specific RMP for each motor for a specific amount of time
+    ./a.out PWM1 PWM2 PWM3 PWM4 PWM5 PWM6 PWM7 PWM8 seconds
+ -mototrs_incr.c : applies lineary increasing RMP from 0 to the specified PWM for each motor for a specific amount of time
+    ./a.out PWM_max1 PWM_max2 PWM_max3 PWM_max4 PWM_max5 PWM_max6 PWM_max7 PWM_max8 seconds
+      
