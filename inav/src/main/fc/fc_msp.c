@@ -490,6 +490,8 @@ static bool mspFcProcessOutCommand(uint16_t cmdMSP, sbuf_t *dst, mspPostProcessF
 
             sbufWriteU32(dst, (baroGetLatestAltitude())); // return barometer z position in cm
 
+            sbufWriteU16(dst,gpsStats.lastMessageDt);
+            sbufWriteU32(dst,gpsStats.packetCount);
 
 
             for (int i = 0; i < 3; i++) {
