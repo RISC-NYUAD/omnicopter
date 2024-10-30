@@ -481,6 +481,17 @@ static bool mspFcProcessOutCommand(uint16_t cmdMSP, sbuf_t *dst, mspPostProcessF
             sbufWriteU16(dst, attitude.values.roll);
             sbufWriteU16(dst, attitude.values.pitch);
             sbufWriteU16(dst, DECIDEGREES_TO_DEGREES(attitude.values.yaw));
+
+            sbufWriteU32(dst, (gpsSol.llh.lat)); // return gps lat
+            sbufWriteU32(dst, (gpsSol.llh.lon)); // return gps lon
+
+            //sbufWriteU16(dst, (int16_t)(gpsSol.velNED[X])); // return gps groundSpeed
+           // sbufWriteU16(dst, (int16_t)(gpsSol.velNED[Y])); // return gps groundCourse
+
+            sbufWriteU32(dst, (baroGetLatestAltitude())); // return barometer z position in cm
+
+
+
             for (int i = 0; i < 3; i++) {
 //#ifdef USE_MAG
 //                sbufWriteU16(dst, mag.magADC[i]);
