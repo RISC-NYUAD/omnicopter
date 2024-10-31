@@ -13,6 +13,7 @@
 #include <geometry_msgs/PoseWithCovarianceStamped.h>
 #include <sensor_msgs/JointState.h>
 #include <sensor_msgs/Imu.h>
+#include <sensor_msgs/NavSatFix.h>
 #include <std_srvs/Empty.h>
 #include <tf/tf.h>
 #include <algorithm>
@@ -55,6 +56,7 @@ State::State() : nh_() {
 	twist_sub = nh_.subscribe("/vrpn_client_node/Omnicopter/twist", 2, &State::twistCallback, this);
 	//accel_sub = nh_.subscribe("/vrpn_client_node/Omnicopter/accel", 1000, &State::accelCallback, this);
 	cmd_sub = nh_.subscribe("/MotorSpeed",2,&State::MotorCmdCallback,this);
+	gps_pub = nh_.advertise<sensor_msgs::NavSatFix>("/Raw_GPS_baro",10);
 	
 		try
     {
@@ -398,6 +400,7 @@ void State::sendMotorMSP(const bool emergency){
 }
 
 void State::processMessage(const std::vector<uint8_t>& message) {
+	ROS_ERROR( "message size: %ld" ,message.size() );
     if (message.size() >= dataLength && message[0] == 0x24 && message[4] == 0x66) {
         std::lock_guard<std::mutex> lock1(this->dataMutex);
         memcpy(this->buffer_read, message.data(), dataLength);
@@ -409,14 +412,13 @@ void State::processMessage(const std::vector<uint8_t>& message) {
 
 void State::readData()
 {
-
 	uint8_t buffer[dataLength];   
 	int bytesRead = 0;
 	std::vector<uint8_t> dataBuffer;
 	
 	int max_buffer_size = dataLength*3;
 	bool endIsDel = false;
-		uint8_t dataSize = 18+6;
+		uint8_t dataSize = this->dataLength;
 	while(ros::ok()){
 	if(this->ser.available()){
 
@@ -427,8 +429,10 @@ void State::readData()
 		}
 		
 		std::vector<unsigned char>::iterator startPos = dataBuffer.begin();
-		std::vector<unsigned char>::iterator endPos = std::find(startPos+1, startPos+dataLength, 0x24);
-    	
+		std::vector<unsigned char>::iterator endPos = std::search(dataBuffer.begin(), dataBuffer.end(),
+                    std::vector<uint8_t>{0x24, 0x4D}.begin(), std::vector<uint8_t>{0x24, 0x4D}.end());
+
+
 		if (*endPos == 0x24){ 
 			endIsDel = true;}
 		else 
@@ -436,7 +440,6 @@ void State::readData()
 		
 		if (*startPos == 0x24)	
 		{
-		
 		if (endIsDel){ 
 			// in this case the message is contained between startPos and endPos
 			// and the message is a correct message
@@ -444,12 +447,14 @@ void State::readData()
     		size_t endIndex = std::distance(dataBuffer.begin(), endPos);
 			size_t length = endIndex - startIndex;
 			// first check message type and size
-			uint8_t checksum = 18 ^ 0x66;
+			uint8_t checksum = (dataLength-6) ^ 0x66;
+					ROS_ERROR("length of data: %ld", length);
+
 			if (length == dataLength && dataBuffer[4] == 0x66)
 			{
 				// its an IMU message
 				std::vector<uint8_t> message(startPos, endPos);
-				for (int i =5; i<23; i++){checksum ^= dataBuffer[i];}
+				for (int i =5; i<this->dataLength-1; i++){checksum ^= dataBuffer[i];}
 
 				if(checksum == dataBuffer[dataLength-1]) processMessage(message);
 		
@@ -463,13 +468,13 @@ void State::readData()
     		size_t endIndex = std::distance(dataBuffer.begin(), endPos);
 			size_t length = endIndex - startIndex;
 			// first check message type and size
-			uint8_t checksum = 18 ^ 0x66;
+			uint8_t checksum = (dataLength-6) ^ 0x66;
 			
 			if (length == dataLength && dataBuffer[4] == 0x66)
 			{
 				// its an IMU message
 				std::vector<uint8_t> message(startPos, endPos);
-				for (int i =5; i<23; i++){checksum ^= dataBuffer[i];}
+				for (int i =5; i<this->dataLength-1; i++){checksum ^= dataBuffer[i];}
 
 				if(checksum == dataBuffer[dataLength-1]) processMessage(message);
 		
@@ -494,6 +499,7 @@ void State::readData()
 void State::IMU_callback()
 {
 	int16_t buffer_data;
+	int32_t buffer_data_long;
     this->new_data = 0;
 	std::lock_guard<std::mutex> lock(this->dataMutex);
 	buffer_data = this->buffer_read[5] | (this->buffer_read[6] << 8);  
@@ -539,6 +545,43 @@ void State::IMU_callback()
 	this->pose_.orientation = imu_data.orientation;
 
 	this->state_last_time = time;
+
+    buffer_data_long = buffer_read[23] | (buffer_read[24] << 8)
+    | buffer_read[25] << 16 | (buffer_read[26] << 24);
+	double lat = (float) buffer_data_long;
+    buffer_data_long = buffer_read[27] | (buffer_read[28] << 8)
+    | buffer_read[29] << 16 | (buffer_read[30] << 24);
+	double lon = (float) buffer_data_long;
+    buffer_data_long = buffer_read[31] | (buffer_read[32] << 8)
+    | buffer_read[33] << 16 | (buffer_read[34] << 24);
+	double baro_alt = (float) buffer_data_long;
+    buffer_data = buffer_read[35] | (buffer_read[36] << 8);
+	double gps_dt = (float) buffer_data;
+    buffer_data_long = buffer_read[37] | (buffer_read[38] << 8)
+    | buffer_read[39] << 16 | (buffer_read[40] << 24);
+	uint32_t gps_seq = (uint32_t) buffer_data_long;
+	std::cout << gps_seq << "; " << this->gps_counter << std::endl;
+	if (gps_seq > this->gps_counter){
+		this->gps_counter = gps_seq;
+		this->new_gps_data = true;
+		this->lattitude = lat;
+		this->longitude = lon;
+		this->baro_alt  = baro_alt;
+		gps_data.header.stamp.sec = time.sec;
+		gps_data.header.stamp.nsec = time.nsec;
+		gps_data.header.seq = gps_seq;
+		gps_data.header.frame_id = "GPS_BARO";
+		gps_data.latitude = lat * 1e-7;
+		gps_data.longitude = lon * 1e-7;
+		gps_data.altitude = baro_alt * 1e-2;
+		gps_data.position_covariance_type = 0;
+		
+
+		this->gps_pub.publish(gps_data);
+	
+	}
+
+
 
 }
 

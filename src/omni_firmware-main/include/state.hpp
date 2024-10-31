@@ -16,6 +16,7 @@
 #include <geometry_msgs/PoseWithCovarianceStamped.h>
 #include <sensor_msgs/JointState.h>
 #include <sensor_msgs/Imu.h>
+#include <sensor_msgs/NavSatFix.h>
 #include <tf/tf.h>
 
 #include <thread>
@@ -47,15 +48,17 @@ protected:
 	// publisher thread desired pose
 	ros::Publisher pose_pub;
 	ros::Publisher imu_pub;
+	ros::Publisher gps_pub;
     ros::Subscriber pose_sub;
     ros::Subscriber twist_sub;
 	ros::Subscriber cmd_sub;
     //ros::Subscriber accel_sub;
 	
-	const int dataLength = 18+6;
+	const int dataLength = 18+18+6;
 	sensor_msgs::Imu imu_data;
+	sensor_msgs::NavSatFix gps_data;
 	float yaw;
-	uint8_t buffer_read[18+6];            
+	uint8_t buffer_read[18+6+18];            
 	uint8_t MSP_motor_buffer[22];
 	uint8_t MSP_motor_Idle_buffer[22];
 	bool initialized = false;
@@ -76,6 +79,13 @@ protected:
 	double pos_time;
 	uint32_t seqID;
 	ros::Time state_last_time;
+
+	// GPS and Barometer data
+	uint32_t gps_counter = 0;
+	bool new_gps_data = false;
+	double lattitude, longitude;
+	double baro_alt;
+
 
 public:
 	ros::NodeHandle nh_;
