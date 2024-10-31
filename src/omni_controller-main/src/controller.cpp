@@ -503,12 +503,23 @@ void Controller::log_data() {
 	controller_log_pub.Accd.z = this->acc_d.z();
 	std::vector<float> wrench(this->wrench.data(), this->wrench.data() + this->wrench.size());
 	std::vector<float> prop_vel(prop_cmd_d.data(), prop_cmd_d.data() + prop_cmd_d.size());
+
+	Eigen::VectorXd exWrench(6);
+	exWrench << this->exF, this->exM;
+	std::vector<float> exwrench(exWrench.data(), exWrench.data() + exWrench.size());
 	
 	controller_log_pub.Wrench = wrench;
+	controller_log_pub.exWrench = exwrench;
 	controller_log_pub.prop = prop_vel;
 	controller_log_pub.weight = this->weight_;
 
 	this->controller_log_pub.publish(controller_log_pub);
+
+	// wrench observer instantiation
+	this->exF << 0,0,0;
+	this->exM << 0,0,0;
+	this->LF << 0.1, 0.1, 0.1;
+	this->LM << 0.1, 0.1, 0.1;
 
 }
 
@@ -993,6 +1004,7 @@ int main(int argc, char **argv) {
         ros::Time thisTime = ros::Time::now();
         if (controller_.armed) {
             if (controller_.first_pose_received && controller_.first_desired_received) {
+				controller_.compute_external_wrench();
                 controller_.position_controller();
                 controller_.attitude_controller();
 

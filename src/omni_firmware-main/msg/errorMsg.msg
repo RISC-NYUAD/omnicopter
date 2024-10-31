@@ -7,5 +7,6 @@ geometry_msgs/Vector3 Iex
 geometry_msgs/Vector3 Ier
 geometry_msgs/Vector3 Accd
 float32[] Wrench
+float32[] exWrench
 float32[] prop
 float32 weight

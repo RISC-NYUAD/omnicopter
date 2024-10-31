@@ -400,7 +400,7 @@ void State::sendMotorMSP(const bool emergency){
 }
 
 void State::processMessage(const std::vector<uint8_t>& message) {
-	ROS_ERROR( "message size: %ld" ,message.size() );
+
     if (message.size() >= dataLength && message[0] == 0x24 && message[4] == 0x66) {
         std::lock_guard<std::mutex> lock1(this->dataMutex);
         memcpy(this->buffer_read, message.data(), dataLength);
@@ -448,7 +448,6 @@ void State::readData()
 			size_t length = endIndex - startIndex;
 			// first check message type and size
 			uint8_t checksum = (dataLength-6) ^ 0x66;
-					ROS_ERROR("length of data: %ld", length);
 
 			if (length == dataLength && dataBuffer[4] == 0x66)
 			{
@@ -560,7 +559,7 @@ void State::IMU_callback()
     buffer_data_long = buffer_read[37] | (buffer_read[38] << 8)
     | buffer_read[39] << 16 | (buffer_read[40] << 24);
 	uint32_t gps_seq = (uint32_t) buffer_data_long;
-	std::cout << gps_seq << "; " << this->gps_counter << std::endl;
+	
 	if (gps_seq > this->gps_counter){
 		this->gps_counter = gps_seq;
 		this->new_gps_data = true;
