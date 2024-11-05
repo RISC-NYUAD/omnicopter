@@ -508,11 +508,11 @@ void State::IMU_callback()
 	buffer_data = this->buffer_read[9] | (this->buffer_read[10] << 8);  
 	imu_data.linear_acceleration.z = ((float) buffer_data)*(GRAVITY_MSS/512);
 	buffer_data = this->buffer_read[11] | (this->buffer_read[12] << 8);  
-	imu_data.angular_velocity.x = ((float) buffer_data)*(4/16.4)/(57.3248);
+	imu_data.angular_velocity.x = ((float) buffer_data)*(16/16.4)/(57.3248);
 	buffer_data = this->buffer_read[13] | (this->buffer_read[14] << 8);  
-	imu_data.angular_velocity.y = ((float) buffer_data)*(4/16.4)/(57.3248);
+	imu_data.angular_velocity.y = ((float) buffer_data)*(16/16.4)/(57.3248);
 	buffer_data = this->buffer_read[15] | (this->buffer_read[16] << 8);  
-	imu_data.angular_velocity.z = ((float) buffer_data)*(4/16.4)/(57.3248);
+	imu_data.angular_velocity.z = ((float) buffer_data)*(16/16.4)/(57.3248);
    
     buffer_data = this->buffer_read[17] | (this->buffer_read[18] << 8); 
     float roll =  (float) buffer_data*0.1;
@@ -542,6 +542,10 @@ void State::IMU_callback()
 	this->twist_.angular.y = imu_data.angular_velocity.y*0.5 + this->twist_.angular.y*0.5;
 	this->twist_.angular.z = imu_data.angular_velocity.z*0.5 + this->twist_.angular.z*0.5;
 	this->pose_.orientation = imu_data.orientation;
+
+	this->accel_.linear.x = imu_data.linear_acceleration.x;
+	this->accel_.linear.y = imu_data.linear_acceleration.y;
+	this->accel_.linear.z = imu_data.linear_acceleration.z;
 
 	this->state_last_time = time;
 

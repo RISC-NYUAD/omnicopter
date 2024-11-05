@@ -65,7 +65,7 @@ namespace sen{
        (fabs(msg.angular_velocity.x) < 0.005 ? 0.0 : msg.angular_velocity.x),
        (fabs(msg.angular_velocity.y) < 0.005 ? 0.0 : msg.angular_velocity.y),
        (fabs(msg.angular_velocity.z) < 0.005 ? 0.0 : msg.angular_velocity.z);
-       (*context)->filter.measure.iw() << ang_v(0)*4, ang_v(1)*4, ang_v(2)*4;
+       (*context)->filter.measure.iw() << ang_v(0), ang_v(1), ang_v(2);
         //msg.angular_velocity.x*4,
         //msg.angular_velocity.y*4,
         //msg.angular_velocity.z*4;
