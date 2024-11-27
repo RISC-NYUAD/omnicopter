@@ -31,16 +31,16 @@ pause
 rosservice call /ArmDisarm
 
 # Lift_off
-echo "Lift off to 1.3m?"
+echo "Lift off to 1.5m?"
 pause
-rosservice call /lift_off "height: 1.3
+rosservice call /lift_off "height: 1.5
 duration: 7.0" 
 
 # Rotate
-echo "Rotate to 90 degrees?"
+echo "Rotate to 120 degrees?"
 pause
 rosservice call /rotate_to "roll: 0.0
-pitch: 1.57
+pitch: 2.1
 yaw: 0.0
 duration: 10.0" 
 

@@ -54,11 +54,11 @@ protected:
 	ros::Subscriber cmd_sub;
     //ros::Subscriber accel_sub;
 	
-	const int dataLength = 18+18+6;
+	const int dataLength = 18+18+6+2;
 	sensor_msgs::Imu imu_data;
 	sensor_msgs::NavSatFix gps_data;
 	float yaw;
-	uint8_t buffer_read[18+6+18];            
+	uint8_t buffer_read[18+6+18+2];            
 	uint8_t MSP_motor_buffer[22];
 	uint8_t MSP_motor_Idle_buffer[22];
 	bool initialized = false;

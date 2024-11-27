@@ -514,25 +514,39 @@ void State::IMU_callback()
 	buffer_data = this->buffer_read[15] | (this->buffer_read[16] << 8);  
 	imu_data.angular_velocity.z = ((float) buffer_data)*(16/16.4)/(57.3248);
    
-    buffer_data = this->buffer_read[17] | (this->buffer_read[18] << 8); 
-    float roll =  (float) buffer_data*0.1;
-    buffer_data = this->buffer_read[19] | (this->buffer_read[20] << 8); 
-    float pitch =  (float) buffer_data*0.1;
+    // buffer_data = this->buffer_read[17] | (this->buffer_read[18] << 8); 
+    // float roll =  (float) buffer_data*0.1;
+    // buffer_data = this->buffer_read[19] | (this->buffer_read[20] << 8); 
+    // float pitch =  (float) buffer_data*0.1;
     
-    const float cosRoll = cos(roll*0.5f/(57.3248));
-    const float sinRoll = sin(roll*0.5f/(57.3248));
+    // const float cosRoll = cos(roll*0.5f/(57.3248));
+    // const float sinRoll = sin(roll*0.5f/(57.3248));
 
-    const float cosPitch = cos(pitch*0.5f/(57.3248));
-    const float sinPitch = sin(pitch*0.5f/(57.3248));
+    // const float cosPitch = cos(pitch*0.5f/(57.3248));
+    // const float sinPitch = sin(pitch*0.5f/(57.3248));
 
-    const float cosYaw = cos(this->yaw*0.5f);
-    const float sinYaw = sin(this->yaw*0.5f);
+    // const float cosYaw = cos(this->yaw*0.5f);
+    // const float sinYaw = sin(this->yaw*0.5f);
 
-    imu_data.orientation.w = cosRoll * cosPitch * cosYaw + sinRoll * sinPitch * sinYaw;
-    imu_data.orientation.x = sinRoll * cosPitch * cosYaw - cosRoll * sinPitch * sinYaw;
-    imu_data.orientation.y = cosRoll * sinPitch * cosYaw + sinRoll * cosPitch * sinYaw;
-    imu_data.orientation.z = cosRoll * cosPitch * sinYaw - sinRoll * sinPitch * cosYaw;
+    // imu_data.orientation.w = cosRoll * cosPitch * cosYaw + sinRoll * sinPitch * sinYaw;
+    // imu_data.orientation.x = sinRoll * cosPitch * cosYaw - cosRoll * sinPitch * sinYaw;
+    // imu_data.orientation.y = cosRoll * sinPitch * cosYaw + sinRoll * cosPitch * sinYaw;
+    // imu_data.orientation.z = cosRoll * cosPitch * sinYaw - sinRoll * sinPitch * cosYaw;
 	
+	buffer_data = this->buffer_read[17] | (this->buffer_read[18] << 8); 
+    float q0 =  (float) (buffer_data/10000);
+    buffer_data = this->buffer_read[19] | (this->buffer_read[20] << 8); 
+    float q1 =  (float) (buffer_data/10000);
+    buffer_data = this->buffer_read[21] | (this->buffer_read[22] << 8); 
+    float q2 =  (float) (buffer_data/10000);
+    buffer_data = this->buffer_read[23] | (this->buffer_read[24] << 8); 
+    float q3 =  (float) (buffer_data/10000);
+
+	imu_data.orientation.w = q0;
+	imu_data.orientation.x = q1;
+	imu_data.orientation.y = q2;
+	imu_data.orientation.z = q3;
+
     ros::Time time = ros::Time::now();
     imu_data.header.stamp.sec =  time.sec;
     imu_data.header.stamp.nsec =  time.nsec;
@@ -549,19 +563,19 @@ void State::IMU_callback()
 
 	this->state_last_time = time;
 
-    buffer_data_long = buffer_read[23] | (buffer_read[24] << 8)
-    | buffer_read[25] << 16 | (buffer_read[26] << 24);
+    buffer_data_long = buffer_read[25] | (buffer_read[26] << 8)
+    | buffer_read[27] << 16 | (buffer_read[28] << 24);
 	double lat = (float) buffer_data_long;
-    buffer_data_long = buffer_read[27] | (buffer_read[28] << 8)
-    | buffer_read[29] << 16 | (buffer_read[30] << 24);
+    buffer_data_long = buffer_read[29] | (buffer_read[30] << 8)
+    | buffer_read[31] << 16 | (buffer_read[32] << 24);
 	double lon = (float) buffer_data_long;
-    buffer_data_long = buffer_read[31] | (buffer_read[32] << 8)
-    | buffer_read[33] << 16 | (buffer_read[34] << 24);
+    buffer_data_long = buffer_read[33] | (buffer_read[34] << 8)
+    | buffer_read[35] << 16 | (buffer_read[36] << 24);
 	double baro_alt = (float) buffer_data_long;
-    buffer_data = buffer_read[35] | (buffer_read[36] << 8);
+    buffer_data = buffer_read[37] | (buffer_read[38] << 8);
 	double gps_dt = (float) buffer_data;
-    buffer_data_long = buffer_read[37] | (buffer_read[38] << 8)
-    | buffer_read[39] << 16 | (buffer_read[40] << 24);
+    buffer_data_long = buffer_read[39] | (buffer_read[40] << 8)
+    | buffer_read[41] << 16 | (buffer_read[42] << 24);
 	uint32_t gps_seq = (uint32_t) buffer_data_long;
 	
 	if (gps_seq > this->gps_counter){

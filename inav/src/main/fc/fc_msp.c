@@ -478,9 +478,15 @@ static bool mspFcProcessOutCommand(uint16_t cmdMSP, sbuf_t *dst, mspPostProcessF
 
             }
 
-            sbufWriteU16(dst, attitude.values.roll);
-            sbufWriteU16(dst, attitude.values.pitch);
-            sbufWriteU16(dst, DECIDEGREES_TO_DEGREES(attitude.values.yaw));
+            //sbufWriteU16(dst, attitude.values.roll);
+            //sbufWriteU16(dst, attitude.values.pitch);
+            //sbufWriteU16(dst, DECIDEGREES_TO_DEGREES(attitude.values.yaw));
+
+            sbufWriteU16(dst, (int16_t)lrintf(orientation.q0*10000));
+            sbufWriteU16(dst, (int16_t)lrintf(orientation.q1*10000));
+            sbufWriteU16(dst, (int16_t)lrintf(orientation.q2*10000));
+            sbufWriteU16(dst, (int16_t)lrintf(orientation.q3*10000));
+
 
             sbufWriteU32(dst, (gpsSol.llh.lat)); // return gps lat
             sbufWriteU32(dst, (gpsSol.llh.lon)); // return gps lon

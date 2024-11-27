@@ -678,7 +678,9 @@ bool mv_plan_land(const Maneuver *maneuver, const omni_firmware::FullPose Pose, 
 		tf::Quaternion q(Pose.pose.orientation.x,Pose.pose.orientation.y,Pose.pose.orientation.z,Pose.pose.orientation.w);
 	    	tf::Matrix3x3 m(q);
 	    	double roll_, pitch_, yaw_;
+
 	    	m.getRPY(roll_, pitch_, yaw_);
+
 		from.position()[3] = roll_;
 		from.position()[4] = pitch_;
 		from.position()[5] = yaw_;
@@ -708,6 +710,7 @@ bool mv_plan_land(const Maneuver *maneuver, const omni_firmware::FullPose Pose, 
 	    	tf::Matrix3x3 m(q);
 	    	double roll_, pitch_, yaw_;
 	    	m.getRPY(roll_, pitch_, yaw_);
+
 		from.position()[3] = roll_;
 		from.position()[4] = pitch_;
 		from.position()[5] = yaw_;
