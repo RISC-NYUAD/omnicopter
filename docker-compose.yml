@@ -14,10 +14,12 @@ services:
     network_mode: host  # Use host network
     volumes:
       - /home/${USER}/ros1_docker/flightSoftware:/opt/ros/noetic/flightSoftware  # Bind mount for the flightSoftware directory
+      - /dev:/dev
 
     devices:
       - "/dev/ttyACM0:/dev/ttyACM0"
       - "/dev/i2c-1:/dev/i2c-1"      # Ensure access to I2C device
+     
 
     tty: true  # Allocate a pseudo-TTY for interactive sessions
     stdin_open: true  # Keep stdin open for the container

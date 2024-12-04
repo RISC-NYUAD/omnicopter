@@ -1,0 +1,10 @@
+<launch>
+    <!-- Launch the servo_control_node -->
+    <node name="servo_control_node" pkg="servo_control_node" type="servo_control_node" output="screen">
+        <!-- You can add parameters here if you need to configure the node, for example, GPIO pins, servo angles, etc. -->
+        <!-- Example parameter, this is optional and depends on your application -->
+        <!-- <param name="gpio_pin_right" value="12" /> -->
+        <!-- <param name="gpio_pin_left" value="13" /> -->
+    </node>
+</launch>
+
