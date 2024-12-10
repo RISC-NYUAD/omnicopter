@@ -1,1 +1,0 @@
-target_stm32f745xg(SPEEDYBEEF745AIO)

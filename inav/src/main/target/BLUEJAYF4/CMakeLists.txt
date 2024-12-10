@@ -1,1 +1,0 @@
-target_stm32f405xg(BLUEJAYF4 SKIP_RELEASES)

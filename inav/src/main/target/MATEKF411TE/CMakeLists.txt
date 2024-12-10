@@ -1,1 +1,0 @@
-target_stm32f411xe(MATEKF411TE)

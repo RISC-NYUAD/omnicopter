@@ -17,6 +17,7 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   std_msgs
   tf
+  omni_firmware
   dynamic_reconfigure
   cmake_modules
   libkdtp

@@ -42,9 +42,6 @@
 #define POS_MOD_XY				1
 #define POS_MOD_XYZ				2
 
-#define MAX_BATTERY_VOLTAGE  33.6
-#define BATTERY_MULTIPLIER_MAX 1.2
-
 enum ENUM_FLIGHT_STATE {STATE_AIRBORNE, STATE_ONGROUND};
 enum ENUM_STATE_EVENT {evNOEVENT, evAIRBORNE, evONGROUND};
 
@@ -114,9 +111,6 @@ protected:
 
 	double YAW_MOMENT_LIMIT, RP_MOMENT_LIMIT;
 
-	// voltage subscriber and variable 
-	ros::Subscriber voltage_sub;
-	double current_voltage;
 public:
 	Controller();
 
@@ -143,10 +137,6 @@ public:
 
 	void compute_external_wrench();
 
-	void voltageCallback(const std_msgs::Float32::ConstPtr& msg);
-
-	//void callbackDynamic(
-	//  controller::cntl_paramsConfig &config, uint32_t level);
 	ros::Time ramp_time;
 	
 	bool first_pose_received = false;

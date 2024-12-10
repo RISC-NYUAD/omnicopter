@@ -1,1 +1,0 @@
-target_stm32h743xi(JHEH7AIO SKIP_RELEASES)

@@ -1,2 +1,0 @@
-target_stm32f405xg(MATEKF405TE)
-target_stm32f405xg(MATEKF405TE_SD)

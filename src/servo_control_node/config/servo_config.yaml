@@ -1,4 +1,0 @@
-servo_control:
-  gpio_pin_right: 12
-  gpio_pin_left: 13
-

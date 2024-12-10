@@ -1,7 +1,0 @@
-# srv/SetAngles.srv
-
-int32 right   # Angle for the right motor
-int32 left    # Angle for the left motor
----
-bool success  # Return success if the operation was successful
-

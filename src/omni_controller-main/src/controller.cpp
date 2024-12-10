@@ -26,33 +26,13 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
-#include <termios.h>
-#include <fcntl.h>
+
 #include <time.h>
 
 
 #include "utils.cpp"
 
 
-int serial = 0;
-
-void sendSerialData(uint8_t* data, size_t size) {
-    if (serial == 0){
-      serial = open("/dev/ttyACM0", O_WRONLY | O_NONBLOCK);//O_NOCTTY);
-      struct termios options;
-      tcgetattr(serial, &options);
-      cfsetispeed(&options, B115200);  // Set input baud rate
-      cfsetospeed(&options, B115200);  // Set output baud rate
-      tcsetattr(serial, TCSANOW, &options);
-    }
-
-    if (serial < 0) {
-        printf("Failed to open serial port\n");
-        exit(1);
-    }
-	write(serial, data, size);
-
-}
 
 Controller::Controller() : nh_() {
 
@@ -300,20 +280,10 @@ Controller::Controller() : nh_() {
 	this->prop_cmd_d  = Eigen::VectorXd::Zero(n);
 	this->weight_ = 1;
 
-	this->current_voltage = MAX_BATTERY_VOLTAGE;
-	voltage_sub = nh_.subscribe("ina226/voltage", 1000, &Controller::voltageCallback, this);
-
 }
 
 Controller::~Controller() {
 }
-
-// voltage Callback subscribes to the voltage msg
-// and stores its value in voltage variable
-void Controller::voltageCallback(const std_msgs::Float32::ConstPtr& msg){
-	this->current_voltage = msg->data;
-}
-
 
 // Linear Wrench is a service for wrench testing
 // Wrench testing can only be used when lift_off is not yet called
@@ -538,48 +508,14 @@ void Controller::update_prop_cmd() {
 			prop_vel[i] = this->cmd_min;
 	}
 
-	Eigen::ArrayXd a_vals(this->n);  // Vector of 'a' values, one per row
-	Eigen::ArrayXd b_vals(this->n);  // Vector of 'b' values, one per row
-	Eigen::ArrayXd c_vals(this->n);  // Vector of 'c' values, one per row
-
-	// Initialize a, b, c values
-	a_vals << 128.8304,
-  			  105.0259,
-  			  110.1237,
-  			  110.4929,
-  			  104.4360,
-  			  118.3979,
-  			  126.6510,
-  			  109.5292; 
-	b_vals << 4.5982,
-    		  3.8684,
-    		  3.5600,
-    		  6.1778,
-    		  5.7502,
-    		  5.3335,
-    		  6.0286,
-    		  4.2650;
-	c_vals << 993.1251,
-  			  998.0056,
-  			  995.9796,
-  			  996.8340,
-  			  996.5013,
-  			  996.2702,
-  			  994.8973,
-  			  995.8504;
+	double a,b,c;
+	a = 95.67;
+	b = 8.34;
+	c = 1012;
 	int xcount = 0;
 	Eigen::ArrayXd prop_PWM;
-	prop_PWM = a_vals * prop_cmd_d.array().sqrt() +
-			   b_vals * prop_cmd_d.array() + 
-			   c_vals;
+	prop_PWM = a*prop_cmd_d.array().sqrt() + b*prop_cmd_d.array() + c;
 
-
-	// apply voltage correction
-	double voltage_correction = std::max(
-		std::min(MAX_BATTERY_VOLTAGE / this->current_voltage, BATTERY_MULTIPLIER_MAX),
-		1.0); 
-	prop_PWM = 1040 + voltage_correction * (prop_PWM - 1040);
-	
 	
 	while (xcount <= 7)
 	{
@@ -821,64 +757,6 @@ void Controller::attitude_controller() {
 
 }
 
-void Controller::coplanar_collinear_actuation() {
-	
-    double Z = this->acc_d.dot(this->R.col(2));
-	this->wrench.block<3, 1>(0, 0) << 0., 0., Z;
-	this->wrench.block<3, 1>(3, 0) << -this->att_kp * this->eR.array() 
-      - this->att_kd * this->ew.array() 
-      - this->att_ki * this->Ier.array();
-	
-	if(this->wrench[3] > this->RP_MOMENT_LIMIT){
-		this->wrench[3] = this->RP_MOMENT_LIMIT;
-	} else{
-		if(this->wrench[3] < -this->RP_MOMENT_LIMIT){
-			this->wrench[3] = -this->RP_MOMENT_LIMIT;
-		}		
-	}
-	
-	if(this->wrench[4] > this->RP_MOMENT_LIMIT){
-		this->wrench[4] = this->RP_MOMENT_LIMIT;
-	} else{
-		if(this->wrench[4] < -this->RP_MOMENT_LIMIT){
-			this->wrench[4] = -this->RP_MOMENT_LIMIT;
-		}		
-	}
-
-	if(this->wrench[5] > this->YAW_MOMENT_LIMIT){
-		this->wrench[5] = this->YAW_MOMENT_LIMIT;
-	} else{
-		if(this->wrench[5] < -this->YAW_MOMENT_LIMIT){
-			this->wrench[5] = -this->YAW_MOMENT_LIMIT;
-		}		
-	}
-
-    Eigen::VectorXd prop_cmd_d(this->n * 3);
-
-	prop_cmd_d = (this->iG * this->wrench);
-    double min_prop_cmd = 100000;
-    double prop_nF_val;
-    int counter = 0;
-    float lamda;
-    Eigen::VectorXd nullSpaceVector(8);
-    nullSpaceVector << 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0;
-
-	for(int i = 0; i < this->n; i++) {
-      if (prop_cmd_d[i] < min_prop_cmd)
-        {
-			min_prop_cmd = prop_cmd_d[i];
-			counter = i;
-        }
-      }
-
-	Eigen::Matrix2d H = Eigen::Matrix2d::Identity();
-	Eigen::Vector2d f = prop_cmd_d.transpose() * this->nB;
-	Eigen::VectorXd x = Utils::solveQP(H, f, this->nB, -1*prop_cmd_d);
-	prop_cmd_d = prop_cmd_d + this->nB * x;
-	this->prop_cmd_d = prop_cmd_d.array().max(0);
-}
-
-
 void Controller::full_allocation_actuation() {
 	
 	Eigen::Array3d att_kp;
@@ -960,37 +838,6 @@ void Controller::full_allocation_actuation() {
  
 }
 
-void Controller::compute_external_wrench(){
-	// compute time difference between current and last state measurement
-	double dt = (this->pose_.header.stamp - this->last_exW_est_time).toSec();
-	this->last_exW_est_time = this->pose_.header.stamp;
-	Eigen::Vector3d acc, angV;
-	Eigen::Quaternion<double> q(this->pose_.pose.orientation.w,
-								this->pose_.pose.orientation.x,
-								this->pose_.pose.orientation.y,
-								this->pose_.pose.orientation.z);
-	acc << this->pose_.acc.linear.x,
-		   this->pose_.acc.linear.y,
-		   this->pose_.acc.linear.z;
-	angV << this->pose_.vel.angular.x,
-			this->pose_.vel.angular.y,
-			this->pose_.vel.angular.z;
-
-	Eigen::Vector3d exF_d, exM_d;
-	exF_d = this->LF.array() * (-this->exF
-         + this->weight*(acc + Eigen::Matrix<double, 3, 1>(0, 0, 9.80665))
-         - this->R*this->wrench.block<3,1>(0,0)).array();
-
-	Eigen::Vector3d L;
-	L = q * this->J * (q.conjugate() * angV);
-	exM_d = this->LM.array() * (L.cross(angV)
-      + this->wrench.segment<3>(3)
-      + this->exM ).array();
-
-	this->exF = this->exF + exF_d * dt;
-	this->exM = this->exM + exM_d * dt;
-	
-}
 
 int main(int argc, char **argv) {
     ros::init(argc, argv, "controller");
@@ -1004,7 +851,6 @@ int main(int argc, char **argv) {
         ros::Time thisTime = ros::Time::now();
         if (controller_.armed) {
             if (controller_.first_pose_received && controller_.first_desired_received) {
-				controller_.compute_external_wrench();
                 controller_.position_controller();
                 controller_.attitude_controller();
 

@@ -1,2 +1,0 @@
-target_stm32f745xg(ANYFCF7)
-target_stm32f745xg(ANYFCF7_EXTERNAL_BARO)

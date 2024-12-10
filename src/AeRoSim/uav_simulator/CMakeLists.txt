@@ -126,6 +126,7 @@ include_directories(
         ${GAZEBO_INCLUDE_DIRS}
         ${catkin_INCLUDE_DIRS}
         /usr/include/eigen3
+        
         )
 
 link_libraries(

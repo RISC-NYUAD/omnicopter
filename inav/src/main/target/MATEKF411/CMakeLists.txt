@@ -1,4 +1,0 @@
-target_stm32f411xe(MATEKF411)
-target_stm32f411xe(MATEKF411_FD_SFTSRL)
-target_stm32f411xe(MATEKF411_RSSI)
-target_stm32f411xe(MATEKF411_SFTSRL2)

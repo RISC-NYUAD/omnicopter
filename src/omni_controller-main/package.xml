@@ -14,6 +14,7 @@
   <build_depend>std_msgs</build_depend>
   <build_depend>message_generation</build_depend>
   <build_depend>omni_firmware</build_depend>
+  <build_depend>maneuver</build_depend>
   <build_depend>Eigen</build_depend>
   <build_depend>cmake_modules</build_depend>
 
@@ -21,6 +22,7 @@
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>message_runtime</exec_depend>
   <exec_depend>omni_firmware</exec_depend>
+  <exec_depend>maneuver</exec_depend>
   <exec_depend>Eigen</exec_depend>
   <exec_depend>cmake_modules</exec_depend>
 </package>
