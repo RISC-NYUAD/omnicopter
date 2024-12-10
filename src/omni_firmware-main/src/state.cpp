@@ -48,6 +48,7 @@ int16_t idle_pwm = 1000;
 sig_atomic_t volatile g_request_shutdown = 0;
 bool emergency = false;
 
+
 State::State() : nh_() {
 
 	pose_pub = nh_.advertise < omni_firmware::FullPose > ("/pose_full", 20);
@@ -84,6 +85,12 @@ State::State() : nh_() {
 	this->pos_time = 0;
 
 	this->seqID = 0;
+	this->RPY_IMU << 0, 0, 0;
+    this->yaw_vicon_imu = 0.0;
+    this->q_yaw_vicon_imu.setValue(0,0,0,1);
+    this->vicon_yaw_received = false;
+    this->vicon_yaw_diff_computed = false;
+    
 }
 
 State::~State() {
@@ -133,12 +140,17 @@ void State::poseCallback(const geometry_msgs::PoseStamped &_pose) {
     			tf::Matrix3x3 m(q);
     			double roll, pitch, yaw;
     			m.getRPY(roll, pitch, yaw);
-			this->yaw = yaw;}
+			this->yaw = yaw;
+            }
 	}
 		this->old_vicon_pose_x = _pose.pose.position.x;
 		this->old_vicon_pose_y = _pose.pose.position.y;
 		this->old_vicon_pose_z = _pose.pose.position.z;
 
+        if (this->vicon_yaw_received == false)
+        {
+            this->vicon_yaw_received  = true;
+        }
 		this->state_last_time = thisTime;
 	
 }
@@ -513,39 +525,68 @@ void State::IMU_callback()
 	imu_data.angular_velocity.y = ((float) buffer_data)*(16/16.4)/(57.3248);
 	buffer_data = this->buffer_read[15] | (this->buffer_read[16] << 8);  
 	imu_data.angular_velocity.z = ((float) buffer_data)*(16/16.4)/(57.3248);
-   
-    // buffer_data = this->buffer_read[17] | (this->buffer_read[18] << 8); 
+   	
+	
+	buffer_data = this->buffer_read[17] | (this->buffer_read[18] << 8); 
+    float q0 =  ((float) buffer_data)/10000;
+    buffer_data = this->buffer_read[19] | (this->buffer_read[20] << 8); 
+    float q1 =  ((float) buffer_data)/10000;
+    buffer_data = this->buffer_read[21] | (this->buffer_read[22] << 8); 
+    float q2 =  ((float) buffer_data)/10000;
+    buffer_data = this->buffer_read[23] | (this->buffer_read[24] << 8); 
+    float q3 =  ((float) buffer_data)/10000;
+    
+	
+	// buffer_data = this->buffer_read[17] | (this->buffer_read[18] << 8); 
     // float roll =  (float) buffer_data*0.1;
     // buffer_data = this->buffer_read[19] | (this->buffer_read[20] << 8); 
     // float pitch =  (float) buffer_data*0.1;
-    
-    // const float cosRoll = cos(roll*0.5f/(57.3248));
+    tf::Quaternion q(q1, q2, q3, q0);
+                // find the two respresentations of RPY from IMU
+    			tf::Matrix3x3 m(q);
+                double roll, pitch, yaw;
+				//if (!RPY_IMU){
+    			double roll_, pitch_, yaw_;
+    			m.getRPY(roll, pitch, yaw,1);
+				RPY_IMU << roll, pitch, yaw;
+    			m.getRPY(roll_, pitch_, yaw_,0);
+
+
+	RPY_IMU = smoothTransition(
+    q, 
+    RPY_IMU, 
+    0.01);
+	roll = RPY_IMU[0];
+	pitch = RPY_IMU[1];
+	yaw = RPY_IMU[2];
+				//}
+	// const float cosRoll = cos(roll*0.5f/(57.3248));
     // const float sinRoll = sin(roll*0.5f/(57.3248));
 
     // const float cosPitch = cos(pitch*0.5f/(57.3248));
     // const float sinPitch = sin(pitch*0.5f/(57.3248));
 
-    // const float cosYaw = cos(this->yaw*0.5f);
-    // const float sinYaw = sin(this->yaw*0.5f);
+
+    const float cosRoll = cos(roll*0.5f);
+    const float sinRoll = sin(roll*0.5f);
+
+    const float cosPitch = cos(pitch*0.5f);
+    const float sinPitch = sin(pitch*0.5f);
+
+    const float cosYaw = cos(this->yaw*0.5f);
+    const float sinYaw = sin(this->yaw*0.5f);
 
     // imu_data.orientation.w = cosRoll * cosPitch * cosYaw + sinRoll * sinPitch * sinYaw;
     // imu_data.orientation.x = sinRoll * cosPitch * cosYaw - cosRoll * sinPitch * sinYaw;
     // imu_data.orientation.y = cosRoll * sinPitch * cosYaw + sinRoll * cosPitch * sinYaw;
     // imu_data.orientation.z = cosRoll * cosPitch * sinYaw - sinRoll * sinPitch * cosYaw;
 	
-	buffer_data = this->buffer_read[17] | (this->buffer_read[18] << 8); 
-    float q0 =  (float) (buffer_data/10000);
-    buffer_data = this->buffer_read[19] | (this->buffer_read[20] << 8); 
-    float q1 =  (float) (buffer_data/10000);
-    buffer_data = this->buffer_read[21] | (this->buffer_read[22] << 8); 
-    float q2 =  (float) (buffer_data/10000);
-    buffer_data = this->buffer_read[23] | (this->buffer_read[24] << 8); 
-    float q3 =  (float) (buffer_data/10000);
 
-	imu_data.orientation.w = q0;
-	imu_data.orientation.x = q1;
-	imu_data.orientation.y = q2;
-	imu_data.orientation.z = q3;
+	imu_data.orientation.w = q.w();
+	imu_data.orientation.x = q.x();
+	imu_data.orientation.y = q.y();
+	imu_data.orientation.z = q.z();
+    q = q * this->q_yaw_vicon_imu;
 
     ros::Time time = ros::Time::now();
     imu_data.header.stamp.sec =  time.sec;
@@ -555,7 +596,10 @@ void State::IMU_callback()
 	this->twist_.angular.x = imu_data.angular_velocity.x*0.5 + this->twist_.angular.x*0.5;
 	this->twist_.angular.y = imu_data.angular_velocity.y*0.5 + this->twist_.angular.y*0.5;
 	this->twist_.angular.z = imu_data.angular_velocity.z*0.5 + this->twist_.angular.z*0.5;
-	this->pose_.orientation = imu_data.orientation;
+	this->pose_.orientation.w = q.w();
+	this->pose_.orientation.x = q.x();
+	this->pose_.orientation.y = q.y();
+	this->pose_.orientation.z = q.z();
 
 	this->accel_.linear.x = imu_data.linear_acceleration.x;
 	this->accel_.linear.y = imu_data.linear_acceleration.y;
@@ -602,6 +646,101 @@ void State::IMU_callback()
 
 }
 
+// Function to wrap angles to the range [-pi, pi]
+double wrapToPi(double angle) {
+    if (angle > M_PI)
+        return angle - 2 * M_PI;
+    else if (angle < -M_PI)
+        return angle + 2 * M_PI;
+    return angle;
+}
+
+// Function to compute Euler angles while handling near gimbal lock
+Eigen::Vector3d computeEulerAnglesNearGimbalLock(
+    const Eigen::Matrix3d& m_el, 
+    const Eigen::Vector3d& previousRPY, 
+    double threshold = 0.01) 
+{
+    double yaw1, pitch1, roll1;
+    double yaw2, pitch2, roll2;
+
+    double gimbal_lock_tolerance = std::abs(m_el(2, 0)); // Check the gimbal-lock condition
+
+    if (gimbal_lock_tolerance >= (1 - threshold)) {
+        // Near gimbal lock or exact gimbal lock case
+        double yaw = 0.0; // Yaw is ambiguous in this condition
+
+        if (m_el(2, 0) < 0) { // Gimbal locked down
+            double delta = atan2(m_el(0, 1), m_el(0, 2));
+            pitch1 = M_PI / 2.0;
+            roll1 = delta;
+        } else { // Gimbal locked up
+            double delta = atan2(-m_el(0, 1), -m_el(0, 2));
+            pitch1 = -M_PI / 2.0;
+            roll1 = delta;
+        }
+
+        // In gimbal lock, both solutions are the same
+        yaw1 = yaw2 = yaw;
+        pitch2 = pitch1;
+        roll2 = roll1;
+    } else {
+        // Normal case
+        pitch1 = -asin(m_el(2, 0));
+        pitch2 = M_PI - pitch1; // Alternative pitch solution
+
+        // Compute roll for both solutions
+        roll1 = atan2(m_el(2, 1) / cos(pitch1), m_el(2, 2) / cos(pitch1));
+        roll2 = atan2(m_el(2, 1) / cos(pitch2), m_el(2, 2) / cos(pitch2));
+
+        // Compute yaw for both solutions
+        yaw1 = atan2(m_el(1, 0) / cos(pitch1), m_el(0, 0) / cos(pitch1));
+        yaw2 = atan2(m_el(1, 0) / cos(pitch2), m_el(0, 0) / cos(pitch2));
+    }
+
+    // Wrap angles to [-pi, pi]
+    yaw1 = wrapToPi(yaw1);
+    pitch1 = wrapToPi(pitch1);
+    roll1 = wrapToPi(roll1);
+
+    yaw2 = wrapToPi(yaw2);
+    pitch2 = wrapToPi(pitch2);
+    roll2 = wrapToPi(roll2);
+
+    // Create Eigen vectors for the two solutions
+    Eigen::Vector3d euler_out1(yaw1, pitch1, roll1);
+    Eigen::Vector3d euler_out2(yaw2, pitch2, roll2);
+
+    // Select the closest solution to the previous RPY
+    double diff1 = (euler_out1 - previousRPY).norm();
+    double diff2 = (euler_out2 - previousRPY).norm();
+
+    if (diff1 < diff2) {
+        return euler_out1;
+    } else {
+        return euler_out2;
+    }
+}
+
+// Main function to compute smoothed roll, pitch, and yaw
+Eigen::Vector3d smoothTransition(
+    const tf::Quaternion& quaternion, 
+    const Eigen::Vector3d& previousRPY, 
+    double threshold = 0.01) 
+{
+    // Convert quaternion to rotation matrix
+    tf::Matrix3x3 tf_matrix(quaternion);
+    Eigen::Matrix3d m_el;
+
+    // Transfer data from tf::Matrix3x3 to Eigen::Matrix3d
+    for (int i = 0; i < 3; ++i)
+        for (int j = 0; j < 3; ++j)
+            m_el(i, j) = tf_matrix[i][j];
+
+    // Compute the Euler angles while handling gimbal lock
+    return computeEulerAnglesNearGimbalLock(m_el, previousRPY, threshold);
+}
+
 // Replacement "shutdown" XMLRPC callback
 void shutdownCallback(XmlRpc::XmlRpcValue& params, XmlRpc::XmlRpcValue& result)
 {
@@ -618,8 +757,6 @@ void shutdownCallback(XmlRpc::XmlRpcValue& params, XmlRpc::XmlRpcValue& result)
 
   result = ros::xmlrpc::responseInt(1, "", 0);
 }
-
-
 
 
 

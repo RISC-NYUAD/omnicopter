@@ -57,7 +57,10 @@ protected:
 	const int dataLength = 18+18+6+2;
 	sensor_msgs::Imu imu_data;
 	sensor_msgs::NavSatFix gps_data;
-	float yaw;
+	float yaw, yaw_vicon_imu;
+	tf::Quaternion q_yaw_vicon_imu;
+	bool vicon_yaw_received, vicon_yaw_diff_computed;
+
 	uint8_t buffer_read[18+6+18+2];            
 	uint8_t MSP_motor_buffer[22];
 	uint8_t MSP_motor_Idle_buffer[22];
@@ -85,6 +88,8 @@ protected:
 	bool new_gps_data = false;
 	double lattitude, longitude;
 	double baro_alt;
+	Eigen::Vector3d RPY_IMU;
+
 
 
 public:
@@ -110,5 +115,15 @@ public:
 	bool cmd_pending = false;
 	
 };
+
+Eigen::Vector3d smoothTransition(
+    const tf::Quaternion& quaternion, 
+    const Eigen::Vector3d& previousRPY, 
+    double threshold);
+Eigen::Vector3d computeEulerAnglesNearGimbalLock(
+    const Eigen::Matrix3d& m_el, 
+    const Eigen::Vector3d& previousRPY, 
+    double threshold);	
+double wrapToPi(double angle);
 
 #endif
