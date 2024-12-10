@@ -10,15 +10,21 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libeigen3-dev \
     ros-noetic-tf \
     ros-noetic-serial \
+    git \
     netbase \
+    libgpiod-dev \
+    gpiod \
     ros-noetic-vrpn \
     ros-noetic-vrpn-client-ros \
     iputils-ping \
     setserial \
     libreadline-dev \
+    nano \
     i2c-tools \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+
 
 # Switch to a non-root user and add them to necessary groups
 RUN useradd -U --uid ${user_id} -ms /bin/bash $USERNAME \
@@ -40,5 +46,6 @@ RUN echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc && \
 # Entry point to ensure ROS environment is sourced and set permissions at runtime
 CMD ["bash", "-c", "sudo chown -R ${USER}:${USER} /opt/ros/noetic/flightSoftware && \
                     sudo chmod 666 /dev/i2c-1 && \
+                    sudo chmod 666 /dev/gpiochip0 && \
                     source /opt/ros/noetic/setup.bash && \
                     if [ -f /opt/ros/noetic/flightSoftware/devel/setup.bash ]; then source /opt/ros/noetic/flightSoftware/devel/setup.bash; fi && exec bash"]

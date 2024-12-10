@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>servo_control_node</name>
+  <version>0.0.0</version>
+  <description>The servo_control_node package</description>
+
+  <maintainer email="abdullah.ali@nyu.edu">Abdullah Ali</maintainer>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Add roscpp as a build and execution dependency -->
+  <build_depend>catkin</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>roscpp</build_depend>
+
+  <exec_depend>catkin</exec_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <exec_depend>roscpp</exec_depend>
+
+  <depend>std_msgs</depend>
+  <depend>std_srvs</depend>
+
+  <export>
+    <architecture_independent />
+  </export>
+</package>
+
