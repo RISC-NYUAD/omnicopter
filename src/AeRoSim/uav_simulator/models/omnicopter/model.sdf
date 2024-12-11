@@ -2,29 +2,29 @@
 <sdf version="1.6">
   <model name="omnicopter">
 
-    <pose>0 0 0.2 0 0 0</pose>
+    <pose>0 0 0.4 0 0 0</pose>
     <link name='base_link'>
       <velocity_decay>
         <linear>0.0</linear>
         <angular>0.0</angular>
       </velocity_decay>
       <inertial>
-        <pose>0.01 0.01 0.02 0 0 0</pose>
-        <mass>2.73</mass>
+        <pose>0.009 0.005 0.006 0 0 0</pose>
+        <mass>3.3</mass>
         <inertia>
-          <ixx>0.1</ixx>
-          <ixy>-0.01</ixy>
-          <ixz>0</ixz>
-          <iyy>0.0.09</iyy>
+          <ixx>0.13</ixx>
+          <ixy>0.01</ixy>
+          <ixz>0.01</ixz>
+          <iyy>0.12</iyy>
           <iyz>0</iyz>
-          <izz>0.16</izz>
+          <izz>0.2</izz>
         </inertia>
       </inertial>
       <collision name='base_link_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.47 0.47 0.23</size>
+            <size>0.47 0.47 0.55</size>
           </box>
         </geometry>
         <surface>
