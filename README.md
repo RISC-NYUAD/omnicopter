@@ -36,10 +36,10 @@ The software is based on ROS2 jazzy and it uses gazebo harmonic (newer than gaze
 - In the GUI, hit applications from the list and choose xterm to have a terminal.
 
 # Running the simulation
-- From the GUI terminal, source the worksspace bash file.
-    source install/setup.bash
+- From the GUI terminal, source the workspace bash file.
+    [source install/setup.bash]
 - Run the simulation using the simulate.launch that launches all packages.
-    ros2 launch firmware simulate.launch
+    [ros2 launch firmware simulate.launch]
 - Hit play in the gazebo window to start.
 - After this, you can use the services or the bash script files to interact with the drone.
 
