@@ -1,4 +1,4 @@
-# omnicopter Collaboration
+# ROS2 omnicopter Collaboration
 Software developed for the omnidrone simulation
 
 The software is based on ROS2 jazzy and it uses gazebo harmonic (newer than gazebo classic and ignition).
