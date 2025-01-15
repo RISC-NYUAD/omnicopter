@@ -1,4 +1,4 @@
-# omnicopter Collaboration
+# ROS1 omnicopter Collaboration
 Software developed for the omnidrone simulation
 
 The software is based on ROS1 and it uses mav_comm in the gazebo simulation only.
