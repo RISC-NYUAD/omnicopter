@@ -4,7 +4,7 @@ Software developed for the omnidrone simulation
 The software is based on ROS2 jazzy and it uses gazebo harmonic (newer than gazebo classic and ignition).
 **All units are SI including the angles (rad)**
 
-# The software was developed in Docker environmrnt to eliminate the dependencies and Ubuntu version problems for the user.
+**The software was developed in Docker environmrnt to eliminate the dependencies and Ubuntu version problems for the user.**
 
 # Building and Running
 - Put all folders and files in an empty folder and navigate to this directory from terminal.
