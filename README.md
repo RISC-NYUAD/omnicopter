@@ -12,7 +12,7 @@ The software is based on ROS2 jazzy and it uses gazebo harmonic (newer than gaze
         [docker-compose up -d --build]
 
     -  To run the image later remove the --build.
-        [docker-compose up -d --build]
+        [docker-compose up -d]
 
     - Attach to a docker session where omni is the image name.
         [docker-compose exec omni bash]
