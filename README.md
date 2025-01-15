@@ -9,25 +9,25 @@ The software is based on ROS2 jazzy and it uses gazebo harmonic (newer than gaze
 # Building and Running
 - Put all folders and files in an empty folder and navigate to this directory from terminal.
     - build docker image for first time only and run it.
-        docker-compose up -d --build
+        [docker-compose up -d --build]
 
     -  To run the image later remove the --build.
-        docker-compose up -d --build
+        [docker-compose up -d --build]
 
     - Attach to a docker session where omni is the image name.
-        docker-compose exec omni bash
+        [docker-compose exec omni bash]
 
     - The default directory in the docker image will be the ros2 workspace and it has src and bash_Scripts folders.
     - If the workspace is not built already build it.
-        colcon build
+        [colcon build]
     
     - To exit from the docker terminal simply write "exit"
 
     - To stop the docker image
-        docker-compose down
+        [docker-compose down]
 
     - To purge all old docker images:
-        docker system prune 
+        [docker system prune] 
 
 # GUI
 - Since the docker image itself comes with no GUI, an Xpra server is setup to give a GUI through the web browser.
