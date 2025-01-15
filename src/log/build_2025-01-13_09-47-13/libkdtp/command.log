@@ -1,3 +1,0 @@
-Invoking command in '/ros_ws/src/build/libkdtp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /ros_ws/src/libkdtp -DCMAKE_INSTALL_PREFIX=/ros_ws/src/install/libkdtp
-Invoked command in '/ros_ws/src/build/libkdtp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /ros_ws/src/libkdtp -DCMAKE_INSTALL_PREFIX=/ros_ws/src/install/libkdtp
-Invoking command in '/ros_ws/src/build/libkdtp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /ros_ws/src/build/libkdtp -- -j16 -l16
