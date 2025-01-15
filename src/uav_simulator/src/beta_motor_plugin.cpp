@@ -161,8 +161,8 @@ void cmd_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg) {
         vel = std::max(vel, 0.0); // Ensure the velocity is not negative
         vel = std::min(vel, 1.0); // Ensure the velocity does not exceed 1.0
         vel *= c_vars.norm_to_rpm; // Scale the normalized velocity to RPM
-        //latest_msg(i) = 0.6 * latest_msg(i) + 0.4 * vel; // Smoothly update the velocity
-      latest_msg(i) = vel;
+        latest_msg(i) = 0.6 * latest_msg(i) + 0.4 * vel; // Smoothly update the velocity
+      //latest_msg(i) = vel;
     }
   }
 };
