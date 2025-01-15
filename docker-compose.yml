@@ -1,0 +1,22 @@
+version: '3.8'  # Specify the Compose file version
+
+services:
+  omni:
+    build:  # Build the image from a Dockerfile
+      context: .  # Path to the Dockerfile (usually the current directory)
+      dockerfile: Dockerfile  # Name of the Dockerfile if not named 'Dockerfile'
+
+    image: ros2_image  # Name the image to be built
+    container_name: ros2_container  # Optional: name the container
+    privileged: true  # Use privileged mode
+    network_mode: host  # Use host network
+    volumes:
+      - ./src:/ros_ws/src  # Bind mount for the flightSoftware directory
+      - ./bash_Scripts:/ros_ws/bash_Scripts  # Bind mount for the flightSoftware directory
+    devices:
+      - "/dev/ttyACM0:/dev/ttyACM0"
+      - "/dev/i2c-1:/dev/i2c-1"
+
+    tty: true  # Allocate a pseudo-TTY for interactive sessions
+    stdin_open: true  # Keep stdin open for the container
+

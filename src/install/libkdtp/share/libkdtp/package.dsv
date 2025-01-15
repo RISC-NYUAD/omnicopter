@@ -1,0 +1,11 @@
+source;share/libkdtp/hook/cmake_prefix_path.ps1
+source;share/libkdtp/hook/cmake_prefix_path.dsv
+source;share/libkdtp/hook/cmake_prefix_path.sh
+source;share/libkdtp/hook/ld_library_path_lib.ps1
+source;share/libkdtp/hook/ld_library_path_lib.dsv
+source;share/libkdtp/hook/ld_library_path_lib.sh
+source;share/libkdtp/local_setup.bash
+source;share/libkdtp/local_setup.dsv
+source;share/libkdtp/local_setup.ps1
+source;share/libkdtp/local_setup.sh
+source;share/libkdtp/local_setup.zsh

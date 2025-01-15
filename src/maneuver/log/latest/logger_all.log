@@ -1,0 +1,80 @@
+[0.071s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.071s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=16, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7f52251343e0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f52252b4cb0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f52252b4cb0>>, mixin_verb=('build',))
+[0.096s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.096s] INFO:colcon.colcon_metadata.package_discovery.colcon_meta:Using configuration from '/root/.colcon/metadata/default/Gazebo.meta'
+[0.097s] INFO:colcon.colcon_metadata.package_discovery.colcon_meta:Using configuration from '/root/.colcon/metadata/default/fastrtps.meta'
+[0.097s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.097s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.097s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.097s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.097s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.097s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/ros_ws/src/maneuver'
+[0.097s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.097s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.097s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.097s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.097s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.097s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.097s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.097s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.097s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.116s] DEBUG:colcon.colcon_core.package_identification:Package '.' with type 'ros.ament_cmake' and name 'maneuver'
+[0.116s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.116s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.116s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.116s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.116s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.128s] Level 5:colcon.colcon_core.verb:set package 'maneuver' build argument 'cmake_args' from command line to 'None'
+[0.128s] Level 5:colcon.colcon_core.verb:set package 'maneuver' build argument 'cmake_target' from command line to 'None'
+[0.128s] Level 5:colcon.colcon_core.verb:set package 'maneuver' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.128s] Level 5:colcon.colcon_core.verb:set package 'maneuver' build argument 'cmake_clean_cache' from command line to 'False'
+[0.128s] Level 5:colcon.colcon_core.verb:set package 'maneuver' build argument 'cmake_clean_first' from command line to 'False'
+[0.128s] Level 5:colcon.colcon_core.verb:set package 'maneuver' build argument 'cmake_force_configure' from command line to 'False'
+[0.128s] Level 5:colcon.colcon_core.verb:set package 'maneuver' build argument 'ament_cmake_args' from command line to 'None'
+[0.128s] Level 5:colcon.colcon_core.verb:set package 'maneuver' build argument 'catkin_cmake_args' from command line to 'None'
+[0.128s] Level 5:colcon.colcon_core.verb:set package 'maneuver' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.128s] DEBUG:colcon.colcon_core.verb:Building package 'maneuver' with the following arguments: {'ament_cmake_args': None, 'build_base': '/ros_ws/src/maneuver/build/maneuver', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/ros_ws/src/maneuver/install/maneuver', 'merge_install': False, 'path': '/ros_ws/src/maneuver', 'symlink_install': False, 'test_result_base': None}
+[0.128s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.129s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.129s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/ros_ws/src/maneuver' with build type 'ament_cmake'
+[0.129s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/ros_ws/src/maneuver'
+[0.130s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.130s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.130s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.131s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/ros_ws/install/my_ros2_package' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.131s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/ros_ws/install/my_ros2_package' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.136s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/ros_ws/src/maneuver/build/maneuver': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /ros_ws/src/maneuver -DCMAKE_INSTALL_PREFIX=/ros_ws/src/maneuver/install/maneuver
+[0.838s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/ros_ws/src/maneuver/build/maneuver' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /ros_ws/src/maneuver -DCMAKE_INSTALL_PREFIX=/ros_ws/src/maneuver/install/maneuver
+[0.846s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(maneuver)
+[0.848s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/maneuver/install/maneuver' for CMake module files
+[0.848s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/maneuver/install/maneuver' for CMake config files
+[0.848s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/maneuver/install/maneuver/bin'
+[0.848s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/maneuver/install/maneuver/lib/pkgconfig/maneuver.pc'
+[0.850s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/maneuver/install/maneuver/lib/python3.12/site-packages'
+[0.850s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/maneuver/install/maneuver/bin'
+[0.850s] INFO:colcon.colcon_core.shell:Creating package script '/ros_ws/src/maneuver/install/maneuver/share/maneuver/package.ps1'
+[0.850s] INFO:colcon.colcon_core.shell:Creating package descriptor '/ros_ws/src/maneuver/install/maneuver/share/maneuver/package.dsv'
+[0.851s] INFO:colcon.colcon_core.shell:Creating package script '/ros_ws/src/maneuver/install/maneuver/share/maneuver/package.sh'
+[0.851s] INFO:colcon.colcon_core.shell:Creating package script '/ros_ws/src/maneuver/install/maneuver/share/maneuver/package.bash'
+[0.852s] INFO:colcon.colcon_core.shell:Creating package script '/ros_ws/src/maneuver/install/maneuver/share/maneuver/package.zsh'
+[0.852s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/ros_ws/src/maneuver/install/maneuver/share/colcon-core/packages/maneuver)
+[0.862s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[0.862s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[0.862s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '1'
+[0.862s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[0.867s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[0.867s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[0.867s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[0.867s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[0.867s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.NotSupported: Unable to autolaunch a dbus-daemon without a $DISPLAY for X11
+[0.867s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[0.867s] INFO:colcon.colcon_core.shell:Creating prefix script '/ros_ws/src/maneuver/install/local_setup.ps1'
+[0.868s] INFO:colcon.colcon_core.shell:Creating prefix util module '/ros_ws/src/maneuver/install/_local_setup_util_ps1.py'
+[0.868s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/ros_ws/src/maneuver/install/setup.ps1'
+[0.869s] INFO:colcon.colcon_core.shell:Creating prefix script '/ros_ws/src/maneuver/install/local_setup.sh'
+[0.869s] INFO:colcon.colcon_core.shell:Creating prefix util module '/ros_ws/src/maneuver/install/_local_setup_util_sh.py'
+[0.869s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/ros_ws/src/maneuver/install/setup.sh'
+[0.870s] INFO:colcon.colcon_core.shell:Creating prefix script '/ros_ws/src/maneuver/install/local_setup.bash'
+[0.870s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/ros_ws/src/maneuver/install/setup.bash'
+[0.871s] INFO:colcon.colcon_core.shell:Creating prefix script '/ros_ws/src/maneuver/install/local_setup.zsh'
+[0.871s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/ros_ws/src/maneuver/install/setup.zsh'

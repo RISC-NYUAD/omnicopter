@@ -1,0 +1,4 @@
+Invoking command in '/ros_ws/src/build/firmware': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /ros_ws/src/build/firmware -- -j16 -l16
+Invoked command in '/ros_ws/src/build/firmware' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /ros_ws/src/build/firmware -- -j16 -l16
+Invoking command in '/ros_ws/src/build/firmware': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /ros_ws/src/build/firmware
+Invoked command in '/ros_ws/src/build/firmware' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /ros_ws/src/build/firmware

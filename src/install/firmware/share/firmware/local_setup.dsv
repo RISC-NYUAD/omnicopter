@@ -1,0 +1,2 @@
+source;share/firmware/environment/ament_prefix_path.sh
+source;share/firmware/environment/path.sh

@@ -1,0 +1,2 @@
+Invoking command in '/ros_ws/src/maneuver/build/maneuver': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /ros_ws/src/maneuver -DCMAKE_INSTALL_PREFIX=/ros_ws/src/maneuver/install/maneuver
+Invoked command in '/ros_ws/src/maneuver/build/maneuver' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /ros_ws/src/maneuver -DCMAKE_INSTALL_PREFIX=/ros_ws/src/maneuver/install/maneuver

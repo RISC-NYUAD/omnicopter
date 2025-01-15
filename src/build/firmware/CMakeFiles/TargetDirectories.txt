@@ -1,0 +1,9 @@
+/ros_ws/src/build/firmware/CMakeFiles/uninstall.dir
+/ros_ws/src/build/firmware/CMakeFiles/firmware_uninstall.dir
+/ros_ws/src/build/firmware/CMakeFiles/test.dir
+/ros_ws/src/build/firmware/CMakeFiles/edit_cache.dir
+/ros_ws/src/build/firmware/CMakeFiles/rebuild_cache.dir
+/ros_ws/src/build/firmware/CMakeFiles/list_install_components.dir
+/ros_ws/src/build/firmware/CMakeFiles/install.dir
+/ros_ws/src/build/firmware/CMakeFiles/install/local.dir
+/ros_ws/src/build/firmware/CMakeFiles/install/strip.dir

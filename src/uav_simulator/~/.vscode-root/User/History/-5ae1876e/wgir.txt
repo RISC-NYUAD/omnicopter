@@ -1,0 +1,41 @@
+cmake_minimum_required(VERSION 3.8)
+project(gazebo_sim2_dummy)
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(gz-sim8 REQUIRED)  
+find_package(geometry_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
+find_package(Eigen3 REQUIRED)
+include_directories(include
+  ${EIGEN3_INCLUDE_DIRS})
+
+add_library(dummy_plugin SHARED src/dummy_plugin.cpp)
+target_link_libraries(dummy_plugin gz-sim8::gz-sim8)
+ament_target_dependencies(dummy_plugin rclcpp)
+
+add_library(beta_motor_plugin SHARED src/beta_motor_plugin.cpp)
+target_link_libraries(beta_motor_plugin gz-sim8::gz-sim8)
+ament_target_dependencies(beta_motor_plugin rclcpp geometry_msgs)
+
+add_library(odometry_plugin SHARED src/odometry_plugin.cpp)
+target_link_libraries(odometry_plugin gz-sim8::gz-sim8)
+ament_target_dependencies(odometry_plugin rclcpp geometry_msgs nav_msgs)
+
+
+
+install(
+  TARGETS dummy_plugin beta_motor_plugin odometry_plugin
+  LIBRARY DESTINATION lib
+)
+
+install(
+  DIRECTORY launch worlds
+  DESTINATION share/${PROJECT_NAME}
+)
+
+ament_package()

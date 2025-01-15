@@ -1,0 +1,26 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "controller/msg/Uvector",
+      "fields": [
+        {
+          "name": "value",
+          "type": {
+            "type_id": 58,
+            "capacity": 12,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": []
+  },
+  "type_hashes": [
+    {
+      "type_name": "controller/msg/Uvector",
+      "hash_string": "RIHS01_2a69f6d223ad392a92060bb4db945f0ddaa2efec6bbf38888c0b2ce703c32322"
+    }
+  ]
+}

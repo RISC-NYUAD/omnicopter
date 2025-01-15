@@ -1,0 +1,18 @@
+{
+  "package_name": "controller",
+  "output_dir": "/ros_ws/src/build/controller/rosidl_generator_type_description/controller",
+  "idl_tuples": [
+    "/ros_ws/src/build/controller/rosidl_adapter/controller:msg/MotorSpeed.idl",
+    "/ros_ws/src/build/controller/rosidl_adapter/controller:msg/Pose.idl",
+    "/ros_ws/src/build/controller/rosidl_adapter/controller:msg/Uvector.idl",
+    "/ros_ws/src/build/controller/rosidl_adapter/controller:msg/ErrorMsg.idl",
+    "/ros_ws/src/build/controller/rosidl_adapter/controller:srv/AngularWrench.idl",
+    "/ros_ws/src/build/controller/rosidl_adapter/controller:srv/LinearWrench.idl"
+  ],
+  "include_paths": [
+    "std_msgs:/opt/ros/jazzy/share/std_msgs",
+    "builtin_interfaces:/opt/ros/jazzy/share/builtin_interfaces",
+    "geometry_msgs:/opt/ros/jazzy/share/geometry_msgs",
+    "service_msgs:/opt/ros/jazzy/share/service_msgs"
+  ]
+}

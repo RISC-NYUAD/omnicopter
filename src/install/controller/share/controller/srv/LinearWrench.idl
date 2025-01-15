@@ -1,0 +1,29 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from controller/srv/LinearWrench.srv
+// generated code does not contain a copyright notice
+
+
+module controller {
+  module srv {
+    struct LinearWrench_Request {
+      float fx1;
+
+      float fy1;
+
+      float fz1;
+
+      float fx2;
+
+      float fy2;
+
+      float fz2;
+
+      float ramp;
+
+      float duration;
+    };
+    struct LinearWrench_Response {
+      boolean status;
+    };
+  };
+};

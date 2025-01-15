@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from maneuver/srv/RotateTo.srv
+// generated code does not contain a copyright notice
+
+
+module maneuver {
+  module srv {
+    struct RotateTo_Request {
+      float roll;
+
+      float pitch;
+
+      float yaw;
+
+      float duration;
+    };
+    struct RotateTo_Response {
+      boolean status;
+    };
+  };
+};

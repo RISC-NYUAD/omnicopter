@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+    <model name="dummy_model">
+      <include>
+        <uri>/usr/share/gz-sim8/models/ground_plane</uri>
+      </include>
+      <plugin name="dummy_plugin" filename="libdummy_plugin.so"/>
+    </model>
+  </world>
+</sdf>

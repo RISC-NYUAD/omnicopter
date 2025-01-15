@@ -1,0 +1,9 @@
+/ros_ws/src/build/maneuver/rosidl_adapter/maneuver:msg/FullPose.idl
+/ros_ws/src/build/maneuver/rosidl_adapter/maneuver:srv/LiftOff.idl
+/ros_ws/src/build/maneuver/rosidl_adapter/maneuver:srv/ArmDisarm.idl
+/ros_ws/src/build/maneuver/rosidl_adapter/maneuver:srv/GotoPoint.idl
+/ros_ws/src/build/maneuver/rosidl_adapter/maneuver:srv/Goto6DPoint.idl
+/ros_ws/src/build/maneuver/rosidl_adapter/maneuver:srv/Ellipse5D.idl
+/ros_ws/src/build/maneuver/rosidl_adapter/maneuver:srv/RotateTo.idl
+/ros_ws/src/build/maneuver/rosidl_adapter/maneuver:srv/Land.idl
+/ros_ws/src/build/maneuver/rosidl_adapter/maneuver:srv/FullFlip.idl

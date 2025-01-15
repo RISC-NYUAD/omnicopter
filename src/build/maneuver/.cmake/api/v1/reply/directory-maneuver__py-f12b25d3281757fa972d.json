@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "maneuver__py",
+		"source" : "/ros_ws/src/build/maneuver/maneuver__py"
+	}
+}

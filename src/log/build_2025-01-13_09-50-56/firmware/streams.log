@@ -1,0 +1,28 @@
+[0.006s] Invoking command in '/ros_ws/src/build/firmware': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /ros_ws/src/firmware -DCMAKE_INSTALL_PREFIX=/ros_ws/src/install/firmware
+[0.017s] -- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.301s] -- Configuring done (0.3s)
+[0.303s] -- Generating done (0.0s)
+[0.305s] -- Build files have been written to: /ros_ws/src/build/firmware
+[0.308s] Invoked command in '/ros_ws/src/build/firmware' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /ros_ws/src/firmware -DCMAKE_INSTALL_PREFIX=/ros_ws/src/install/firmware
+[0.308s] Invoking command in '/ros_ws/src/build/firmware': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /ros_ws/src/build/firmware -- -j16 -l16
+[0.328s] Invoked command in '/ros_ws/src/build/firmware' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /ros_ws/src/build/firmware -- -j16 -l16
+[0.329s] Invoking command in '/ros_ws/src/build/firmware': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /ros_ws/src/build/firmware
+[0.333s] -- Install configuration: ""
+[0.333s] -- Installing: /ros_ws/src/install/firmware/share/firmware//launch
+[0.333s] -- Installing: /ros_ws/src/install/firmware/share/firmware//launch/simulate.launch.py
+[0.333s] -- Installing: /ros_ws/src/install/firmware/share/ament_index/resource_index/package_run_dependencies/firmware
+[0.333s] -- Installing: /ros_ws/src/install/firmware/share/ament_index/resource_index/parent_prefix_path/firmware
+[0.333s] -- Installing: /ros_ws/src/install/firmware/share/firmware/environment/ament_prefix_path.sh
+[0.333s] -- Installing: /ros_ws/src/install/firmware/share/firmware/environment/ament_prefix_path.dsv
+[0.334s] -- Installing: /ros_ws/src/install/firmware/share/firmware/environment/path.sh
+[0.334s] -- Installing: /ros_ws/src/install/firmware/share/firmware/environment/path.dsv
+[0.334s] -- Installing: /ros_ws/src/install/firmware/share/firmware/local_setup.bash
+[0.334s] -- Installing: /ros_ws/src/install/firmware/share/firmware/local_setup.sh
+[0.334s] -- Installing: /ros_ws/src/install/firmware/share/firmware/local_setup.zsh
+[0.334s] -- Installing: /ros_ws/src/install/firmware/share/firmware/local_setup.dsv
+[0.334s] -- Installing: /ros_ws/src/install/firmware/share/firmware/package.dsv
+[0.334s] -- Installing: /ros_ws/src/install/firmware/share/ament_index/resource_index/packages/firmware
+[0.334s] -- Installing: /ros_ws/src/install/firmware/share/firmware/cmake/firmwareConfig.cmake
+[0.334s] -- Installing: /ros_ws/src/install/firmware/share/firmware/cmake/firmwareConfig-version.cmake
+[0.334s] -- Installing: /ros_ws/src/install/firmware/share/firmware/package.xml
+[0.335s] Invoked command in '/ros_ws/src/build/firmware' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /ros_ws/src/build/firmware

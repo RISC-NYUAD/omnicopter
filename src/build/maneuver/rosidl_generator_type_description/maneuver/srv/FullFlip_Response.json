@@ -1,0 +1,26 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "maneuver/srv/FullFlip_Response",
+      "fields": [
+        {
+          "name": "status",
+          "type": {
+            "type_id": 15,
+            "capacity": 0,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": []
+  },
+  "type_hashes": [
+    {
+      "type_name": "maneuver/srv/FullFlip_Response",
+      "hash_string": "RIHS01_263b45c0ae874fc435ed1efb14a21e1b391c04c52ea89f2f3613acad494e667d"
+    }
+  ]
+}

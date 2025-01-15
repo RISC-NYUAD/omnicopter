@@ -1,0 +1,4 @@
+source;share/firmware/local_setup.bash
+source;share/firmware/local_setup.dsv
+source;share/firmware/local_setup.sh
+source;share/firmware/local_setup.zsh

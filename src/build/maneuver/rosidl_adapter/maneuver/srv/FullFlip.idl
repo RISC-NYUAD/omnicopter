@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from maneuver/srv/FullFlip.srv
+// generated code does not contain a copyright notice
+
+
+module maneuver {
+  module srv {
+    struct FullFlip_Request {
+      boolean roll_bool;
+
+      boolean pitch_bool;
+
+      float duration;
+    };
+    struct FullFlip_Response {
+      boolean status;
+    };
+  };
+};

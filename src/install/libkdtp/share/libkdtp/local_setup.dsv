@@ -1,0 +1,3 @@
+source;share/libkdtp/environment/ament_prefix_path.sh
+source;share/libkdtp/environment/library_path.sh
+source;share/libkdtp/environment/path.sh

@@ -1,0 +1,16 @@
+float32 x_min
+float32 x_max
+float32 y_min
+float32 y_max
+float32 z_min
+float32 z_max
+float32 roll_start
+float32 roll_mid
+float32 roll_end
+float32 pitch_start
+float32 pitch_mid
+float32 pitch_end
+float32 yaw
+float32 duration
+---
+bool status

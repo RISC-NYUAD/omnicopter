@@ -1,0 +1,240 @@
+[0.072s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.072s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=16, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7f0aed750bf0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f0aed8d0f20>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f0aed8d0f20>>, mixin_verb=('build',))
+[0.095s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.096s] INFO:colcon.colcon_metadata.package_discovery.colcon_meta:Using configuration from '/root/.colcon/metadata/default/Gazebo.meta'
+[0.096s] INFO:colcon.colcon_metadata.package_discovery.colcon_meta:Using configuration from '/root/.colcon/metadata/default/fastrtps.meta'
+[0.096s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.096s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.096s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.096s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.096s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.096s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/ros_ws/src'
+[0.096s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.096s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.096s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.096s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.096s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.096s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.096s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.096s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.096s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.113s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.113s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.113s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.113s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.113s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.113s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.113s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.113s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.113s] Level 1:colcon.colcon_core.package_identification:_identify(controller) by extensions ['ignore', 'ignore_ament_install']
+[0.113s] Level 1:colcon.colcon_core.package_identification:_identify(controller) by extension 'ignore'
+[0.113s] Level 1:colcon.colcon_core.package_identification:_identify(controller) by extension 'ignore_ament_install'
+[0.113s] Level 1:colcon.colcon_core.package_identification:_identify(controller) by extensions ['colcon_pkg']
+[0.113s] Level 1:colcon.colcon_core.package_identification:_identify(controller) by extension 'colcon_pkg'
+[0.113s] Level 1:colcon.colcon_core.package_identification:_identify(controller) by extensions ['colcon_meta']
+[0.113s] Level 1:colcon.colcon_core.package_identification:_identify(controller) by extension 'colcon_meta'
+[0.113s] Level 1:colcon.colcon_core.package_identification:_identify(controller) by extensions ['ros']
+[0.113s] Level 1:colcon.colcon_core.package_identification:_identify(controller) by extension 'ros'
+[0.115s] DEBUG:colcon.colcon_core.package_identification:Package 'controller' with type 'ros.ament_cmake' and name 'controller'
+[0.115s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extensions ['ignore', 'ignore_ament_install']
+[0.115s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extension 'ignore'
+[0.115s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extension 'ignore_ament_install'
+[0.115s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extensions ['colcon_pkg']
+[0.115s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extension 'colcon_pkg'
+[0.115s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extensions ['colcon_meta']
+[0.115s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extension 'colcon_meta'
+[0.115s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extensions ['ros']
+[0.115s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extension 'ros'
+[0.115s] DEBUG:colcon.colcon_core.package_identification:Package 'firmware' with type 'ros.ament_cmake' and name 'firmware'
+[0.115s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.115s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.115s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.115s] Level 1:colcon.colcon_core.package_identification:_identify(libkdtp) by extensions ['ignore', 'ignore_ament_install']
+[0.116s] Level 1:colcon.colcon_core.package_identification:_identify(libkdtp) by extension 'ignore'
+[0.116s] Level 1:colcon.colcon_core.package_identification:_identify(libkdtp) by extension 'ignore_ament_install'
+[0.116s] Level 1:colcon.colcon_core.package_identification:_identify(libkdtp) by extensions ['colcon_pkg']
+[0.116s] Level 1:colcon.colcon_core.package_identification:_identify(libkdtp) by extension 'colcon_pkg'
+[0.116s] Level 1:colcon.colcon_core.package_identification:_identify(libkdtp) by extensions ['colcon_meta']
+[0.116s] Level 1:colcon.colcon_core.package_identification:_identify(libkdtp) by extension 'colcon_meta'
+[0.116s] Level 1:colcon.colcon_core.package_identification:_identify(libkdtp) by extensions ['ros']
+[0.116s] Level 1:colcon.colcon_core.package_identification:_identify(libkdtp) by extension 'ros'
+[0.116s] DEBUG:colcon.colcon_core.package_identification:Package 'libkdtp' with type 'ros.ament_cmake' and name 'libkdtp'
+[0.116s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.116s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.116s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.116s] Level 1:colcon.colcon_core.package_identification:_identify(maneuver) by extensions ['ignore', 'ignore_ament_install']
+[0.116s] Level 1:colcon.colcon_core.package_identification:_identify(maneuver) by extension 'ignore'
+[0.116s] Level 1:colcon.colcon_core.package_identification:_identify(maneuver) by extension 'ignore_ament_install'
+[0.116s] Level 1:colcon.colcon_core.package_identification:_identify(maneuver) by extensions ['colcon_pkg']
+[0.116s] Level 1:colcon.colcon_core.package_identification:_identify(maneuver) by extension 'colcon_pkg'
+[0.116s] Level 1:colcon.colcon_core.package_identification:_identify(maneuver) by extensions ['colcon_meta']
+[0.116s] Level 1:colcon.colcon_core.package_identification:_identify(maneuver) by extension 'colcon_meta'
+[0.116s] Level 1:colcon.colcon_core.package_identification:_identify(maneuver) by extensions ['ros']
+[0.116s] Level 1:colcon.colcon_core.package_identification:_identify(maneuver) by extension 'ros'
+[0.117s] DEBUG:colcon.colcon_core.package_identification:Package 'maneuver' with type 'ros.ament_cmake' and name 'maneuver'
+[0.117s] Level 1:colcon.colcon_core.package_identification:_identify(uav_simulator) by extensions ['ignore', 'ignore_ament_install']
+[0.117s] Level 1:colcon.colcon_core.package_identification:_identify(uav_simulator) by extension 'ignore'
+[0.117s] Level 1:colcon.colcon_core.package_identification:_identify(uav_simulator) by extension 'ignore_ament_install'
+[0.117s] Level 1:colcon.colcon_core.package_identification:_identify(uav_simulator) by extensions ['colcon_pkg']
+[0.117s] Level 1:colcon.colcon_core.package_identification:_identify(uav_simulator) by extension 'colcon_pkg'
+[0.117s] Level 1:colcon.colcon_core.package_identification:_identify(uav_simulator) by extensions ['colcon_meta']
+[0.117s] Level 1:colcon.colcon_core.package_identification:_identify(uav_simulator) by extension 'colcon_meta'
+[0.117s] Level 1:colcon.colcon_core.package_identification:_identify(uav_simulator) by extensions ['ros']
+[0.117s] Level 1:colcon.colcon_core.package_identification:_identify(uav_simulator) by extension 'ros'
+[0.117s] DEBUG:colcon.colcon_core.package_identification:Package 'uav_simulator' with type 'ros.ament_cmake' and name 'uav_simulator'
+[0.117s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.117s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.117s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.117s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.117s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.128s] Level 5:colcon.colcon_core.verb:set package 'firmware' build argument 'cmake_args' from command line to 'None'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'firmware' build argument 'cmake_target' from command line to 'None'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'firmware' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'firmware' build argument 'cmake_clean_cache' from command line to 'False'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'firmware' build argument 'cmake_clean_first' from command line to 'False'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'firmware' build argument 'cmake_force_configure' from command line to 'False'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'firmware' build argument 'ament_cmake_args' from command line to 'None'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'firmware' build argument 'catkin_cmake_args' from command line to 'None'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'firmware' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.129s] DEBUG:colcon.colcon_core.verb:Building package 'firmware' with the following arguments: {'ament_cmake_args': None, 'build_base': '/ros_ws/src/build/firmware', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/ros_ws/src/install/firmware', 'merge_install': False, 'path': '/ros_ws/src/firmware', 'symlink_install': False, 'test_result_base': None}
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'libkdtp' build argument 'cmake_args' from command line to 'None'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'libkdtp' build argument 'cmake_target' from command line to 'None'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'libkdtp' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'libkdtp' build argument 'cmake_clean_cache' from command line to 'False'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'libkdtp' build argument 'cmake_clean_first' from command line to 'False'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'libkdtp' build argument 'cmake_force_configure' from command line to 'False'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'libkdtp' build argument 'ament_cmake_args' from command line to 'None'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'libkdtp' build argument 'catkin_cmake_args' from command line to 'None'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'libkdtp' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.129s] DEBUG:colcon.colcon_core.verb:Building package 'libkdtp' with the following arguments: {'ament_cmake_args': None, 'build_base': '/ros_ws/src/build/libkdtp', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/ros_ws/src/install/libkdtp', 'merge_install': False, 'path': '/ros_ws/src/libkdtp', 'symlink_install': False, 'test_result_base': None}
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'maneuver' build argument 'cmake_args' from command line to 'None'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'maneuver' build argument 'cmake_target' from command line to 'None'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'maneuver' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'maneuver' build argument 'cmake_clean_cache' from command line to 'False'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'maneuver' build argument 'cmake_clean_first' from command line to 'False'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'maneuver' build argument 'cmake_force_configure' from command line to 'False'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'maneuver' build argument 'ament_cmake_args' from command line to 'None'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'maneuver' build argument 'catkin_cmake_args' from command line to 'None'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'maneuver' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.129s] DEBUG:colcon.colcon_core.verb:Building package 'maneuver' with the following arguments: {'ament_cmake_args': None, 'build_base': '/ros_ws/src/build/maneuver', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/ros_ws/src/install/maneuver', 'merge_install': False, 'path': '/ros_ws/src/maneuver', 'symlink_install': False, 'test_result_base': None}
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'controller' build argument 'cmake_args' from command line to 'None'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'controller' build argument 'cmake_target' from command line to 'None'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'controller' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'controller' build argument 'cmake_clean_cache' from command line to 'False'
+[0.129s] Level 5:colcon.colcon_core.verb:set package 'controller' build argument 'cmake_clean_first' from command line to 'False'
+[0.130s] Level 5:colcon.colcon_core.verb:set package 'controller' build argument 'cmake_force_configure' from command line to 'False'
+[0.130s] Level 5:colcon.colcon_core.verb:set package 'controller' build argument 'ament_cmake_args' from command line to 'None'
+[0.130s] Level 5:colcon.colcon_core.verb:set package 'controller' build argument 'catkin_cmake_args' from command line to 'None'
+[0.130s] Level 5:colcon.colcon_core.verb:set package 'controller' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.130s] DEBUG:colcon.colcon_core.verb:Building package 'controller' with the following arguments: {'ament_cmake_args': None, 'build_base': '/ros_ws/src/build/controller', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/ros_ws/src/install/controller', 'merge_install': False, 'path': '/ros_ws/src/controller', 'symlink_install': False, 'test_result_base': None}
+[0.130s] Level 5:colcon.colcon_core.verb:set package 'uav_simulator' build argument 'cmake_args' from command line to 'None'
+[0.130s] Level 5:colcon.colcon_core.verb:set package 'uav_simulator' build argument 'cmake_target' from command line to 'None'
+[0.130s] Level 5:colcon.colcon_core.verb:set package 'uav_simulator' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.130s] Level 5:colcon.colcon_core.verb:set package 'uav_simulator' build argument 'cmake_clean_cache' from command line to 'False'
+[0.130s] Level 5:colcon.colcon_core.verb:set package 'uav_simulator' build argument 'cmake_clean_first' from command line to 'False'
+[0.130s] Level 5:colcon.colcon_core.verb:set package 'uav_simulator' build argument 'cmake_force_configure' from command line to 'False'
+[0.130s] Level 5:colcon.colcon_core.verb:set package 'uav_simulator' build argument 'ament_cmake_args' from command line to 'None'
+[0.130s] Level 5:colcon.colcon_core.verb:set package 'uav_simulator' build argument 'catkin_cmake_args' from command line to 'None'
+[0.130s] Level 5:colcon.colcon_core.verb:set package 'uav_simulator' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.130s] DEBUG:colcon.colcon_core.verb:Building package 'uav_simulator' with the following arguments: {'ament_cmake_args': None, 'build_base': '/ros_ws/src/build/uav_simulator', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/ros_ws/src/install/uav_simulator', 'merge_install': False, 'path': '/ros_ws/src/uav_simulator', 'symlink_install': False, 'test_result_base': None}
+[0.130s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.130s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.131s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/ros_ws/src/libkdtp' with build type 'ament_cmake'
+[0.131s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/ros_ws/src/libkdtp'
+[0.132s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.132s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.132s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.133s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/ros_ws/install/my_ros2_package' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.133s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/ros_ws/install/my_ros2_package' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.135s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/ros_ws/src/firmware' with build type 'ament_cmake'
+[0.135s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/ros_ws/src/firmware'
+[0.135s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.135s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.139s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/ros_ws/src/build/libkdtp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /ros_ws/src/build/libkdtp -- -j16 -l16
+[0.141s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/ros_ws/src/build/firmware': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /ros_ws/src/firmware -DCMAKE_INSTALL_PREFIX=/ros_ws/src/install/firmware
+[0.186s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/ros_ws/src/build/libkdtp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /ros_ws/src/build/libkdtp -- -j16 -l16
+[0.202s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/ros_ws/src/build/libkdtp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /ros_ws/src/build/libkdtp
+[0.217s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(libkdtp)
+[0.217s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/ros_ws/src/build/libkdtp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /ros_ws/src/build/libkdtp
+[0.219s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/install/libkdtp' for CMake module files
+[0.219s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/install/libkdtp' for CMake config files
+[0.219s] Level 1:colcon.colcon_core.shell:create_environment_hook('libkdtp', 'cmake_prefix_path')
+[0.219s] INFO:colcon.colcon_core.shell:Creating environment hook '/ros_ws/src/install/libkdtp/share/libkdtp/hook/cmake_prefix_path.ps1'
+[0.220s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/ros_ws/src/install/libkdtp/share/libkdtp/hook/cmake_prefix_path.dsv'
+[0.220s] INFO:colcon.colcon_core.shell:Creating environment hook '/ros_ws/src/install/libkdtp/share/libkdtp/hook/cmake_prefix_path.sh'
+[0.221s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/install/libkdtp/lib'
+[0.221s] Level 1:colcon.colcon_core.shell:create_environment_hook('libkdtp', 'ld_library_path_lib')
+[0.222s] INFO:colcon.colcon_core.shell:Creating environment hook '/ros_ws/src/install/libkdtp/share/libkdtp/hook/ld_library_path_lib.ps1'
+[0.222s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/ros_ws/src/install/libkdtp/share/libkdtp/hook/ld_library_path_lib.dsv'
+[0.222s] INFO:colcon.colcon_core.shell:Creating environment hook '/ros_ws/src/install/libkdtp/share/libkdtp/hook/ld_library_path_lib.sh'
+[0.222s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/install/libkdtp/bin'
+[0.222s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/install/libkdtp/lib/pkgconfig/libkdtp.pc'
+[0.224s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/install/libkdtp/lib/python3.12/site-packages'
+[0.224s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/install/libkdtp/bin'
+[0.224s] INFO:colcon.colcon_core.shell:Creating package script '/ros_ws/src/install/libkdtp/share/libkdtp/package.ps1'
+[0.224s] INFO:colcon.colcon_core.shell:Creating package descriptor '/ros_ws/src/install/libkdtp/share/libkdtp/package.dsv'
+[0.225s] INFO:colcon.colcon_core.shell:Creating package script '/ros_ws/src/install/libkdtp/share/libkdtp/package.sh'
+[0.225s] INFO:colcon.colcon_core.shell:Creating package script '/ros_ws/src/install/libkdtp/share/libkdtp/package.bash'
+[0.225s] INFO:colcon.colcon_core.shell:Creating package script '/ros_ws/src/install/libkdtp/share/libkdtp/package.zsh'
+[0.226s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/ros_ws/src/install/libkdtp/share/colcon-core/packages/libkdtp)
+[0.226s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(libkdtp)
+[0.226s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/install/libkdtp' for CMake module files
+[0.226s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/install/libkdtp' for CMake config files
+[0.226s] Level 1:colcon.colcon_core.shell:create_environment_hook('libkdtp', 'cmake_prefix_path')
+[0.226s] INFO:colcon.colcon_core.shell:Creating environment hook '/ros_ws/src/install/libkdtp/share/libkdtp/hook/cmake_prefix_path.ps1'
+[0.227s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/ros_ws/src/install/libkdtp/share/libkdtp/hook/cmake_prefix_path.dsv'
+[0.227s] INFO:colcon.colcon_core.shell:Creating environment hook '/ros_ws/src/install/libkdtp/share/libkdtp/hook/cmake_prefix_path.sh'
+[0.227s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/install/libkdtp/lib'
+[0.227s] Level 1:colcon.colcon_core.shell:create_environment_hook('libkdtp', 'ld_library_path_lib')
+[0.227s] INFO:colcon.colcon_core.shell:Creating environment hook '/ros_ws/src/install/libkdtp/share/libkdtp/hook/ld_library_path_lib.ps1'
+[0.227s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/ros_ws/src/install/libkdtp/share/libkdtp/hook/ld_library_path_lib.dsv'
+[0.228s] INFO:colcon.colcon_core.shell:Creating environment hook '/ros_ws/src/install/libkdtp/share/libkdtp/hook/ld_library_path_lib.sh'
+[0.228s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/install/libkdtp/bin'
+[0.228s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/install/libkdtp/lib/pkgconfig/libkdtp.pc'
+[0.228s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/install/libkdtp/lib/python3.12/site-packages'
+[0.228s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/install/libkdtp/bin'
+[0.228s] INFO:colcon.colcon_core.shell:Creating package script '/ros_ws/src/install/libkdtp/share/libkdtp/package.ps1'
+[0.229s] INFO:colcon.colcon_core.shell:Creating package descriptor '/ros_ws/src/install/libkdtp/share/libkdtp/package.dsv'
+[0.229s] INFO:colcon.colcon_core.shell:Creating package script '/ros_ws/src/install/libkdtp/share/libkdtp/package.sh'
+[0.229s] INFO:colcon.colcon_core.shell:Creating package script '/ros_ws/src/install/libkdtp/share/libkdtp/package.bash'
+[0.229s] INFO:colcon.colcon_core.shell:Creating package script '/ros_ws/src/install/libkdtp/share/libkdtp/package.zsh'
+[0.229s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/ros_ws/src/install/libkdtp/share/colcon-core/packages/libkdtp)
+[0.230s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/ros_ws/src/maneuver' with build type 'ament_cmake'
+[0.230s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/ros_ws/src/maneuver'
+[0.230s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.230s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.235s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/ros_ws/src/build/maneuver': AMENT_PREFIX_PATH=/ros_ws/src/install/libkdtp:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/ros_ws/src/install/libkdtp:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy LD_LIBRARY_PATH=/ros_ws/src/install/libkdtp/lib:${LD_LIBRARY_PATH} /usr/bin/cmake /ros_ws/src/maneuver -DCMAKE_INSTALL_PREFIX=/ros_ws/src/install/maneuver
+[0.557s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/ros_ws/src/build/firmware' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /ros_ws/src/firmware -DCMAKE_INSTALL_PREFIX=/ros_ws/src/install/firmware
+[0.563s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(firmware)
+[0.563s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/install/firmware' for CMake module files
+[0.564s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/install/firmware' for CMake config files
+[0.564s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/install/firmware/bin'
+[0.564s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/install/firmware/lib/pkgconfig/firmware.pc'
+[0.564s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/install/firmware/lib/python3.12/site-packages'
+[0.564s] Level 1:colcon.colcon_core.environment:checking '/ros_ws/src/install/firmware/bin'
+[0.564s] INFO:colcon.colcon_core.shell:Creating package script '/ros_ws/src/install/firmware/share/firmware/package.ps1'
+[0.564s] INFO:colcon.colcon_core.shell:Creating package descriptor '/ros_ws/src/install/firmware/share/firmware/package.dsv'
+[0.565s] INFO:colcon.colcon_core.shell:Creating package script '/ros_ws/src/install/firmware/share/firmware/package.sh'
+[0.565s] INFO:colcon.colcon_core.shell:Creating package script '/ros_ws/src/install/firmware/share/firmware/package.bash'
+[0.565s] INFO:colcon.colcon_core.shell:Creating package script '/ros_ws/src/install/firmware/share/firmware/package.zsh'
+[0.565s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/ros_ws/src/install/firmware/share/colcon-core/packages/firmware)
+[4.685s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[4.686s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[4.686s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '1'
+[4.686s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[4.689s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[4.689s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[4.689s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[4.689s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[4.689s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.NotSupported: Unable to autolaunch a dbus-daemon without a $DISPLAY for X11
+[4.689s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[4.690s] INFO:colcon.colcon_core.shell:Creating prefix script '/ros_ws/src/install/local_setup.ps1'
+[4.690s] INFO:colcon.colcon_core.shell:Creating prefix util module '/ros_ws/src/install/_local_setup_util_ps1.py'
+[4.691s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/ros_ws/src/install/setup.ps1'
+[4.691s] INFO:colcon.colcon_core.shell:Creating prefix script '/ros_ws/src/install/local_setup.sh'
+[4.692s] INFO:colcon.colcon_core.shell:Creating prefix util module '/ros_ws/src/install/_local_setup_util_sh.py'
+[4.692s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/ros_ws/src/install/setup.sh'
+[4.693s] INFO:colcon.colcon_core.shell:Creating prefix script '/ros_ws/src/install/local_setup.bash'
+[4.693s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/ros_ws/src/install/setup.bash'
+[4.693s] INFO:colcon.colcon_core.shell:Creating prefix script '/ros_ws/src/install/local_setup.zsh'
+[4.694s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/ros_ws/src/install/setup.zsh'

@@ -1,0 +1,16 @@
+/ros_ws/src/install/firmware/share/firmware//launch/simulate.launch.py
+/ros_ws/src/install/firmware/share/ament_index/resource_index/package_run_dependencies/firmware
+/ros_ws/src/install/firmware/share/ament_index/resource_index/parent_prefix_path/firmware
+/ros_ws/src/install/firmware/share/firmware/environment/ament_prefix_path.sh
+/ros_ws/src/install/firmware/share/firmware/environment/ament_prefix_path.dsv
+/ros_ws/src/install/firmware/share/firmware/environment/path.sh
+/ros_ws/src/install/firmware/share/firmware/environment/path.dsv
+/ros_ws/src/install/firmware/share/firmware/local_setup.bash
+/ros_ws/src/install/firmware/share/firmware/local_setup.sh
+/ros_ws/src/install/firmware/share/firmware/local_setup.zsh
+/ros_ws/src/install/firmware/share/firmware/local_setup.dsv
+/ros_ws/src/install/firmware/share/firmware/package.dsv
+/ros_ws/src/install/firmware/share/ament_index/resource_index/packages/firmware
+/ros_ws/src/install/firmware/share/firmware/cmake/firmwareConfig.cmake
+/ros_ws/src/install/firmware/share/firmware/cmake/firmwareConfig-version.cmake
+/ros_ws/src/install/firmware/share/firmware/package.xml

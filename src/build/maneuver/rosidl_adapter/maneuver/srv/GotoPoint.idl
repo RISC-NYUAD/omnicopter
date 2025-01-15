@@ -1,0 +1,23 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from maneuver/srv/GotoPoint.srv
+// generated code does not contain a copyright notice
+
+
+module maneuver {
+  module srv {
+    struct GotoPoint_Request {
+      float x;
+
+      float y;
+
+      float z;
+
+      float yaw;
+
+      float duration;
+    };
+    struct GotoPoint_Response {
+      boolean status;
+    };
+  };
+};

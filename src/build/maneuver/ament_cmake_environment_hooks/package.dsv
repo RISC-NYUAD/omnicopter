@@ -1,0 +1,4 @@
+source;share/maneuver/local_setup.bash
+source;share/maneuver/local_setup.dsv
+source;share/maneuver/local_setup.sh
+source;share/maneuver/local_setup.zsh

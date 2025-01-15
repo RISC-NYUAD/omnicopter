@@ -1,0 +1,143 @@
+[0.006s] Invoking command in '/ros_ws/src/build/maneuver': AMENT_PREFIX_PATH=/ros_ws/src/install/libkdtp:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/ros_ws/src/install/libkdtp:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy LD_LIBRARY_PATH=/ros_ws/src/install/libkdtp/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --build /ros_ws/src/build/maneuver -- -j16 -l16
+[0.044s] [  1%] [34m[1mGenerating type hashes for ROS interfaces[0m
+[0.050s] [  1%] Built target ament_cmake_python_copy_maneuver
+[0.179s] running egg_info
+[0.180s] creating maneuver.egg-info
+[0.190s] writing maneuver.egg-info/PKG-INFO
+[0.190s] writing dependency_links to maneuver.egg-info/dependency_links.txt
+[0.190s] writing top-level names to maneuver.egg-info/top_level.txt
+[0.190s] writing manifest file 'maneuver.egg-info/SOURCES.txt'
+[0.220s] reading manifest file 'maneuver.egg-info/SOURCES.txt'
+[0.220s] writing manifest file 'maneuver.egg-info/SOURCES.txt'
+[0.239s] [  1%] Built target ament_cmake_python_build_maneuver_egg
+[0.245s] [  1%] Built target maneuver__rosidl_generator_type_description
+[0.251s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[0.256s] [  2%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[0.827s] [  2%] Built target maneuver__cpp
+[0.946s] [  3%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/lift_off__type_support.c.o[0m
+[0.947s] [  4%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/msg/detail/full_pose__functions.c.o[0m
+[0.947s] [  5%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/msg/detail/full_pose__type_support.c.o[0m
+[0.947s] [  6%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/lift_off__description.c.o[0m
+[0.947s] [  7%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/msg/detail/full_pose__description.c.o[0m
+[0.947s] [  8%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/arm_disarm__description.c.o[0m
+[0.947s] [  9%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/arm_disarm__functions.c.o[0m
+[0.948s] [  9%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/lift_off__functions.c.o[0m
+[0.948s] [ 10%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/goto_point__description.c.o[0m
+[0.948s] [ 11%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/arm_disarm__type_support.c.o[0m
+[0.948s] [ 13%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/goto6_d_point__type_support.c.o[0m
+[0.948s] [ 13%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/goto6_d_point__description.c.o[0m
+[0.948s] [ 14%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/goto_point__functions.c.o[0m
+[0.949s] [ 15%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/ellipse5_d__description.c.o[0m
+[0.951s] [ 15%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/goto_point__type_support.c.o[0m
+[0.953s] [ 16%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/goto6_d_point__functions.c.o[0m
+[0.990s] [ 17%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/ellipse5_d__functions.c.o[0m
+[0.995s] [ 19%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/rotate_to__type_support.c.o[0m
+[0.995s] [ 19%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/rotate_to__description.c.o[0m
+[0.995s] [ 19%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/ellipse5_d__type_support.c.o[0m
+[0.995s] [ 20%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/rotate_to__functions.c.o[0m
+[1.004s] [ 21%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/land__description.c.o[0m
+[1.004s] [ 22%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/land__functions.c.o[0m
+[1.006s] [ 23%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/land__type_support.c.o[0m
+[1.006s] [ 24%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/full_flip__description.c.o[0m
+[1.006s] [ 25%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/full_flip__functions.c.o[0m
+[1.006s] [ 25%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_c.dir/rosidl_generator_c/maneuver/srv/detail/full_flip__type_support.c.o[0m
+[1.077s] [ 26%] [32m[1mLinking C shared library libmaneuver__rosidl_generator_c.so[0m
+[1.122s] [ 26%] Built target maneuver__rosidl_generator_c
+[1.137s] [ 27%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[1.138s] [ 28%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[1.138s] [ 29%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[1.140s] [ 30%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[1.140s] [ 32%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[1.140s] [ 32%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[1.501s] [ 32%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_c.dir/rosidl_typesupport_c/maneuver/msg/full_pose__type_support.cpp.o[0m
+[1.502s] [ 33%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_c.dir/rosidl_typesupport_c/maneuver/srv/arm_disarm__type_support.cpp.o[0m
+[1.502s] [ 34%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_c.dir/rosidl_typesupport_c/maneuver/srv/lift_off__type_support.cpp.o[0m
+[1.502s] [ 36%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_c.dir/rosidl_typesupport_c/maneuver/srv/ellipse5_d__type_support.cpp.o[0m
+[1.502s] [ 35%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_c.dir/rosidl_typesupport_c/maneuver/srv/goto6_d_point__type_support.cpp.o[0m
+[1.502s] [ 37%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_c.dir/rosidl_typesupport_c/maneuver/srv/goto_point__type_support.cpp.o[0m
+[1.503s] [ 38%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_c.dir/rosidl_typesupport_c/maneuver/srv/rotate_to__type_support.cpp.o[0m
+[1.503s] [ 39%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_c.dir/rosidl_typesupport_c/maneuver/srv/full_flip__type_support.cpp.o[0m
+[1.503s] [ 39%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_c.dir/rosidl_typesupport_c/maneuver/srv/land__type_support.cpp.o[0m
+[1.538s] [ 40%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/maneuver/msg/full_pose__type_support.cpp.o[0m
+[1.540s] [ 41%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/maneuver/srv/lift_off__type_support.cpp.o[0m
+[1.547s] [ 42%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/maneuver/srv/arm_disarm__type_support.cpp.o[0m
+[1.554s] [ 44%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/maneuver/srv/goto_point__type_support.cpp.o[0m
+[1.555s] [ 44%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/maneuver/srv/goto6_d_point__type_support.cpp.o[0m
+[1.555s] [ 44%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/maneuver/srv/ellipse5_d__type_support.cpp.o[0m
+[1.557s] [ 45%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/maneuver/srv/land__type_support.cpp.o[0m
+[1.557s] [ 46%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/maneuver/srv/rotate_to__type_support.cpp.o[0m
+[1.558s] [ 47%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/maneuver/srv/full_flip__type_support.cpp.o[0m
+[1.560s] [ 48%] [32m[1mLinking CXX shared library libmaneuver__rosidl_typesupport_c.so[0m
+[1.604s] [ 48%] Built target maneuver__rosidl_typesupport_c
+[1.736s] [ 51%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/maneuver/srv/detail/arm_disarm__type_support.cpp.o[0m
+[1.736s] [ 51%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/maneuver/srv/detail/goto_point__type_support.cpp.o[0m
+[1.736s] [ 51%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/maneuver/msg/detail/full_pose__type_support.cpp.o[0m
+[1.737s] [ 51%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/maneuver/srv/detail/lift_off__type_support.cpp.o[0m
+[1.946s] [ 51%] [32mBuilding C object CMakeFiles/maneuver__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/maneuver/msg/detail/full_pose__type_support.c.o[0m
+[1.960s] [ 53%] [32mBuilding C object CMakeFiles/maneuver__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/maneuver/srv/detail/lift_off__type_support.c.o[0m
+[1.960s] [ 53%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/maneuver/srv/detail/goto6_d_point__type_support.cpp.o[0m
+[1.981s] [ 54%] [32mBuilding C object CMakeFiles/maneuver__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/maneuver/srv/detail/arm_disarm__type_support.c.o[0m
+[1.998s] [ 55%] [32mBuilding C object CMakeFiles/maneuver__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/maneuver/srv/detail/goto_point__type_support.c.o[0m
+[2.016s] [ 56%] [32mBuilding C object CMakeFiles/maneuver__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/maneuver/srv/detail/goto6_d_point__type_support.c.o[0m
+[2.032s] [ 57%] [32mBuilding C object CMakeFiles/maneuver__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/maneuver/srv/detail/ellipse5_d__type_support.c.o[0m
+[2.039s] [ 58%] [32mBuilding C object CMakeFiles/maneuver__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/maneuver/srv/detail/rotate_to__type_support.c.o[0m
+[2.046s] [ 58%] [32mBuilding C object CMakeFiles/maneuver__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/maneuver/srv/detail/land__type_support.c.o[0m
+[2.046s] [ 59%] [32mBuilding C object CMakeFiles/maneuver__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/maneuver/srv/detail/full_flip__type_support.c.o[0m
+[2.047s] [ 60%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/maneuver/srv/detail/ellipse5_d__type_support.cpp.o[0m
+[2.048s] [ 61%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/maneuver/srv/detail/rotate_to__type_support.cpp.o[0m
+[2.056s] [ 63%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/maneuver/srv/detail/land__type_support.cpp.o[0m
+[2.056s] [ 63%] [32m[1mLinking CXX shared library libmaneuver__rosidl_typesupport_cpp.so[0m
+[2.073s] [ 64%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/maneuver/srv/detail/full_flip__type_support.cpp.o[0m
+[2.102s] [ 65%] [32m[1mLinking C shared library libmaneuver__rosidl_typesupport_introspection_c.so[0m
+[2.140s] [ 65%] Built target maneuver__rosidl_typesupport_introspection_c
+[2.182s] [ 65%] Built target maneuver__rosidl_typesupport_cpp
+[2.191s] [ 66%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/maneuver/msg/detail/dds_fastrtps/full_pose__type_support.cpp.o[0m
+[2.197s] [ 67%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/maneuver/srv/detail/dds_fastrtps/lift_off__type_support.cpp.o[0m
+[2.202s] [ 67%] [32mBuilding CXX object CMakeFiles/maneuver_node.dir/src/maneuver.cpp.o[0m
+[2.204s] [ 68%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/maneuver/srv/detail/dds_fastrtps/arm_disarm__type_support.cpp.o[0m
+[2.204s] [ 68%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/maneuver/srv/detail/dds_fastrtps/goto_point__type_support.cpp.o[0m
+[2.212s] [ 70%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/maneuver/srv/detail/dds_fastrtps/goto6_d_point__type_support.cpp.o[0m
+[2.212s] [ 70%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/maneuver/srv/detail/dds_fastrtps/ellipse5_d__type_support.cpp.o[0m
+[2.223s] [ 70%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/maneuver/msg/detail/full_pose__type_support_c.cpp.o[0m
+[2.231s] [ 71%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/maneuver/srv/detail/lift_off__type_support_c.cpp.o[0m
+[2.272s] [ 72%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/maneuver/srv/detail/dds_fastrtps/rotate_to__type_support.cpp.o[0m
+[2.288s] [ 73%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/maneuver/srv/detail/dds_fastrtps/land__type_support.cpp.o[0m
+[2.453s] [ 74%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/maneuver/srv/detail/dds_fastrtps/full_flip__type_support.cpp.o[0m
+[2.576s] [ 75%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/maneuver/srv/detail/arm_disarm__type_support_c.cpp.o[0m
+[2.579s] [ 76%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/maneuver/srv/detail/goto_point__type_support_c.cpp.o[0m
+[2.587s] [ 77%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/maneuver/srv/detail/goto6_d_point__type_support_c.cpp.o[0m
+[2.607s] [ 78%] [32m[1mLinking CXX shared library libmaneuver__rosidl_typesupport_introspection_cpp.so[0m
+[2.718s] [ 78%] Built target maneuver__rosidl_typesupport_introspection_cpp
+[2.728s] [ 79%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/maneuver/srv/detail/ellipse5_d__type_support_c.cpp.o[0m
+[2.811s] [ 80%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/maneuver/srv/detail/rotate_to__type_support_c.cpp.o[0m
+[2.833s] [ 80%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/maneuver/srv/detail/land__type_support_c.cpp.o[0m
+[2.885s] [ 81%] [32mBuilding CXX object CMakeFiles/maneuver__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/maneuver/srv/detail/full_flip__type_support_c.cpp.o[0m
+[3.233s] [ 82%] [32m[1mLinking CXX shared library libmaneuver__rosidl_typesupport_fastrtps_cpp.so[0m
+[3.293s] [ 82%] Built target maneuver__rosidl_typesupport_fastrtps_cpp
+[3.365s] [ 83%] [32m[1mLinking CXX shared library libmaneuver__rosidl_typesupport_fastrtps_c.so[0m
+[3.397s] [ 83%] Built target maneuver__rosidl_typesupport_fastrtps_c
+[3.408s] [ 83%] Built target maneuver
+[3.419s] [ 84%] [34m[1mGenerating Python code for ROS interfaces[0m
+[4.437s] [ 84%] Built target maneuver__py
+[4.449s] [ 86%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_py.dir/rosidl_generator_py/maneuver/msg/_full_pose_s.c.o[0m
+[4.449s] [ 86%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_py.dir/rosidl_generator_py/maneuver/srv/_arm_disarm_s.c.o[0m
+[4.449s] [ 87%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_py.dir/rosidl_generator_py/maneuver/srv/_goto_point_s.c.o[0m
+[4.450s] [ 88%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_py.dir/rosidl_generator_py/maneuver/srv/_goto6_d_point_s.c.o[0m
+[4.450s] [ 89%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_py.dir/rosidl_generator_py/maneuver/srv/_rotate_to_s.c.o[0m
+[4.450s] [ 90%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_py.dir/rosidl_generator_py/maneuver/srv/_lift_off_s.c.o[0m
+[4.451s] [ 90%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_py.dir/rosidl_generator_py/maneuver/srv/_ellipse5_d_s.c.o[0m
+[4.451s] [ 91%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_py.dir/rosidl_generator_py/maneuver/srv/_land_s.c.o[0m
+[4.451s] [ 92%] [32mBuilding C object CMakeFiles/maneuver__rosidl_generator_py.dir/rosidl_generator_py/maneuver/srv/_full_flip_s.c.o[0m
+[4.630s] [ 93%] [32m[1mLinking C shared library libmaneuver__rosidl_generator_py.so[0m
+[4.658s] [ 93%] Built target maneuver__rosidl_generator_py
+[4.670s] [ 96%] [32mBuilding C object CMakeFiles/maneuver_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/maneuver/_maneuver_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[4.670s] [ 96%] [32mBuilding C object CMakeFiles/maneuver_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/maneuver/_maneuver_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[4.670s] [ 96%] [32mBuilding C object CMakeFiles/maneuver_s__rosidl_typesupport_c.dir/rosidl_generator_py/maneuver/_maneuver_s.ep.rosidl_typesupport_c.c.o[0m
+[4.795s] [ 98%] [32m[1mLinking C shared module rosidl_generator_py/maneuver/maneuver_s__rosidl_typesupport_c.so[0m
+[4.795s] [ 98%] [32m[1mLinking C shared module rosidl_generator_py/maneuver/maneuver_s__rosidl_typesupport_introspection_c.so[0m
+[4.795s] [ 99%] [32m[1mLinking C shared module rosidl_generator_py/maneuver/maneuver_s__rosidl_typesupport_fastrtps_c.so[0m
+[4.815s] [ 99%] Built target maneuver_s__rosidl_typesupport_c
+[4.815s] [ 99%] Built target maneuver_s__rosidl_typesupport_introspection_c
+[4.815s] [ 99%] Built target maneuver_s__rosidl_typesupport_fastrtps_c
+[13.226s] [100%] [32m[1mLinking CXX executable maneuver_node[0m
+[13.531s] [100%] Built target maneuver_node

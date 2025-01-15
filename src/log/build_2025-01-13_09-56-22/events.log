@@ -1,0 +1,767 @@
+[0.000000] (-) TimerEvent: {}
+[0.000250] (firmware) JobQueued: {'identifier': 'firmware', 'dependencies': OrderedDict()}
+[0.000597] (libkdtp) JobQueued: {'identifier': 'libkdtp', 'dependencies': OrderedDict()}
+[0.000626] (maneuver) JobQueued: {'identifier': 'maneuver', 'dependencies': OrderedDict({'libkdtp': '/ros_ws/src/install/libkdtp'})}
+[0.000669] (controller) JobQueued: {'identifier': 'controller', 'dependencies': OrderedDict({'libkdtp': '/ros_ws/src/install/libkdtp', 'maneuver': '/ros_ws/src/install/maneuver'})}
+[0.000687] (uav_simulator) JobQueued: {'identifier': 'uav_simulator', 'dependencies': OrderedDict({'libkdtp': '/ros_ws/src/install/libkdtp', 'maneuver': '/ros_ws/src/install/maneuver'})}
+[0.000705] (libkdtp) JobStarted: {'identifier': 'libkdtp'}
+[0.005884] (firmware) JobStarted: {'identifier': 'firmware'}
+[0.009799] (libkdtp) JobProgress: {'identifier': 'libkdtp', 'progress': 'cmake'}
+[0.010235] (libkdtp) JobProgress: {'identifier': 'libkdtp', 'progress': 'build'}
+[0.010667] (libkdtp) Command: {'cmd': ['/usr/bin/cmake', '--build', '/ros_ws/src/build/libkdtp', '--', '-j16', '-l16'], 'cwd': '/ros_ws/src/build/libkdtp', 'env': OrderedDict({'HOSTNAME': 'ADUAED19005LPLX', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/ros_ws/src/install/uav_simulator/lib:/ros_ws/src/install/controller/lib:/ros_ws/src/install/maneuver/lib:/ros_ws/src/install/libkdtp/lib:/ros_ws/install/uav_simulator/lib:/ros_ws/install/my_ros2_package/lib:/ros_ws/install/controller/lib:/ros_ws/install/maneuver/lib:/ros_ws/install/libkdtp/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/root', 'OLDPWD': '/ros_ws/src/firmware/launch', 'ROS_PYTHON_VERSION': '3', 'COLCON_PREFIX_PATH': '/ros_ws/src/install:/ros_ws/install', 'ROS_DISTRO': 'jazzy', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/ros_ws/src/install/uav_simulator:/ros_ws/src/install/controller:/ros_ws/src/install/maneuver:/ros_ws/src/install/libkdtp:/ros_ws/src/install/firmware:/ros_ws/install/firmware:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy', 'DEBIAN_FRONTEND': 'noninteractive', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/ros_ws/src/build/libkdtp', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/ros_ws/src/install/controller/lib/python3.12/site-packages:/ros_ws/src/install/maneuver/lib/python3.12/site-packages:/ros_ws/install/my_ros2_package/lib/python3.12/site-packages:/ros_ws/install/controller/lib/python3.12/site-packages:/ros_ws/install/maneuver/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/ros_ws/src/install/uav_simulator:/ros_ws/src/install/controller:/ros_ws/src/install/maneuver:/ros_ws/src/install/libkdtp:/ros_ws/src/install/firmware:/ros_ws/install/firmware:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.012947] (firmware) JobProgress: {'identifier': 'firmware', 'progress': 'cmake'}
+[0.013464] (firmware) JobProgress: {'identifier': 'firmware', 'progress': 'build'}
+[0.013709] (firmware) Command: {'cmd': ['/usr/bin/cmake', '--build', '/ros_ws/src/build/firmware', '--', '-j16', '-l16'], 'cwd': '/ros_ws/src/build/firmware', 'env': OrderedDict({'HOSTNAME': 'ADUAED19005LPLX', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/ros_ws/src/install/uav_simulator/lib:/ros_ws/src/install/controller/lib:/ros_ws/src/install/maneuver/lib:/ros_ws/src/install/libkdtp/lib:/ros_ws/install/uav_simulator/lib:/ros_ws/install/my_ros2_package/lib:/ros_ws/install/controller/lib:/ros_ws/install/maneuver/lib:/ros_ws/install/libkdtp/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/root', 'OLDPWD': '/ros_ws/src/firmware/launch', 'ROS_PYTHON_VERSION': '3', 'COLCON_PREFIX_PATH': '/ros_ws/src/install:/ros_ws/install', 'ROS_DISTRO': 'jazzy', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/ros_ws/src/install/uav_simulator:/ros_ws/src/install/controller:/ros_ws/src/install/maneuver:/ros_ws/src/install/libkdtp:/ros_ws/src/install/firmware:/ros_ws/install/firmware:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy', 'DEBIAN_FRONTEND': 'noninteractive', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/ros_ws/src/build/firmware', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/ros_ws/src/install/controller/lib/python3.12/site-packages:/ros_ws/src/install/maneuver/lib/python3.12/site-packages:/ros_ws/install/my_ros2_package/lib/python3.12/site-packages:/ros_ws/install/controller/lib/python3.12/site-packages:/ros_ws/install/maneuver/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/ros_ws/src/install/uav_simulator:/ros_ws/src/install/controller:/ros_ws/src/install/maneuver:/ros_ws/src/install/libkdtp:/ros_ws/src/install/firmware:/ros_ws/install/firmware:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.040163] (firmware) CommandEnded: {'returncode': 0}
+[0.040617] (firmware) JobProgress: {'identifier': 'firmware', 'progress': 'install'}
+[0.045343] (libkdtp) StdoutLine: {'line': b'[100%] Built target libkdtp\n'}
+[0.046625] (firmware) Command: {'cmd': ['/usr/bin/cmake', '--install', '/ros_ws/src/build/firmware'], 'cwd': '/ros_ws/src/build/firmware', 'env': OrderedDict({'HOSTNAME': 'ADUAED19005LPLX', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/ros_ws/src/install/uav_simulator/lib:/ros_ws/src/install/controller/lib:/ros_ws/src/install/maneuver/lib:/ros_ws/src/install/libkdtp/lib:/ros_ws/install/uav_simulator/lib:/ros_ws/install/my_ros2_package/lib:/ros_ws/install/controller/lib:/ros_ws/install/maneuver/lib:/ros_ws/install/libkdtp/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/root', 'OLDPWD': '/ros_ws/src/firmware/launch', 'ROS_PYTHON_VERSION': '3', 'COLCON_PREFIX_PATH': '/ros_ws/src/install:/ros_ws/install', 'ROS_DISTRO': 'jazzy', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/ros_ws/src/install/uav_simulator:/ros_ws/src/install/controller:/ros_ws/src/install/maneuver:/ros_ws/src/install/libkdtp:/ros_ws/src/install/firmware:/ros_ws/install/firmware:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy', 'DEBIAN_FRONTEND': 'noninteractive', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/ros_ws/src/build/firmware', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/ros_ws/src/install/controller/lib/python3.12/site-packages:/ros_ws/src/install/maneuver/lib/python3.12/site-packages:/ros_ws/install/my_ros2_package/lib/python3.12/site-packages:/ros_ws/install/controller/lib/python3.12/site-packages:/ros_ws/install/maneuver/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/ros_ws/src/install/uav_simulator:/ros_ws/src/install/controller:/ros_ws/src/install/maneuver:/ros_ws/src/install/libkdtp:/ros_ws/src/install/firmware:/ros_ws/install/firmware:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.051431] (firmware) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.051564] (firmware) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/firmware/share/firmware//launch\n'}
+[0.051629] (firmware) StdoutLine: {'line': b'-- Installing: /ros_ws/src/install/firmware/share/firmware//launch/simulate.launch.py\n'}
+[0.051696] (firmware) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/firmware/share/ament_index/resource_index/package_run_dependencies/firmware\n'}
+[0.051769] (firmware) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/firmware/share/ament_index/resource_index/parent_prefix_path/firmware\n'}
+[0.051851] (firmware) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/firmware/share/firmware/environment/ament_prefix_path.sh\n'}
+[0.051921] (firmware) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/firmware/share/firmware/environment/ament_prefix_path.dsv\n'}
+[0.052004] (firmware) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/firmware/share/firmware/environment/path.sh\n'}
+[0.052092] (firmware) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/firmware/share/firmware/environment/path.dsv\n'}
+[0.052159] (firmware) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/firmware/share/firmware/local_setup.bash\n'}
+[0.052220] (firmware) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/firmware/share/firmware/local_setup.sh\n'}
+[0.052273] (firmware) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/firmware/share/firmware/local_setup.zsh\n'}
+[0.052380] (firmware) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/firmware/share/firmware/local_setup.dsv\n'}
+[0.052511] (firmware) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/firmware/share/firmware/package.dsv\n'}
+[0.052756] (firmware) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/firmware/share/ament_index/resource_index/packages/firmware\n'}
+[0.052823] (firmware) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/firmware/share/firmware/cmake/firmwareConfig.cmake\n'}
+[0.052916] (firmware) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/firmware/share/firmware/cmake/firmwareConfig-version.cmake\n'}
+[0.053025] (firmware) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/firmware/share/firmware/package.xml\n'}
+[0.053172] (libkdtp) CommandEnded: {'returncode': 0}
+[0.053380] (libkdtp) JobProgress: {'identifier': 'libkdtp', 'progress': 'install'}
+[0.053512] (libkdtp) Command: {'cmd': ['/usr/bin/cmake', '--install', '/ros_ws/src/build/libkdtp'], 'cwd': '/ros_ws/src/build/libkdtp', 'env': OrderedDict({'HOSTNAME': 'ADUAED19005LPLX', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/ros_ws/src/install/uav_simulator/lib:/ros_ws/src/install/controller/lib:/ros_ws/src/install/maneuver/lib:/ros_ws/src/install/libkdtp/lib:/ros_ws/install/uav_simulator/lib:/ros_ws/install/my_ros2_package/lib:/ros_ws/install/controller/lib:/ros_ws/install/maneuver/lib:/ros_ws/install/libkdtp/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/root', 'OLDPWD': '/ros_ws/src/firmware/launch', 'ROS_PYTHON_VERSION': '3', 'COLCON_PREFIX_PATH': '/ros_ws/src/install:/ros_ws/install', 'ROS_DISTRO': 'jazzy', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/ros_ws/src/install/uav_simulator:/ros_ws/src/install/controller:/ros_ws/src/install/maneuver:/ros_ws/src/install/libkdtp:/ros_ws/src/install/firmware:/ros_ws/install/firmware:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy', 'DEBIAN_FRONTEND': 'noninteractive', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/ros_ws/src/build/libkdtp', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/ros_ws/src/install/controller/lib/python3.12/site-packages:/ros_ws/src/install/maneuver/lib/python3.12/site-packages:/ros_ws/install/my_ros2_package/lib/python3.12/site-packages:/ros_ws/install/controller/lib/python3.12/site-packages:/ros_ws/install/maneuver/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/ros_ws/src/install/uav_simulator:/ros_ws/src/install/controller:/ros_ws/src/install/maneuver:/ros_ws/src/install/libkdtp:/ros_ws/src/install/firmware:/ros_ws/install/firmware:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.054360] (firmware) CommandEnded: {'returncode': 0}
+[0.058800] (libkdtp) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.059091] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/share/libkdtp/environment/library_path.sh\n'}
+[0.059427] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/share/libkdtp/environment/library_path.dsv\n'}
+[0.060773] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/include/libkdtp/libkdtp\n'}
+[0.061334] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/include/libkdtp/libkdtp/kdtp.h\n'}
+[0.061416] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/include/libkdtp/libkdtp/libkdtp.h\n'}
+[0.061797] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/lib/liblibkdtp.so\n'}
+[0.061982] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/share/ament_index/resource_index/package_run_dependencies/libkdtp\n'}
+[0.062250] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/share/ament_index/resource_index/parent_prefix_path/libkdtp\n'}
+[0.062328] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/share/libkdtp/environment/ament_prefix_path.sh\n'}
+[0.062466] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/share/libkdtp/environment/ament_prefix_path.dsv\n'}
+[0.062834] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/share/libkdtp/environment/path.sh\n'}
+[0.062911] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/share/libkdtp/environment/path.dsv\n'}
+[0.063046] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/share/libkdtp/local_setup.bash\n'}
+[0.063190] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/share/libkdtp/local_setup.sh\n'}
+[0.063489] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/share/libkdtp/local_setup.zsh\n'}
+[0.063577] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/share/libkdtp/local_setup.dsv\n'}
+[0.063776] (libkdtp) StdoutLine: {'line': b'-- Installing: /ros_ws/src/install/libkdtp/share/libkdtp/package.dsv\n'}
+[0.064070] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/share/ament_index/resource_index/packages/libkdtp\n'}
+[0.064288] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/share/libkdtp/cmake/export_libkdtpExport.cmake\n'}
+[0.064439] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/share/libkdtp/cmake/export_libkdtpExport-noconfig.cmake\n'}
+[0.064543] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/share/libkdtp/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[0.064654] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/share/libkdtp/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[0.064847] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/share/libkdtp/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[0.065141] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/share/libkdtp/cmake/libkdtpConfig.cmake\n'}
+[0.065205] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/share/libkdtp/cmake/libkdtpConfig-version.cmake\n'}
+[0.065385] (libkdtp) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/libkdtp/share/libkdtp/package.xml\n'}
+[0.068375] (firmware) JobEnded: {'identifier': 'firmware', 'rc': 0}
+[0.069094] (libkdtp) CommandEnded: {'returncode': 0}
+[0.077595] (libkdtp) JobEnded: {'identifier': 'libkdtp', 'rc': 0}
+[0.078146] (maneuver) JobStarted: {'identifier': 'maneuver'}
+[0.083827] (maneuver) JobProgress: {'identifier': 'maneuver', 'progress': 'cmake'}
+[0.084208] (maneuver) JobProgress: {'identifier': 'maneuver', 'progress': 'build'}
+[0.084357] (maneuver) Command: {'cmd': ['/usr/bin/cmake', '--build', '/ros_ws/src/build/maneuver', '--', '-j16', '-l16'], 'cwd': '/ros_ws/src/build/maneuver', 'env': OrderedDict({'HOSTNAME': 'ADUAED19005LPLX', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/ros_ws/src/install/libkdtp/lib:/ros_ws/src/install/uav_simulator/lib:/ros_ws/src/install/controller/lib:/ros_ws/src/install/maneuver/lib:/ros_ws/install/uav_simulator/lib:/ros_ws/install/my_ros2_package/lib:/ros_ws/install/controller/lib:/ros_ws/install/maneuver/lib:/ros_ws/install/libkdtp/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/root', 'OLDPWD': '/ros_ws/src/firmware/launch', 'ROS_PYTHON_VERSION': '3', 'COLCON_PREFIX_PATH': '/ros_ws/src/install:/ros_ws/install', 'ROS_DISTRO': 'jazzy', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/ros_ws/src/install/uav_simulator:/ros_ws/src/install/controller:/ros_ws/src/install/maneuver:/ros_ws/src/install/libkdtp:/ros_ws/src/install/firmware:/ros_ws/install/firmware:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy', 'DEBIAN_FRONTEND': 'noninteractive', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/ros_ws/src/build/maneuver', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/ros_ws/src/install/controller/lib/python3.12/site-packages:/ros_ws/src/install/maneuver/lib/python3.12/site-packages:/ros_ws/install/my_ros2_package/lib/python3.12/site-packages:/ros_ws/install/controller/lib/python3.12/site-packages:/ros_ws/install/maneuver/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/ros_ws/src/install/libkdtp:/ros_ws/src/install/uav_simulator:/ros_ws/src/install/controller:/ros_ws/src/install/maneuver:/ros_ws/src/install/firmware:/ros_ws/install/firmware:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.099817] (-) TimerEvent: {}
+[0.121987] (maneuver) StdoutLine: {'line': b'[  1%] Built target maneuver__rosidl_generator_type_description\n'}
+[0.129717] (maneuver) StdoutLine: {'line': b'[  1%] Built target ament_cmake_python_copy_maneuver\n'}
+[0.136877] (maneuver) StdoutLine: {'line': b'[  1%] Built target maneuver__cpp\n'}
+[0.141920] (maneuver) StdoutLine: {'line': b'[ 26%] Built target maneuver__rosidl_generator_c\n'}
+[0.161620] (maneuver) StdoutLine: {'line': b'[ 50%] Built target maneuver__rosidl_typesupport_c\n'}
+[0.161850] (maneuver) StdoutLine: {'line': b'[ 54%] Built target maneuver__rosidl_typesupport_introspection_c\n'}
+[0.162051] (maneuver) StdoutLine: {'line': b'[ 54%] Built target maneuver__rosidl_typesupport_cpp\n'}
+[0.162149] (maneuver) StdoutLine: {'line': b'[ 64%] Built target maneuver__rosidl_typesupport_introspection_cpp\n'}
+[0.164643] (maneuver) StdoutLine: {'line': b'[ 73%] Built target maneuver__rosidl_typesupport_fastrtps_c\n'}
+[0.165622] (maneuver) StdoutLine: {'line': b'[ 83%] Built target maneuver__rosidl_typesupport_fastrtps_cpp\n'}
+[0.179600] (maneuver) StdoutLine: {'line': b'[ 83%] Built target maneuver\n'}
+[0.182311] (maneuver) StdoutLine: {'line': b'[ 84%] Built target maneuver_node\n'}
+[0.193776] (maneuver) StdoutLine: {'line': b'[ 85%] Built target maneuver__py\n'}
+[0.199896] (-) TimerEvent: {}
+[0.211209] (maneuver) StdoutLine: {'line': b'[ 94%] Built target maneuver__rosidl_generator_py\n'}
+[0.226882] (maneuver) StdoutLine: {'line': b'[ 98%] Built target maneuver_s__rosidl_typesupport_fastrtps_c\n'}
+[0.227123] (maneuver) StdoutLine: {'line': b'[ 98%] Built target maneuver_s__rosidl_typesupport_introspection_c\n'}
+[0.227196] (maneuver) StdoutLine: {'line': b'[100%] Built target maneuver_s__rosidl_typesupport_c\n'}
+[0.289235] (maneuver) StdoutLine: {'line': b'running egg_info\n'}
+[0.299981] (-) TimerEvent: {}
+[0.300761] (maneuver) StdoutLine: {'line': b'writing maneuver.egg-info/PKG-INFO\n'}
+[0.300917] (maneuver) StdoutLine: {'line': b'writing dependency_links to maneuver.egg-info/dependency_links.txt\n'}
+[0.301054] (maneuver) StdoutLine: {'line': b'writing top-level names to maneuver.egg-info/top_level.txt\n'}
+[0.334556] (maneuver) StdoutLine: {'line': b"reading manifest file 'maneuver.egg-info/SOURCES.txt'\n"}
+[0.335157] (maneuver) StdoutLine: {'line': b"writing manifest file 'maneuver.egg-info/SOURCES.txt'\n"}
+[0.353153] (maneuver) StdoutLine: {'line': b'[100%] Built target ament_cmake_python_build_maneuver_egg\n'}
+[0.362027] (maneuver) CommandEnded: {'returncode': 0}
+[0.362506] (maneuver) JobProgress: {'identifier': 'maneuver', 'progress': 'install'}
+[0.362662] (maneuver) Command: {'cmd': ['/usr/bin/cmake', '--install', '/ros_ws/src/build/maneuver'], 'cwd': '/ros_ws/src/build/maneuver', 'env': OrderedDict({'HOSTNAME': 'ADUAED19005LPLX', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/ros_ws/src/install/libkdtp/lib:/ros_ws/src/install/uav_simulator/lib:/ros_ws/src/install/controller/lib:/ros_ws/src/install/maneuver/lib:/ros_ws/install/uav_simulator/lib:/ros_ws/install/my_ros2_package/lib:/ros_ws/install/controller/lib:/ros_ws/install/maneuver/lib:/ros_ws/install/libkdtp/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/root', 'OLDPWD': '/ros_ws/src/firmware/launch', 'ROS_PYTHON_VERSION': '3', 'COLCON_PREFIX_PATH': '/ros_ws/src/install:/ros_ws/install', 'ROS_DISTRO': 'jazzy', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/ros_ws/src/install/uav_simulator:/ros_ws/src/install/controller:/ros_ws/src/install/maneuver:/ros_ws/src/install/libkdtp:/ros_ws/src/install/firmware:/ros_ws/install/firmware:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy', 'DEBIAN_FRONTEND': 'noninteractive', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/ros_ws/src/build/maneuver', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/ros_ws/src/install/controller/lib/python3.12/site-packages:/ros_ws/src/install/maneuver/lib/python3.12/site-packages:/ros_ws/install/my_ros2_package/lib/python3.12/site-packages:/ros_ws/install/controller/lib/python3.12/site-packages:/ros_ws/install/maneuver/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/ros_ws/src/install/libkdtp:/ros_ws/src/install/uav_simulator:/ros_ws/src/install/controller:/ros_ws/src/install/maneuver:/ros_ws/src/install/firmware:/ros_ws/install/firmware:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.368662] (maneuver) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.368804] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/ament_index/resource_index/rosidl_interfaces/maneuver\n'}
+[0.368918] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/msg/FullPose.json\n'}
+[0.369004] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/LiftOff.json\n'}
+[0.369131] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/ArmDisarm.json\n'}
+[0.369236] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/GotoPoint.json\n'}
+[0.369368] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/Goto6DPoint.json\n'}
+[0.369497] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/Ellipse5D.json\n'}
+[0.369627] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/RotateTo.json\n'}
+[0.369758] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/Land.json\n'}
+[0.369885] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/FullFlip.json\n'}
+[0.369966] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver\n'}
+[0.370031] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg\n'}
+[0.370087] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail\n'}
+[0.370153] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail/full_pose__type_support.c\n'}
+[0.370225] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail/full_pose__type_support.h\n'}
+[0.370324] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail/full_pose__functions.h\n'}
+[0.370437] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail/full_pose__functions.c\n'}
+[0.370504] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail/full_pose__description.c\n'}
+[0.370570] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail/full_pose__struct.h\n'}
+[0.370625] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/full_pose.h\n'}
+[0.370721] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/rosidl_generator_c__visibility_control.h\n'}
+[0.370830] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv\n'}
+[0.370949] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/full_flip.h\n'}
+[0.371083] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/rotate_to.h\n'}
+[0.371206] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/land.h\n'}
+[0.371328] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail\n'}
+[0.371422] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/land__type_support.h\n'}
+[0.371532] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/full_flip__struct.h\n'}
+[0.371650] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto_point__struct.h\n'}
+[0.371714] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/rotate_to__functions.c\n'}
+[0.371781] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/lift_off__description.c\n'}
+[0.371837] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/land__struct.h\n'}
+[0.371919] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/land__functions.c\n'}
+[0.372040] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/full_flip__type_support.c\n'}
+[0.372167] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/rotate_to__description.c\n'}
+[0.372256] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto6_d_point__description.c\n'}
+[0.372321] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto_point__functions.c\n'}
+[0.372376] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/ellipse5_d__functions.c\n'}
+[0.372428] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto6_d_point__functions.c\n'}
+[0.372496] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/rotate_to__type_support.h\n'}
+[0.372550] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto6_d_point__type_support.c\n'}
+[0.372660] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/lift_off__type_support.c\n'}
+[0.372782] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/land__type_support.c\n'}
+[0.372891] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto_point__description.c\n'}
+[0.372948] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/full_flip__functions.c\n'}
+[0.373016] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/lift_off__functions.c\n'}
+[0.373069] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/rotate_to__functions.h\n'}
+[0.373121] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/rotate_to__struct.h\n'}
+[0.373189] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/ellipse5_d__type_support.c\n'}
+[0.373242] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto6_d_point__struct.h\n'}
+[0.373334] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/arm_disarm__description.c\n'}
+[0.373390] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/lift_off__type_support.h\n'}
+[0.373453] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/arm_disarm__functions.h\n'}
+[0.373517] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/arm_disarm__functions.c\n'}
+[0.373583] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto_point__functions.h\n'}
+[0.373636] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/land__description.c\n'}
+[0.373728] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/lift_off__struct.h\n'}
+[0.373852] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/arm_disarm__type_support.h\n'}
+[0.373987] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto6_d_point__functions.h\n'}
+[0.374086] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/ellipse5_d__struct.h\n'}
+[0.374140] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/land__functions.h\n'}
+[0.374193] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/full_flip__type_support.h\n'}
+[0.374247] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/ellipse5_d__description.c\n'}
+[0.374304] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto_point__type_support.c\n'}
+[0.374368] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/rotate_to__type_support.c\n'}
+[0.374425] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/lift_off__functions.h\n'}
+[0.374477] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto6_d_point__type_support.h\n'}
+[0.374529] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/full_flip__functions.h\n'}
+[0.374580] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/ellipse5_d__functions.h\n'}
+[0.374631] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/full_flip__description.c\n'}
+[0.374683] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/ellipse5_d__type_support.h\n'}
+[0.374741] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/arm_disarm__type_support.c\n'}
+[0.374805] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto_point__type_support.h\n'}
+[0.374855] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/arm_disarm__struct.h\n'}
+[0.374904] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/goto_point.h\n'}
+[0.374955] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/lift_off.h\n'}
+[0.375005] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/ellipse5_d.h\n'}
+[0.375059] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/arm_disarm.h\n'}
+[0.375111] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/goto6_d_point.h\n'}
+[0.375161] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/environment/library_path.sh\n'}
+[0.375213] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/environment/library_path.dsv\n'}
+[0.375264] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/libmaneuver__rosidl_generator_c.so\n'}
+[0.375314] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver\n'}
+[0.375367] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg\n'}
+[0.375419] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[0.375472] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail\n'}
+[0.375524] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail/full_pose__rosidl_typesupport_fastrtps_c.h\n'}
+[0.375576] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv\n'}
+[0.375628] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail\n'}
+[0.375679] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/land__rosidl_typesupport_fastrtps_c.h\n'}
+[0.375732] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto_point__rosidl_typesupport_fastrtps_c.h\n'}
+[0.375787] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/ellipse5_d__rosidl_typesupport_fastrtps_c.h\n'}
+[0.375839] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/lift_off__rosidl_typesupport_fastrtps_c.h\n'}
+[0.375893] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/arm_disarm__rosidl_typesupport_fastrtps_c.h\n'}
+[0.375956] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto6_d_point__rosidl_typesupport_fastrtps_c.h\n'}
+[0.376017] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/full_flip__rosidl_typesupport_fastrtps_c.h\n'}
+[0.376069] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/rotate_to__rosidl_typesupport_fastrtps_c.h\n'}
+[0.376120] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/libmaneuver__rosidl_typesupport_fastrtps_c.so\n'}
+[0.376170] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver\n'}
+[0.376221] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg\n'}
+[0.376273] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/full_pose.hpp\n'}
+[0.376324] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail\n'}
+[0.376375] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail/full_pose__type_support.hpp\n'}
+[0.376426] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail/full_pose__builder.hpp\n'}
+[0.376477] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail/full_pose__struct.hpp\n'}
+[0.376527] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail/full_pose__traits.hpp\n'}
+[0.376577] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[0.376628] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv\n'}
+[0.376679] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/goto_point.hpp\n'}
+[0.376733] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/land.hpp\n'}
+[0.376785] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/goto6_d_point.hpp\n'}
+[0.376836] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/rotate_to.hpp\n'}
+[0.376888] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail\n'}
+[0.376945] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/arm_disarm__traits.hpp\n'}
+[0.376995] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/rotate_to__type_support.hpp\n'}
+[0.377045] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto6_d_point__type_support.hpp\n'}
+[0.377097] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto_point__type_support.hpp\n'}
+[0.377146] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/lift_off__type_support.hpp\n'}
+[0.377199] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto6_d_point__builder.hpp\n'}
+[0.377250] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/land__traits.hpp\n'}
+[0.377301] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto_point__builder.hpp\n'}
+[0.377350] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/ellipse5_d__struct.hpp\n'}
+[0.377400] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/land__builder.hpp\n'}
+[0.377450] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/arm_disarm__builder.hpp\n'}
+[0.377501] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/arm_disarm__struct.hpp\n'}
+[0.377552] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/full_flip__type_support.hpp\n'}
+[0.377601] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/ellipse5_d__traits.hpp\n'}
+[0.377651] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/ellipse5_d__type_support.hpp\n'}
+[0.377702] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/lift_off__struct.hpp\n'}
+[0.377752] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/lift_off__traits.hpp\n'}
+[0.377801] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/land__struct.hpp\n'}
+[0.377852] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/land__type_support.hpp\n'}
+[0.377902] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/rotate_to__builder.hpp\n'}
+[0.377952] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto6_d_point__struct.hpp\n'}
+[0.378003] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto_point__traits.hpp\n'}
+[0.378053] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/rotate_to__struct.hpp\n'}
+[0.378103] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/lift_off__builder.hpp\n'}
+[0.378152] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/arm_disarm__type_support.hpp\n'}
+[0.378201] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/ellipse5_d__builder.hpp\n'}
+[0.378252] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto_point__struct.hpp\n'}
+[0.378301] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/full_flip__struct.hpp\n'}
+[0.378352] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/full_flip__traits.hpp\n'}
+[0.378402] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/full_flip__builder.hpp\n'}
+[0.378452] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto6_d_point__traits.hpp\n'}
+[0.378506] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/rotate_to__traits.hpp\n'}
+[0.378559] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/ellipse5_d.hpp\n'}
+[0.378609] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/arm_disarm.hpp\n'}
+[0.378660] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/full_flip.hpp\n'}
+[0.378711] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/lift_off.hpp\n'}
+[0.378761] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver\n'}
+[0.378813] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg\n'}
+[0.378863] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[0.378911] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail\n'}
+[0.378967] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail/full_pose__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.379017] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail/dds_fastrtps\n'}
+[0.379068] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv\n'}
+[0.379118] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail\n'}
+[0.379169] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/dds_fastrtps\n'}
+[0.379218] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/full_flip__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.379268] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/lift_off__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.379319] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/land__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.379370] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/rotate_to__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.379420] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto6_d_point__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.379471] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/arm_disarm__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.379522] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto_point__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.379572] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/ellipse5_d__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.379622] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/libmaneuver__rosidl_typesupport_fastrtps_cpp.so\n'}
+[0.379671] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver\n'}
+[0.379721] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg\n'}
+[0.379772] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[0.379821] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail\n'}
+[0.379872] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail/full_pose__type_support.c\n'}
+[0.379930] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail/full_pose__rosidl_typesupport_introspection_c.h\n'}
+[0.380004] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv\n'}
+[0.380056] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail\n'}
+[0.380106] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/ellipse5_d__rosidl_typesupport_introspection_c.h\n'}
+[0.380157] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/full_flip__type_support.c\n'}
+[0.380208] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto6_d_point__rosidl_typesupport_introspection_c.h\n'}
+[0.380259] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/rotate_to__rosidl_typesupport_introspection_c.h\n'}
+[0.380312] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/lift_off__rosidl_typesupport_introspection_c.h\n'}
+[0.380364] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto6_d_point__type_support.c\n'}
+[0.380418] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/lift_off__type_support.c\n'}
+[0.380470] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/land__type_support.c\n'}
+[0.380522] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/ellipse5_d__type_support.c\n'}
+[0.380572] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto_point__rosidl_typesupport_introspection_c.h\n'}
+[0.380624] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto_point__type_support.c\n'}
+[0.380675] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/rotate_to__type_support.c\n'}
+[0.380726] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/land__rosidl_typesupport_introspection_c.h\n'}
+[0.380778] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/full_flip__rosidl_typesupport_introspection_c.h\n'}
+[0.380830] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/arm_disarm__type_support.c\n'}
+[0.380887] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/arm_disarm__rosidl_typesupport_introspection_c.h\n'}
+[0.380938] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/libmaneuver__rosidl_typesupport_introspection_c.so\n'}
+[0.380990] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/libmaneuver__rosidl_typesupport_c.so\n'}
+[0.381041] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver\n'}
+[0.381092] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg\n'}
+[0.381145] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail\n'}
+[0.381196] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail/full_pose__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.381249] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/msg/detail/full_pose__type_support.cpp\n'}
+[0.381305] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv\n'}
+[0.381355] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail\n'}
+[0.381407] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto_point__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.381459] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/arm_disarm__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.381511] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/rotate_to__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.381562] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto_point__type_support.cpp\n'}
+[0.381615] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto6_d_point__type_support.cpp\n'}
+[0.381668] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/lift_off__type_support.cpp\n'}
+[0.381718] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/full_flip__type_support.cpp\n'}
+[0.381769] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/ellipse5_d__type_support.cpp\n'}
+[0.381821] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/land__type_support.cpp\n'}
+[0.381872] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/goto6_d_point__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.381923] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/land__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.381975] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/ellipse5_d__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.382026] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/full_flip__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.382078] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/lift_off__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.382128] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/arm_disarm__type_support.cpp\n'}
+[0.382181] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/include/maneuver/maneuver/srv/detail/rotate_to__type_support.cpp\n'}
+[0.382234] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/libmaneuver__rosidl_typesupport_introspection_cpp.so\n'}
+[0.382285] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/libmaneuver__rosidl_typesupport_cpp.so\n'}
+[0.382336] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/environment/pythonpath.sh\n'}
+[0.382388] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/environment/pythonpath.dsv\n'}
+[0.382441] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver-0.1.0-py3.12.egg-info\n'}
+[0.382494] (maneuver) StdoutLine: {'line': b'-- Installing: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver-0.1.0-py3.12.egg-info/dependency_links.txt\n'}
+[0.382546] (maneuver) StdoutLine: {'line': b'-- Installing: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver-0.1.0-py3.12.egg-info/SOURCES.txt\n'}
+[0.382600] (maneuver) StdoutLine: {'line': b'-- Installing: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver-0.1.0-py3.12.egg-info/top_level.txt\n'}
+[0.382652] (maneuver) StdoutLine: {'line': b'-- Installing: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver-0.1.0-py3.12.egg-info/PKG-INFO\n'}
+[0.382703] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver\n'}
+[0.382755] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/maneuver_s__rosidl_typesupport_fastrtps_c.so\n'}
+[0.382807] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/_maneuver_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[0.382865] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/msg\n'}
+[0.382917] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/msg/__init__.py\n'}
+[0.382970] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/msg/_full_pose_s.c\n'}
+[0.383022] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/msg/_full_pose.py\n'}
+[0.383075] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/_maneuver_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[0.383126] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/__init__.py\n'}
+[0.383177] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/srv\n'}
+[0.383229] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/srv/_goto6_d_point_s.c\n'}
+[0.383282] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/srv/_goto6_d_point.py\n'}
+[0.383334] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/srv/_land_s.c\n'}
+[0.383385] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/srv/_lift_off_s.c\n'}
+[0.383437] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/srv/_goto_point.py\n'}
+[0.383488] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/srv/_ellipse5_d_s.c\n'}
+[0.383539] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/srv/_full_flip.py\n'}
+[0.383589] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/srv/_rotate_to.py\n'}
+[0.383640] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/srv/_rotate_to_s.c\n'}
+[0.383690] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/srv/_ellipse5_d.py\n'}
+[0.383742] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/srv/_arm_disarm.py\n'}
+[0.383793] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/srv/_arm_disarm_s.c\n'}
+[0.383843] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/srv/__init__.py\n'}
+[0.383894] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/srv/_goto_point_s.c\n'}
+[0.383949] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/srv/_full_flip_s.c\n'}
+[0.384008] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/srv/_lift_off.py\n'}
+[0.384060] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/srv/_land.py\n'}
+[0.384113] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/_maneuver_s.ep.rosidl_typesupport_c.c\n'}
+[0.384165] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/maneuver_s__rosidl_typesupport_c.so\n'}
+[0.384216] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/maneuver_s__rosidl_typesupport_introspection_c.so\n'}
+[0.399149] (maneuver) StdoutLine: {'line': b"Listing '/ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver'...\n"}
+[0.399258] (maneuver) StdoutLine: {'line': b"Listing '/ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/msg'...\n"}
+[0.399314] (maneuver) StdoutLine: {'line': b"Listing '/ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/srv'...\n"}
+[0.400048] (-) TimerEvent: {}
+[0.402801] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/maneuver_s__rosidl_typesupport_fastrtps_c.so\n'}
+[0.402915] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/maneuver_s__rosidl_typesupport_introspection_c.so\n'}
+[0.403085] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/python3.12/site-packages/maneuver/maneuver_s__rosidl_typesupport_c.so\n'}
+[0.403252] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/libmaneuver__rosidl_generator_py.so\n'}
+[0.403356] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/msg/FullPose.idl\n'}
+[0.403450] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/LiftOff.idl\n'}
+[0.403542] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/ArmDisarm.idl\n'}
+[0.403632] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/GotoPoint.idl\n'}
+[0.403721] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/Goto6DPoint.idl\n'}
+[0.403796] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/Ellipse5D.idl\n'}
+[0.403849] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/RotateTo.idl\n'}
+[0.403913] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/Land.idl\n'}
+[0.403999] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/FullFlip.idl\n'}
+[0.404087] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/msg/FullPose.msg\n'}
+[0.404192] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/LiftOff.srv\n'}
+[0.404280] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/ArmDisarm.srv\n'}
+[0.404349] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/GotoPoint.srv\n'}
+[0.404403] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/Goto6DPoint.srv\n'}
+[0.404469] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/Ellipse5D.srv\n'}
+[0.404550] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/RotateTo.srv\n'}
+[0.404618] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/Land.srv\n'}
+[0.404693] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/srv/FullFlip.srv\n'}
+[0.404769] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/lib/maneuver/maneuver_node\n'}
+[0.404846] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver//launch\n'}
+[0.404923] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver//launch/maneuver.launch.py\n'}
+[0.404999] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/ament_index/resource_index/package_run_dependencies/maneuver\n'}
+[0.405076] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/ament_index/resource_index/parent_prefix_path/maneuver\n'}
+[0.405159] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/environment/ament_prefix_path.sh\n'}
+[0.405254] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/environment/ament_prefix_path.dsv\n'}
+[0.405340] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/environment/path.sh\n'}
+[0.405406] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/environment/path.dsv\n'}
+[0.405459] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/local_setup.bash\n'}
+[0.405510] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/local_setup.sh\n'}
+[0.405561] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/local_setup.zsh\n'}
+[0.405615] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/local_setup.dsv\n'}
+[0.405666] (maneuver) StdoutLine: {'line': b'-- Installing: /ros_ws/src/install/maneuver/share/maneuver/package.dsv\n'}
+[0.405720] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/ament_index/resource_index/packages/maneuver\n'}
+[0.405773] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/export_maneuver__rosidl_generator_cExport.cmake\n'}
+[0.405826] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/export_maneuver__rosidl_generator_cExport-noconfig.cmake\n'}
+[0.405876] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/export_maneuver__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[0.405927] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/export_maneuver__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[0.405978] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/export_maneuver__rosidl_generator_cppExport.cmake\n'}
+[0.406028] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/export_maneuver__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[0.406078] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/export_maneuver__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[0.406128] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/maneuver__rosidl_typesupport_introspection_cExport.cmake\n'}
+[0.406179] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/maneuver__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[0.406228] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/maneuver__rosidl_typesupport_cExport.cmake\n'}
+[0.406278] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/maneuver__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[0.406329] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/maneuver__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[0.406382] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/maneuver__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[0.406431] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/maneuver__rosidl_typesupport_cppExport.cmake\n'}
+[0.406531] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/maneuver__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[0.406679] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/export_maneuver__rosidl_generator_pyExport.cmake\n'}
+[0.407019] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/export_maneuver__rosidl_generator_pyExport-noconfig.cmake\n'}
+[0.407494] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/rosidl_cmake-extras.cmake\n'}
+[0.407629] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[0.407702] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[0.407792] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[0.407869] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[0.407974] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[0.408097] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[0.408192] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/maneuverConfig.cmake\n'}
+[0.408329] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/cmake/maneuverConfig-version.cmake\n'}
+[0.408462] (maneuver) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/maneuver/share/maneuver/package.xml\n'}
+[0.408530] (maneuver) CommandEnded: {'returncode': 0}
+[0.424445] (maneuver) JobEnded: {'identifier': 'maneuver', 'rc': 0}
+[0.425163] (controller) JobStarted: {'identifier': 'controller'}
+[0.429489] (uav_simulator) JobStarted: {'identifier': 'uav_simulator'}
+[0.434558] (controller) JobProgress: {'identifier': 'controller', 'progress': 'cmake'}
+[0.435001] (controller) JobProgress: {'identifier': 'controller', 'progress': 'build'}
+[0.435165] (controller) Command: {'cmd': ['/usr/bin/cmake', '--build', '/ros_ws/src/build/controller', '--', '-j16', '-l16'], 'cwd': '/ros_ws/src/build/controller', 'env': OrderedDict({'HOSTNAME': 'ADUAED19005LPLX', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/ros_ws/src/install/maneuver/lib:/ros_ws/src/install/libkdtp/lib:/ros_ws/src/install/uav_simulator/lib:/ros_ws/src/install/controller/lib:/ros_ws/install/uav_simulator/lib:/ros_ws/install/my_ros2_package/lib:/ros_ws/install/controller/lib:/ros_ws/install/maneuver/lib:/ros_ws/install/libkdtp/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/root', 'OLDPWD': '/ros_ws/src/firmware/launch', 'ROS_PYTHON_VERSION': '3', 'COLCON_PREFIX_PATH': '/ros_ws/src/install:/ros_ws/install', 'ROS_DISTRO': 'jazzy', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/ros_ws/src/install/uav_simulator:/ros_ws/src/install/controller:/ros_ws/src/install/maneuver:/ros_ws/src/install/libkdtp:/ros_ws/src/install/firmware:/ros_ws/install/firmware:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy', 'DEBIAN_FRONTEND': 'noninteractive', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/ros_ws/src/build/controller', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/ros_ws/src/install/maneuver/lib/python3.12/site-packages:/ros_ws/src/install/controller/lib/python3.12/site-packages:/ros_ws/install/my_ros2_package/lib/python3.12/site-packages:/ros_ws/install/controller/lib/python3.12/site-packages:/ros_ws/install/maneuver/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/ros_ws/src/install/maneuver:/ros_ws/src/install/libkdtp:/ros_ws/src/install/uav_simulator:/ros_ws/src/install/controller:/ros_ws/src/install/firmware:/ros_ws/install/firmware:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.437057] (uav_simulator) JobProgress: {'identifier': 'uav_simulator', 'progress': 'cmake'}
+[0.437636] (uav_simulator) JobProgress: {'identifier': 'uav_simulator', 'progress': 'build'}
+[0.437964] (uav_simulator) Command: {'cmd': ['/usr/bin/cmake', '--build', '/ros_ws/src/build/uav_simulator', '--', '-j16', '-l16'], 'cwd': '/ros_ws/src/build/uav_simulator', 'env': OrderedDict({'HOSTNAME': 'ADUAED19005LPLX', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/ros_ws/src/install/maneuver/lib:/ros_ws/src/install/libkdtp/lib:/ros_ws/src/install/uav_simulator/lib:/ros_ws/src/install/controller/lib:/ros_ws/install/uav_simulator/lib:/ros_ws/install/my_ros2_package/lib:/ros_ws/install/controller/lib:/ros_ws/install/maneuver/lib:/ros_ws/install/libkdtp/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/root', 'OLDPWD': '/ros_ws/src/firmware/launch', 'ROS_PYTHON_VERSION': '3', 'COLCON_PREFIX_PATH': '/ros_ws/src/install:/ros_ws/install', 'ROS_DISTRO': 'jazzy', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/ros_ws/src/install/uav_simulator:/ros_ws/src/install/controller:/ros_ws/src/install/maneuver:/ros_ws/src/install/libkdtp:/ros_ws/src/install/firmware:/ros_ws/install/firmware:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy', 'DEBIAN_FRONTEND': 'noninteractive', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/ros_ws/src/build/uav_simulator', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/ros_ws/src/install/maneuver/lib/python3.12/site-packages:/ros_ws/src/install/controller/lib/python3.12/site-packages:/ros_ws/install/my_ros2_package/lib/python3.12/site-packages:/ros_ws/install/controller/lib/python3.12/site-packages:/ros_ws/install/maneuver/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/ros_ws/src/install/maneuver:/ros_ws/src/install/libkdtp:/ros_ws/src/install/uav_simulator:/ros_ws/src/install/controller:/ros_ws/src/install/firmware:/ros_ws/install/firmware:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.474010] (controller) StdoutLine: {'line': b'[  1%] Built target controller__rosidl_generator_type_description\n'}
+[0.481198] (controller) StdoutLine: {'line': b'[  1%] Built target ament_cmake_python_copy_controller\n'}
+[0.488570] (uav_simulator) StdoutLine: {'line': b'[ 50%] Built target OdometrySensor\n'}
+[0.489935] (controller) StdoutLine: {'line': b'[  2%] Built target controller__cpp\n'}
+[0.491158] (uav_simulator) StdoutLine: {'line': b'[100%] Built target BetaMotorPlugin\n'}
+[0.498558] (uav_simulator) CommandEnded: {'returncode': 0}
+[0.498985] (uav_simulator) JobProgress: {'identifier': 'uav_simulator', 'progress': 'install'}
+[0.499472] (uav_simulator) Command: {'cmd': ['/usr/bin/cmake', '--install', '/ros_ws/src/build/uav_simulator'], 'cwd': '/ros_ws/src/build/uav_simulator', 'env': OrderedDict({'HOSTNAME': 'ADUAED19005LPLX', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/ros_ws/src/install/maneuver/lib:/ros_ws/src/install/libkdtp/lib:/ros_ws/src/install/uav_simulator/lib:/ros_ws/src/install/controller/lib:/ros_ws/install/uav_simulator/lib:/ros_ws/install/my_ros2_package/lib:/ros_ws/install/controller/lib:/ros_ws/install/maneuver/lib:/ros_ws/install/libkdtp/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/root', 'OLDPWD': '/ros_ws/src/firmware/launch', 'ROS_PYTHON_VERSION': '3', 'COLCON_PREFIX_PATH': '/ros_ws/src/install:/ros_ws/install', 'ROS_DISTRO': 'jazzy', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/ros_ws/src/install/uav_simulator:/ros_ws/src/install/controller:/ros_ws/src/install/maneuver:/ros_ws/src/install/libkdtp:/ros_ws/src/install/firmware:/ros_ws/install/firmware:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy', 'DEBIAN_FRONTEND': 'noninteractive', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/ros_ws/src/build/uav_simulator', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/ros_ws/src/install/maneuver/lib/python3.12/site-packages:/ros_ws/src/install/controller/lib/python3.12/site-packages:/ros_ws/install/my_ros2_package/lib/python3.12/site-packages:/ros_ws/install/controller/lib/python3.12/site-packages:/ros_ws/install/maneuver/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/ros_ws/src/install/maneuver:/ros_ws/src/install/libkdtp:/ros_ws/src/install/uav_simulator:/ros_ws/src/install/controller:/ros_ws/src/install/firmware:/ros_ws/install/firmware:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.499730] (controller) StdoutLine: {'line': b'[ 25%] Built target controller__rosidl_generator_c\n'}
+[0.500116] (-) TimerEvent: {}
+[0.505877] (uav_simulator) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.506104] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/lib/libBetaMotorPlugin.so\n'}
+[0.506302] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/lib/libOdometrySensor.so\n'}
+[0.506410] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/launch\n'}
+[0.506530] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/launch/gazebo_launch.py\n'}
+[0.506661] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/launch/omnicopter_sim.launch.py\n'}
+[0.506771] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/worlds\n'}
+[0.506886] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/worlds/empty.sdf\n'}
+[0.506980] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/worlds/omnicopter.world\n'}
+[0.507080] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/worlds/models\n'}
+[0.507175] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/worlds/models/omnicopter\n'}
+[0.507252] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/worlds/models/omnicopter/meshes\n'}
+[0.507329] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/worlds/models/omnicopter/meshes/omni2.stl\n'}
+[0.507409] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/worlds/models/omnicopter/meshes/omni.stl\n'}
+[0.507488] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/worlds/models/omnicopter/meshes/CW.stl\n'}
+[0.507565] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/worlds/models/omnicopter/meshes/CCW.stl\n'}
+[0.507639] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/worlds/models/omnicopter/model.sdf\n'}
+[0.507716] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/worlds/models/omnicopter/model.config\n'}
+[0.507795] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/worlds/models/omnicopter/sphericalToRPY.py\n'}
+[0.508184] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/worlds/models/omnicopter/localToFixed.py\n'}
+[0.508377] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/ament_index/resource_index/package_run_dependencies/uav_simulator\n'}
+[0.508998] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/ament_index/resource_index/parent_prefix_path/uav_simulator\n'}
+[0.509372] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/environment/ament_prefix_path.sh\n'}
+[0.509701] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/environment/ament_prefix_path.dsv\n'}
+[0.509826] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/environment/path.sh\n'}
+[0.509916] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/environment/path.dsv\n'}
+[0.510028] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/local_setup.bash\n'}
+[0.510129] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/local_setup.sh\n'}
+[0.510240] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/local_setup.zsh\n'}
+[0.510340] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/local_setup.dsv\n'}
+[0.510435] (uav_simulator) StdoutLine: {'line': b'-- Installing: /ros_ws/src/install/uav_simulator/share/uav_simulator/package.dsv\n'}
+[0.510537] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/ament_index/resource_index/packages/uav_simulator\n'}
+[0.510619] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/cmake/uav_simulatorConfig.cmake\n'}
+[0.510699] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/cmake/uav_simulatorConfig-version.cmake\n'}
+[0.510780] (uav_simulator) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/uav_simulator/share/uav_simulator/package.xml\n'}
+[0.510861] (uav_simulator) CommandEnded: {'returncode': 0}
+[0.522984] (controller) StdoutLine: {'line': b'[ 34%] Built target controller__rosidl_typesupport_introspection_c\n'}
+[0.523415] (uav_simulator) JobEnded: {'identifier': 'uav_simulator', 'rc': 0}
+[0.525613] (controller) StdoutLine: {'line': b'[ 44%] Built target controller__rosidl_typesupport_c\n'}
+[0.530770] (controller) StdoutLine: {'line': b'[ 54%] Built target controller__rosidl_typesupport_cpp\n'}
+[0.530980] (controller) StdoutLine: {'line': b'[ 62%] Built target controller__rosidl_typesupport_introspection_cpp\n'}
+[0.531105] (controller) StdoutLine: {'line': b'[ 72%] Built target controller__rosidl_typesupport_fastrtps_c\n'}
+[0.533410] (controller) StdoutLine: {'line': b'[ 81%] Built target controller__rosidl_typesupport_fastrtps_cpp\n'}
+[0.548898] (controller) StdoutLine: {'line': b'[ 81%] Built target controller\n'}
+[0.559825] (controller) StdoutLine: {'line': b'[ 83%] Built target controller_node\n'}
+[0.567139] (controller) StdoutLine: {'line': b'[ 84%] Built target controller__py\n'}
+[0.590373] (controller) StdoutLine: {'line': b'[ 93%] Built target controller__rosidl_generator_py\n'}
+[0.600213] (-) TimerEvent: {}
+[0.608748] (controller) StdoutLine: {'line': b'[ 95%] Built target controller_s__rosidl_typesupport_fastrtps_c\n'}
+[0.608953] (controller) StdoutLine: {'line': b'[ 97%] Built target controller_s__rosidl_typesupport_introspection_c\n'}
+[0.609032] (controller) StdoutLine: {'line': b'[100%] Built target controller_s__rosidl_typesupport_c\n'}
+[0.643131] (controller) StdoutLine: {'line': b'running egg_info\n'}
+[0.655155] (controller) StdoutLine: {'line': b'writing controller.egg-info/PKG-INFO\n'}
+[0.655361] (controller) StdoutLine: {'line': b'writing dependency_links to controller.egg-info/dependency_links.txt\n'}
+[0.655443] (controller) StdoutLine: {'line': b'writing top-level names to controller.egg-info/top_level.txt\n'}
+[0.688024] (controller) StdoutLine: {'line': b"reading manifest file 'controller.egg-info/SOURCES.txt'\n"}
+[0.688441] (controller) StdoutLine: {'line': b"writing manifest file 'controller.egg-info/SOURCES.txt'\n"}
+[0.700269] (-) TimerEvent: {}
+[0.706490] (controller) StdoutLine: {'line': b'[100%] Built target ament_cmake_python_build_controller_egg\n'}
+[0.714475] (controller) CommandEnded: {'returncode': 0}
+[0.714897] (controller) JobProgress: {'identifier': 'controller', 'progress': 'install'}
+[0.715050] (controller) Command: {'cmd': ['/usr/bin/cmake', '--install', '/ros_ws/src/build/controller'], 'cwd': '/ros_ws/src/build/controller', 'env': OrderedDict({'HOSTNAME': 'ADUAED19005LPLX', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/ros_ws/src/install/maneuver/lib:/ros_ws/src/install/libkdtp/lib:/ros_ws/src/install/uav_simulator/lib:/ros_ws/src/install/controller/lib:/ros_ws/install/uav_simulator/lib:/ros_ws/install/my_ros2_package/lib:/ros_ws/install/controller/lib:/ros_ws/install/maneuver/lib:/ros_ws/install/libkdtp/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/root', 'OLDPWD': '/ros_ws/src/firmware/launch', 'ROS_PYTHON_VERSION': '3', 'COLCON_PREFIX_PATH': '/ros_ws/src/install:/ros_ws/install', 'ROS_DISTRO': 'jazzy', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/ros_ws/src/install/uav_simulator:/ros_ws/src/install/controller:/ros_ws/src/install/maneuver:/ros_ws/src/install/libkdtp:/ros_ws/src/install/firmware:/ros_ws/install/firmware:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy', 'DEBIAN_FRONTEND': 'noninteractive', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/ros_ws/src/build/controller', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/ros_ws/src/install/maneuver/lib/python3.12/site-packages:/ros_ws/src/install/controller/lib/python3.12/site-packages:/ros_ws/install/my_ros2_package/lib/python3.12/site-packages:/ros_ws/install/controller/lib/python3.12/site-packages:/ros_ws/install/maneuver/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/ros_ws/src/install/maneuver:/ros_ws/src/install/libkdtp:/ros_ws/src/install/uav_simulator:/ros_ws/src/install/controller:/ros_ws/src/install/firmware:/ros_ws/install/firmware:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.720448] (controller) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.720559] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/ament_index/resource_index/rosidl_interfaces/controller\n'}
+[0.720664] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/msg/MotorSpeed.json\n'}
+[0.720736] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/msg/Pose.json\n'}
+[0.720858] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/msg/Uvector.json\n'}
+[0.720914] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/msg/ErrorMsg.json\n'}
+[0.721072] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/srv/AngularWrench.json\n'}
+[0.721182] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/srv/LinearWrench.json\n'}
+[0.721311] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller\n'}
+[0.721411] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg\n'}
+[0.721474] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/error_msg.h\n'}
+[0.721525] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail\n'}
+[0.721592] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/error_msg__functions.h\n'}
+[0.721646] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/uvector__type_support.c\n'}
+[0.721739] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/motor_speed__functions.c\n'}
+[0.721841] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/pose__type_support.h\n'}
+[0.721912] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/pose__functions.c\n'}
+[0.721977] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/pose__struct.h\n'}
+[0.722032] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/motor_speed__functions.h\n'}
+[0.722107] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/motor_speed__description.c\n'}
+[0.722228] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/error_msg__type_support.c\n'}
+[0.722341] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/uvector__struct.h\n'}
+[0.722439] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/error_msg__struct.h\n'}
+[0.722547] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/uvector__functions.c\n'}
+[0.722650] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/error_msg__functions.c\n'}
+[0.722774] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/motor_speed__type_support.c\n'}
+[0.722851] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/uvector__description.c\n'}
+[0.722903] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/pose__type_support.c\n'}
+[0.722970] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/pose__functions.h\n'}
+[0.723023] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/error_msg__type_support.h\n'}
+[0.723113] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/uvector__functions.h\n'}
+[0.723237] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/motor_speed__struct.h\n'}
+[0.723334] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/uvector__type_support.h\n'}
+[0.723386] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/motor_speed__type_support.h\n'}
+[0.723449] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/pose__description.c\n'}
+[0.723500] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/error_msg__description.c\n'}
+[0.723552] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/uvector.h\n'}
+[0.723615] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/pose.h\n'}
+[0.723681] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/motor_speed.h\n'}
+[0.723798] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/rosidl_generator_c__visibility_control.h\n'}
+[0.723891] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv\n'}
+[0.723968] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail\n'}
+[0.724032] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/angular_wrench__functions.h\n'}
+[0.724085] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/angular_wrench__type_support.c\n'}
+[0.724138] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/angular_wrench__description.c\n'}
+[0.724200] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/linear_wrench__type_support.c\n'}
+[0.724252] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/linear_wrench__struct.h\n'}
+[0.724327] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/linear_wrench__type_support.h\n'}
+[0.724398] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/angular_wrench__type_support.h\n'}
+[0.724449] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/linear_wrench__functions.c\n'}
+[0.724510] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/linear_wrench__description.c\n'}
+[0.724572] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/angular_wrench__struct.h\n'}
+[0.724636] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/angular_wrench__functions.c\n'}
+[0.724688] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/linear_wrench__functions.h\n'}
+[0.724781] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/linear_wrench.h\n'}
+[0.724897] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/angular_wrench.h\n'}
+[0.724999] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/environment/library_path.sh\n'}
+[0.725074] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/environment/library_path.dsv\n'}
+[0.725127] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/libcontroller__rosidl_generator_c.so\n'}
+[0.725182] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller\n'}
+[0.725236] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg\n'}
+[0.725297] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[0.725349] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail\n'}
+[0.725401] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/uvector__rosidl_typesupport_fastrtps_c.h\n'}
+[0.725452] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/motor_speed__rosidl_typesupport_fastrtps_c.h\n'}
+[0.725504] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/error_msg__rosidl_typesupport_fastrtps_c.h\n'}
+[0.725555] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/pose__rosidl_typesupport_fastrtps_c.h\n'}
+[0.725615] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv\n'}
+[0.725672] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail\n'}
+[0.725748] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/angular_wrench__rosidl_typesupport_fastrtps_c.h\n'}
+[0.725829] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/linear_wrench__rosidl_typesupport_fastrtps_c.h\n'}
+[0.725908] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/libcontroller__rosidl_typesupport_fastrtps_c.so\n'}
+[0.725980] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller\n'}
+[0.726056] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg\n'}
+[0.726130] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/uvector.hpp\n'}
+[0.726207] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail\n'}
+[0.726280] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/error_msg__builder.hpp\n'}
+[0.726354] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/error_msg__traits.hpp\n'}
+[0.726435] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/motor_speed__traits.hpp\n'}
+[0.726515] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/motor_speed__builder.hpp\n'}
+[0.726591] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/uvector__builder.hpp\n'}
+[0.726646] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/pose__type_support.hpp\n'}
+[0.726706] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/error_msg__struct.hpp\n'}
+[0.726758] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/pose__traits.hpp\n'}
+[0.726817] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/uvector__struct.hpp\n'}
+[0.726872] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/uvector__traits.hpp\n'}
+[0.726924] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/motor_speed__struct.hpp\n'}
+[0.726976] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/motor_speed__type_support.hpp\n'}
+[0.727029] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/pose__builder.hpp\n'}
+[0.727098] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/pose__struct.hpp\n'}
+[0.727175] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/uvector__type_support.hpp\n'}
+[0.727249] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/error_msg__type_support.hpp\n'}
+[0.727304] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/error_msg.hpp\n'}
+[0.727357] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/motor_speed.hpp\n'}
+[0.727408] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[0.727463] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/pose.hpp\n'}
+[0.727516] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv\n'}
+[0.727569] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/angular_wrench.hpp\n'}
+[0.727622] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail\n'}
+[0.727674] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/angular_wrench__struct.hpp\n'}
+[0.727726] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/linear_wrench__struct.hpp\n'}
+[0.727778] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/angular_wrench__type_support.hpp\n'}
+[0.727831] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/angular_wrench__traits.hpp\n'}
+[0.727883] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/linear_wrench__type_support.hpp\n'}
+[0.727945] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/linear_wrench__builder.hpp\n'}
+[0.727999] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/linear_wrench__traits.hpp\n'}
+[0.728053] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/angular_wrench__builder.hpp\n'}
+[0.728109] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/linear_wrench.hpp\n'}
+[0.728164] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller\n'}
+[0.728215] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg\n'}
+[0.728266] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[0.728317] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail\n'}
+[0.728367] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/pose__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.728417] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/dds_fastrtps\n'}
+[0.728468] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/motor_speed__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.728519] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/uvector__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.728568] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/error_msg__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.728619] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv\n'}
+[0.728670] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail\n'}
+[0.728720] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/angular_wrench__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.728770] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/dds_fastrtps\n'}
+[0.728820] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/linear_wrench__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.728869] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/libcontroller__rosidl_typesupport_fastrtps_cpp.so\n'}
+[0.728919] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller\n'}
+[0.728971] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg\n'}
+[0.729023] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[0.729074] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail\n'}
+[0.729123] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/uvector__type_support.c\n'}
+[0.729174] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/pose__rosidl_typesupport_introspection_c.h\n'}
+[0.729225] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/uvector__rosidl_typesupport_introspection_c.h\n'}
+[0.729279] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/error_msg__type_support.c\n'}
+[0.729330] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/motor_speed__rosidl_typesupport_introspection_c.h\n'}
+[0.729381] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/motor_speed__type_support.c\n'}
+[0.729433] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/pose__type_support.c\n'}
+[0.729483] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/error_msg__rosidl_typesupport_introspection_c.h\n'}
+[0.729533] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv\n'}
+[0.729583] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail\n'}
+[0.729634] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/angular_wrench__type_support.c\n'}
+[0.729684] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/linear_wrench__type_support.c\n'}
+[0.729734] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/linear_wrench__rosidl_typesupport_introspection_c.h\n'}
+[0.729787] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/angular_wrench__rosidl_typesupport_introspection_c.h\n'}
+[0.729837] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/libcontroller__rosidl_typesupport_introspection_c.so\n'}
+[0.729887] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/libcontroller__rosidl_typesupport_c.so\n'}
+[0.729937] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller\n'}
+[0.729993] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg\n'}
+[0.730043] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail\n'}
+[0.730094] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/motor_speed__type_support.cpp\n'}
+[0.730145] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/pose__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.730196] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/uvector__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.730246] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/error_msg__type_support.cpp\n'}
+[0.730298] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/motor_speed__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.730348] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/uvector__type_support.cpp\n'}
+[0.730399] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/pose__type_support.cpp\n'}
+[0.730449] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/msg/detail/error_msg__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.730502] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv\n'}
+[0.730553] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail\n'}
+[0.730604] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/angular_wrench__type_support.cpp\n'}
+[0.730655] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/linear_wrench__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.730710] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/angular_wrench__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.730761] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/include/controller/controller/srv/detail/linear_wrench__type_support.cpp\n'}
+[0.730812] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/libcontroller__rosidl_typesupport_introspection_cpp.so\n'}
+[0.730863] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/libcontroller__rosidl_typesupport_cpp.so\n'}
+[0.730913] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/environment/pythonpath.sh\n'}
+[0.730966] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/environment/pythonpath.dsv\n'}
+[0.731017] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller-0.1.0-py3.12.egg-info\n'}
+[0.731068] (controller) StdoutLine: {'line': b'-- Installing: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller-0.1.0-py3.12.egg-info/dependency_links.txt\n'}
+[0.731119] (controller) StdoutLine: {'line': b'-- Installing: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller-0.1.0-py3.12.egg-info/SOURCES.txt\n'}
+[0.731169] (controller) StdoutLine: {'line': b'-- Installing: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller-0.1.0-py3.12.egg-info/top_level.txt\n'}
+[0.731219] (controller) StdoutLine: {'line': b'-- Installing: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller-0.1.0-py3.12.egg-info/PKG-INFO\n'}
+[0.731269] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller\n'}
+[0.731319] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/_controller_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[0.731368] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/_controller_s.ep.rosidl_typesupport_c.c\n'}
+[0.731420] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/msg\n'}
+[0.731470] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/msg/_pose.py\n'}
+[0.731521] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/msg/_pose_s.c\n'}
+[0.731571] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/msg/_motor_speed.py\n'}
+[0.731622] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/msg/_uvector.py\n'}
+[0.731673] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/msg/_motor_speed_s.c\n'}
+[0.731725] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/msg/_error_msg.py\n'}
+[0.731775] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/msg/__init__.py\n'}
+[0.731827] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/msg/_uvector_s.c\n'}
+[0.731881] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/msg/_error_msg_s.c\n'}
+[0.731938] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/controller_s__rosidl_typesupport_introspection_c.so\n'}
+[0.732002] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/controller_s__rosidl_typesupport_fastrtps_c.so\n'}
+[0.732058] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/__init__.py\n'}
+[0.732116] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/controller_s__rosidl_typesupport_c.so\n'}
+[0.732167] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/srv\n'}
+[0.732219] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/srv/_linear_wrench_s.c\n'}
+[0.732272] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/srv/_angular_wrench_s.c\n'}
+[0.732323] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/srv/__init__.py\n'}
+[0.732372] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/srv/_linear_wrench.py\n'}
+[0.732423] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/srv/_angular_wrench.py\n'}
+[0.732473] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/_controller_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[0.750122] (controller) StdoutLine: {'line': b"Listing '/ros_ws/src/install/controller/lib/python3.12/site-packages/controller'...\n"}
+[0.750200] (controller) StdoutLine: {'line': b"Listing '/ros_ws/src/install/controller/lib/python3.12/site-packages/controller/msg'...\n"}
+[0.750254] (controller) StdoutLine: {'line': b"Listing '/ros_ws/src/install/controller/lib/python3.12/site-packages/controller/srv'...\n"}
+[0.753707] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/controller_s__rosidl_typesupport_fastrtps_c.so\n'}
+[0.753923] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/controller_s__rosidl_typesupport_introspection_c.so\n'}
+[0.754039] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/python3.12/site-packages/controller/controller_s__rosidl_typesupport_c.so\n'}
+[0.754234] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/libcontroller__rosidl_generator_py.so\n'}
+[0.754363] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/msg/MotorSpeed.idl\n'}
+[0.754464] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/msg/Pose.idl\n'}
+[0.754551] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/msg/Uvector.idl\n'}
+[0.754606] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/msg/ErrorMsg.idl\n'}
+[0.754669] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/srv/AngularWrench.idl\n'}
+[0.754723] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/srv/LinearWrench.idl\n'}
+[0.754787] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/msg/MotorSpeed.msg\n'}
+[0.754862] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/msg/Pose.msg\n'}
+[0.754939] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/msg/Uvector.msg\n'}
+[0.755022] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/msg/ErrorMsg.msg\n'}
+[0.755089] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/srv/AngularWrench.srv\n'}
+[0.755146] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/srv/LinearWrench.srv\n'}
+[0.755208] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/lib/controller/controller_node\n'}
+[0.755262] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller//launch\n'}
+[0.755331] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller//launch/control.launch.py\n'}
+[0.755399] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/ament_index/resource_index/package_run_dependencies/controller\n'}
+[0.755461] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/ament_index/resource_index/parent_prefix_path/controller\n'}
+[0.755530] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/environment/ament_prefix_path.sh\n'}
+[0.755594] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/environment/ament_prefix_path.dsv\n'}
+[0.755663] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/environment/path.sh\n'}
+[0.755727] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/environment/path.dsv\n'}
+[0.755796] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/local_setup.bash\n'}
+[0.755864] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/local_setup.sh\n'}
+[0.755945] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/local_setup.zsh\n'}
+[0.756001] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/local_setup.dsv\n'}
+[0.756054] (controller) StdoutLine: {'line': b'-- Installing: /ros_ws/src/install/controller/share/controller/package.dsv\n'}
+[0.756133] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/ament_index/resource_index/packages/controller\n'}
+[0.756215] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/export_controller__rosidl_generator_cExport.cmake\n'}
+[0.756284] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/export_controller__rosidl_generator_cExport-noconfig.cmake\n'}
+[0.756336] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/export_controller__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[0.756389] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/export_controller__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[0.756441] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/export_controller__rosidl_generator_cppExport.cmake\n'}
+[0.756500] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/export_controller__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[0.756552] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/export_controller__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[0.756604] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/controller__rosidl_typesupport_introspection_cExport.cmake\n'}
+[0.756657] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/controller__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[0.756713] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/controller__rosidl_typesupport_cExport.cmake\n'}
+[0.756766] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/controller__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[0.756821] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/controller__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[0.756874] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/controller__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[0.756927] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/controller__rosidl_typesupport_cppExport.cmake\n'}
+[0.756980] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/controller__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[0.757032] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/export_controller__rosidl_generator_pyExport.cmake\n'}
+[0.757085] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/export_controller__rosidl_generator_pyExport-noconfig.cmake\n'}
+[0.757136] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/rosidl_cmake-extras.cmake\n'}
+[0.757187] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[0.757240] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[0.757332] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[0.757459] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[0.757621] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[0.758093] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[0.758162] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/controllerConfig.cmake\n'}
+[0.758252] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/cmake/controllerConfig-version.cmake\n'}
+[0.758451] (controller) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/src/install/controller/share/controller/package.xml\n'}
+[0.758519] (controller) CommandEnded: {'returncode': 0}
+[0.769214] (controller) JobEnded: {'identifier': 'controller', 'rc': 0}
+[0.769778] (-) EventReactorShutdown: {}

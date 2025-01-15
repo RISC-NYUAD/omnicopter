@@ -1,0 +1,48 @@
+[0.007s] Invoking command in '/ros_ws/src/maneuver/build/maneuver': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /ros_ws/src/maneuver -DCMAKE_INSTALL_PREFIX=/ros_ws/src/maneuver/install/maneuver
+[0.046s] -- The C compiler identification is GNU 13.2.0
+[0.086s] -- The CXX compiler identification is GNU 13.2.0
+[0.097s] -- Detecting C compiler ABI info
+[0.158s] -- Detecting C compiler ABI info - done
+[0.164s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.165s] -- Detecting C compile features
+[0.165s] -- Detecting C compile features - done
+[0.171s] -- Detecting CXX compiler ABI info
+[0.235s] -- Detecting CXX compiler ABI info - done
+[0.241s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.241s] -- Detecting CXX compile features
+[0.242s] -- Detecting CXX compile features - done
+[0.244s] -- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.339s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.415s] -- Found rclcpp: 28.1.5 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.444s] -- Found rosidl_generator_c: 4.6.4 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.453s] -- Found rosidl_generator_cpp: 4.6.4 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.464s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.477s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.530s] -- Found rmw_implementation_cmake: 7.3.1 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.532s] -- Found rmw_fastrtps_cpp: 8.4.1 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.582s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[0.595s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[0.610s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.661s] -- Found std_msgs: 5.3.5 (/opt/ros/jazzy/share/std_msgs/cmake)
+[0.671s] -- Found geometry_msgs: 5.3.5 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[0.683s] -- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[0.692s] -- Found rosidl_adapter: 4.6.4 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+[0.703s] [31mCMake Error at CMakeLists.txt:24 (find_package):
+[0.703s]   By not providing "Findlibkdtp.cmake" in CMAKE_MODULE_PATH this project has
+[0.703s]   asked CMake to find a package configuration file provided by "libkdtp", but
+[0.704s]   CMake did not find one.
+[0.704s] 
+[0.704s]   Could not find a package configuration file provided by "libkdtp" with any
+[0.704s]   of the following names:
+[0.704s] 
+[0.704s]     libkdtpConfig.cmake
+[0.704s]     libkdtp-config.cmake
+[0.704s] 
+[0.704s]   Add the installation prefix of "libkdtp" to CMAKE_PREFIX_PATH or set
+[0.704s]   "libkdtp_DIR" to a directory containing one of the above files.  If
+[0.704s]   "libkdtp" provides a separate development package or SDK, be sure it has
+[0.704s]   been installed.
+[0.705s] 
+[0.705s] [0m
+[0.705s] -- Configuring incomplete, errors occurred!
+[0.709s] Invoked command in '/ros_ws/src/maneuver/build/maneuver' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /ros_ws/src/maneuver -DCMAKE_INSTALL_PREFIX=/ros_ws/src/maneuver/install/maneuver

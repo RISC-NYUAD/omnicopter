@@ -1,0 +1,21 @@
+{
+  "package_name": "maneuver",
+  "output_dir": "/ros_ws/src/build/maneuver/rosidl_generator_type_description/maneuver",
+  "idl_tuples": [
+    "/ros_ws/src/build/maneuver/rosidl_adapter/maneuver:msg/FullPose.idl",
+    "/ros_ws/src/build/maneuver/rosidl_adapter/maneuver:srv/LiftOff.idl",
+    "/ros_ws/src/build/maneuver/rosidl_adapter/maneuver:srv/ArmDisarm.idl",
+    "/ros_ws/src/build/maneuver/rosidl_adapter/maneuver:srv/GotoPoint.idl",
+    "/ros_ws/src/build/maneuver/rosidl_adapter/maneuver:srv/Goto6DPoint.idl",
+    "/ros_ws/src/build/maneuver/rosidl_adapter/maneuver:srv/Ellipse5D.idl",
+    "/ros_ws/src/build/maneuver/rosidl_adapter/maneuver:srv/RotateTo.idl",
+    "/ros_ws/src/build/maneuver/rosidl_adapter/maneuver:srv/Land.idl",
+    "/ros_ws/src/build/maneuver/rosidl_adapter/maneuver:srv/FullFlip.idl"
+  ],
+  "include_paths": [
+    "std_msgs:/opt/ros/jazzy/share/std_msgs",
+    "builtin_interfaces:/opt/ros/jazzy/share/builtin_interfaces",
+    "geometry_msgs:/opt/ros/jazzy/share/geometry_msgs",
+    "service_msgs:/opt/ros/jazzy/share/service_msgs"
+  ]
+}

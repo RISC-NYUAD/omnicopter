@@ -1,0 +1,11 @@
+2024-12-18 14:20:50.144 [info] Extension host with pid 45733 started
+2024-12-18 14:20:50.145 [info] Skipping acquiring lock for /home/mh7281/ros_omni/src/gazebo_sim2_dummy/~/.vscode-root/User/workspaceStorage/805fe274c2758eeb3279c04b3b7c5083.
+2024-12-18 14:20:50.250 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*'
+2024-12-18 14:20:50.285 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-12-18 14:20:50.320 [info] Eager extensions activated
+2024-12-18 14:20:50.404 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-12-18 14:20:50.405 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-12-18 14:21:01.034 [info] ExtensionService#_doActivateExtension vscode.git, startup: false, activationEvent: 'api', root cause: vscode.github
+2024-12-18 14:21:07.082 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2024-12-18 16:31:15.160 [info] Extension host terminating: renderer closed the MessagePort
+2024-12-18 16:31:15.169 [info] Extension host with pid 45733 exiting with code 0

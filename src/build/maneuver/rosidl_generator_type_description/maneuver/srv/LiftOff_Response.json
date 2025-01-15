@@ -1,0 +1,26 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "maneuver/srv/LiftOff_Response",
+      "fields": [
+        {
+          "name": "status",
+          "type": {
+            "type_id": 15,
+            "capacity": 0,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": []
+  },
+  "type_hashes": [
+    {
+      "type_name": "maneuver/srv/LiftOff_Response",
+      "hash_string": "RIHS01_bc436965b5c995a8c4c11f2f869dfd44bb404bceb607e61d76f7a1b14722a437"
+    }
+  ]
+}

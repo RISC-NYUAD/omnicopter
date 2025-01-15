@@ -1,0 +1,39 @@
+[0.005s] Invoking command in '/ros_ws/src/build/maneuver': AMENT_PREFIX_PATH=/ros_ws/src/install/libkdtp:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/ros_ws/src/install/libkdtp:/ros_ws/install/uav_simulator:/ros_ws/install/my_ros2_package:/ros_ws/install/controller:/ros_ws/install/maneuver:/ros_ws/install/libkdtp:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy LD_LIBRARY_PATH=/ros_ws/src/install/libkdtp/lib:${LD_LIBRARY_PATH} /usr/bin/cmake /ros_ws/src/maneuver -DCMAKE_INSTALL_PREFIX=/ros_ws/src/install/maneuver
+[0.040s] -- The C compiler identification is GNU 13.2.0
+[0.094s] -- The CXX compiler identification is GNU 13.2.0
+[0.102s] -- Detecting C compiler ABI info
+[0.177s] -- Detecting C compiler ABI info - done
+[0.182s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.183s] -- Detecting C compile features
+[0.183s] -- Detecting C compile features - done
+[0.188s] -- Detecting CXX compiler ABI info
+[0.245s] -- Detecting CXX compiler ABI info - done
+[0.251s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.251s] -- Detecting CXX compile features
+[0.251s] -- Detecting CXX compile features - done
+[0.253s] -- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.343s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.414s] -- Found rclcpp: 28.1.5 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.454s] -- Found rosidl_generator_c: 4.6.4 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.464s] -- Found rosidl_generator_cpp: 4.6.4 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.476s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.488s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.541s] -- Found rmw_implementation_cmake: 7.3.1 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.543s] -- Found rmw_fastrtps_cpp: 8.4.1 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.586s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[0.599s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[0.612s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.662s] -- Found std_msgs: 5.3.5 (/opt/ros/jazzy/share/std_msgs/cmake)
+[0.672s] -- Found geometry_msgs: 5.3.5 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[0.683s] -- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[0.693s] -- Found rosidl_adapter: 4.6.4 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+[0.694s] -- Found libkdtp: 1.0.0 (/ros_ws/src/install/libkdtp/share/libkdtp/cmake)
+[1.460s] -- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+[2.908s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.509s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.515s] -- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+[3.748s] -- Found PythonExtra: /usr/bin/python3  
+[4.273s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+[4.371s] -- Configuring done (4.4s)
+[4.428s] -- Generating done (0.0s)
+[4.437s] -- Build files have been written to: /ros_ws/src/build/maneuver

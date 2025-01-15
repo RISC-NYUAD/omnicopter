@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from maneuver/srv/Land.srv
+// generated code does not contain a copyright notice
+
+
+module maneuver {
+  module srv {
+    struct Land_Request {
+      float height_1;
+
+      float duration_1;
+
+      float height_2;
+
+      float duration_2;
+    };
+    struct Land_Response {
+      boolean status;
+    };
+  };
+};
