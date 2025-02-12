@@ -1,0 +1,388 @@
+#include <ros/ros.h>
+#include <ompl/base/SpaceInformation.h>
+#include <ompl/base/ScopedState.h>
+#include <ompl/base/PlannerStatus.h>
+#include <ompl/base/spaces/RealVectorBounds.h>
+#include <ompl/base/spaces/RealVectorStateSpace.h>
+#include <ompl/base/spaces/SO3StateSpace.h>
+#include <ompl/control/SimpleSetup.h>
+#include <ompl/control/planners/rrt/RRT.h>
+#include <ompl/control/spaces/RealVectorControlSpace.h>
+#include <nav_msgs/Path.h>
+#include <geometry_msgs/PoseStamped.h>
+#include <visualization_msgs/Marker.h>
+#include <tf/transform_datatypes.h>
+#include <ompl/base/objectives/PathLengthOptimizationObjective.h>
+
+namespace ob = ompl::base;
+namespace oc = ompl::control;
+
+// Global position, velocity, acceleration, angular velocity, and angular acceleration bounds
+ob::RealVectorBounds positionBounds(3);
+ob::RealVectorBounds velocityBounds(3);
+ob::RealVectorBounds accelerationBounds(3);
+ob::RealVectorBounds angularVelocityBounds(3);
+ob::RealVectorBounds angularAccelerationBounds(3);
+
+// Obstacle definition
+const double obstacle_x = 2.0;
+const double obstacle_y = 2.0;
+const double obstacle_z = 0.0;
+const double obstacle_radius = 1.0;
+
+// Function to check if a point is within a spherical obstacle
+bool isPointInObstacle(double x, double y, double z)
+{
+    double distance = std::sqrt(std::pow(x - obstacle_x, 2) +
+                                std::pow(y - obstacle_y, 2) +
+                                std::pow(z - obstacle_z, 2));
+    return distance <= obstacle_radius;
+}
+
+// State validity checker
+bool isStateValid(const ob::State *state)
+{
+    const auto *compound_state = state->as<ob::CompoundStateSpace::StateType>();
+    const auto *position = compound_state->as<ob::RealVectorStateSpace::StateType>(0);
+    const auto *velocity = compound_state->as<ob::RealVectorStateSpace::StateType>(2);
+    const auto *acceleration = compound_state->as<ob::RealVectorStateSpace::StateType>(3);
+    const auto *angular_velocity = compound_state->as<ob::RealVectorStateSpace::StateType>(4);
+    const auto *angular_acceleration = compound_state->as<ob::RealVectorStateSpace::StateType>(5);
+    const auto *orientation = compound_state->as<ob::SO3StateSpace::StateType>(1);
+
+    double x = position->values[0];
+    double y = position->values[1];
+    double z = position->values[2];
+
+    // Check position bounds
+    if (x < positionBounds.low[0] || x > positionBounds.high[0] ||
+        y < positionBounds.low[1] || y > positionBounds.high[1] ||
+        z < positionBounds.low[2] || z > positionBounds.high[2])
+    {
+        return false;
+    }
+
+    // Check velocity bounds
+    for (int i = 0; i < 3; ++i)
+    {
+        if (velocity->values[i] < velocityBounds.low[i] || velocity->values[i] > velocityBounds.high[i])
+        {
+            return false;
+        }
+    }
+
+    // Check acceleration bounds
+    for (int i = 0; i < 3; ++i)
+    {
+        if (acceleration->values[i] < accelerationBounds.low[i] || acceleration->values[i] > accelerationBounds.high[i])
+        {
+            return false;
+        }
+    }
+
+    // Check angular velocity bounds
+    for (int i = 0; i < 3; ++i)
+    {
+        if (angular_velocity->values[i] < angularVelocityBounds.low[i] || angular_velocity->values[i] > angularVelocityBounds.high[i])
+        {
+            return false;
+        }
+    }
+
+    // Check angular acceleration bounds
+    for (int i = 0; i < 3; ++i)
+    {
+        if (angular_acceleration->values[i] < angularAccelerationBounds.low[i] || angular_acceleration->values[i] > angularAccelerationBounds.high[i])
+        {
+            return false;
+        }
+    }
+
+    // Check if position is within the obstacle
+    if (isPointInObstacle(x, y, z))
+    {
+        return false;
+    }
+
+    // Check quaternion normalization
+    double norm = std::sqrt(orientation->x * orientation->x +
+                            orientation->y * orientation->y +
+                            orientation->z * orientation->z +
+                            orientation->w * orientation->w);
+    if (std::abs(norm - 1.0) > 1e-3) // Tolerance for numerical errors
+    {
+        return false;
+    }
+
+    return true;
+}
+
+// Propagation function for the drone's dynamics
+void propagate(const ob::State *start, const oc::Control *control, double duration, ob::State *result)
+{
+    const auto *start_state = start->as<ob::CompoundStateSpace::StateType>();
+    const auto *start_position = start_state->as<ob::RealVectorStateSpace::StateType>(0);
+    const auto *start_orientation = start_state->as<ob::SO3StateSpace::StateType>(1);
+    const auto *start_velocity = start_state->as<ob::RealVectorStateSpace::StateType>(2);
+    const auto *start_acceleration = start_state->as<ob::RealVectorStateSpace::StateType>(3);
+    const auto *start_angular_velocity = start_state->as<ob::RealVectorStateSpace::StateType>(4);
+    const auto *start_angular_acceleration = start_state->as<ob::RealVectorStateSpace::StateType>(5);
+    const auto *control_input = control->as<oc::RealVectorControlSpace::ControlType>();
+
+    auto *result_state = result->as<ob::CompoundStateSpace::StateType>();
+    auto *result_position = result_state->as<ob::RealVectorStateSpace::StateType>(0);
+    auto *result_orientation = result_state->as<ob::SO3StateSpace::StateType>(1);
+    auto *result_velocity = result_state->as<ob::RealVectorStateSpace::StateType>(2);
+    auto *result_acceleration = result_state->as<ob::RealVectorStateSpace::StateType>(3);
+    auto *result_angular_velocity = result_state->as<ob::RealVectorStateSpace::StateType>(4);
+    auto *result_angular_acceleration = result_state->as<ob::RealVectorStateSpace::StateType>(5);
+
+    // Update linear motion
+    for (int i = 0; i < 3; ++i)
+    {
+        result_acceleration->values[i] = control_input->values[i];
+        result_velocity->values[i] = start_velocity->values[i] + result_acceleration->values[i] * duration;
+        result_position->values[i] = start_position->values[i] +
+                                     start_velocity->values[i] * duration +
+                                     0.5 * result_acceleration->values[i] * duration * duration;
+    }
+
+    // Update angular motion
+    for (int i = 0; i < 3; ++i)
+    {
+        result_angular_acceleration->values[i] = control_input->values[3 + i];
+        result_angular_velocity->values[i] = start_angular_velocity->values[i] + result_angular_acceleration->values[i] * duration;
+    }
+
+    // Quaternion derivative and integration
+    double omega_q[4] = {0.0, result_angular_velocity->values[0], result_angular_velocity->values[1], result_angular_velocity->values[2]};
+    double q_dot[4] = {
+        -0.5 * (start_orientation->x * omega_q[1] + start_orientation->y * omega_q[2] + start_orientation->z * omega_q[3]),
+         0.5 * (start_orientation->w * omega_q[1] + start_orientation->y * omega_q[3] - start_orientation->z * omega_q[2]),
+         0.5 * (start_orientation->w * omega_q[2] + start_orientation->z * omega_q[1] - start_orientation->x * omega_q[3]),
+         0.5 * (start_orientation->w * omega_q[3] + start_orientation->x * omega_q[2] - start_orientation->y * omega_q[1])
+    };
+
+    result_orientation->w = start_orientation->w + q_dot[0] * duration;
+    result_orientation->x = start_orientation->x + q_dot[1] * duration;
+    result_orientation->y = start_orientation->y + q_dot[2] * duration;
+    result_orientation->z = start_orientation->z + q_dot[3] * duration;
+
+    // Normalize quaternion
+    double norm = std::sqrt(result_orientation->w * result_orientation->w +
+                            result_orientation->x * result_orientation->x +
+                            result_orientation->y * result_orientation->y +
+                            result_orientation->z * result_orientation->z);
+    result_orientation->w /= norm;
+    result_orientation->x /= norm;
+    result_orientation->y /= norm;
+    result_orientation->z /= norm;
+}
+
+// Planning function
+void planWithControlSetup(ros::Publisher &path_pub, ros::Publisher &marker_pub)
+{
+    // Define state space
+    auto positionSpace = std::make_shared<ob::RealVectorStateSpace>(3);
+    auto orientationSpace = std::make_shared<ob::SO3StateSpace>();
+    auto velocitySpace = std::make_shared<ob::RealVectorStateSpace>(3);
+    auto accelerationSpace = std::make_shared<ob::RealVectorStateSpace>(3);
+    auto angularVelocitySpace = std::make_shared<ob::RealVectorStateSpace>(3);
+    auto angularAccelerationSpace = std::make_shared<ob::RealVectorStateSpace>(3);
+
+    // Combine state spaces
+    auto stateSpace = std::make_shared<ob::CompoundStateSpace>();
+    stateSpace->addSubspace(positionSpace, 1.0);
+    stateSpace->addSubspace(orientationSpace, 1.0);
+    stateSpace->addSubspace(velocitySpace, 0.5);
+    stateSpace->addSubspace(accelerationSpace, 0.1);
+    stateSpace->addSubspace(angularVelocitySpace, 0.5);
+    stateSpace->addSubspace(angularAccelerationSpace, 0.1);
+
+    // Set bounds
+    positionBounds.setLow(0, -5);
+    positionBounds.setLow(1, -5);
+    positionBounds.setLow(2, 0);
+    positionBounds.setHigh(0, 5);
+    positionBounds.setHigh(1, 5);
+    positionBounds.setHigh(2, 5);
+    positionSpace->setBounds(positionBounds);
+
+    velocityBounds.setLow(-2);
+    velocityBounds.setHigh(2);
+    velocitySpace->setBounds(velocityBounds);
+
+    accelerationBounds.setLow(-2);
+    accelerationBounds.setHigh(2);
+    accelerationSpace->setBounds(accelerationBounds);
+
+    angularVelocityBounds.setLow(-1);
+    angularVelocityBounds.setHigh(1);
+    angularVelocitySpace->setBounds(angularVelocityBounds);
+
+    angularAccelerationBounds.setLow(-1);
+    angularAccelerationBounds.setHigh(1);
+    angularAccelerationSpace->setBounds(angularAccelerationBounds);
+
+   // Define control space with 6 dimensions: 3 for linear accelerations and 3 for angular accelerations
+    auto controlSpace = std::make_shared<oc::RealVectorControlSpace>(stateSpace, 6);
+
+    // Set bounds for control space
+    ob::RealVectorBounds controlBounds(6);
+    controlBounds.setLow(0, accelerationBounds.low[0]); // Linear accelerations
+    controlBounds.setHigh(0, accelerationBounds.high[0]);
+    controlBounds.setLow(1, accelerationBounds.low[1]);
+    controlBounds.setHigh(1, accelerationBounds.high[1]);
+    controlBounds.setLow(2, accelerationBounds.low[2]);
+    controlBounds.setHigh(2, accelerationBounds.high[2]);
+
+    controlBounds.setLow(3, angularAccelerationBounds.low[0]); // Angular accelerations
+    controlBounds.setHigh(3, angularAccelerationBounds.high[0]);
+    controlBounds.setLow(4, angularAccelerationBounds.low[1]);
+    controlBounds.setHigh(4, angularAccelerationBounds.high[1]);
+    controlBounds.setLow(5, angularAccelerationBounds.low[2]);
+    controlBounds.setHigh(5, angularAccelerationBounds.high[2]);
+
+    controlSpace->setBounds(controlBounds);
+
+    // Create SimpleSetup
+    oc::SimpleSetup ss(controlSpace);
+
+    // Set state validity checker
+    ss.setStateValidityChecker([](const ob::State *state) { return isStateValid(state); });
+
+    // Set state propagator
+    ss.setStatePropagator(propagate);
+
+    ss.getSpaceInformation()->setPropagationStepSize(0.01); // Finer step size
+    ss.getSpaceInformation()->setMinMaxControlDuration(1, 10); // Smaller control duration
+
+    // Define start and goal states
+    ob::ScopedState<> start(stateSpace);
+    start[0] = 0.0; start[1] = 0.0; start[2] = 0.0;  // Position
+    start[3] = 0.0; start[4] = 0.0; start[5] = 0.0; start[6] = 1.0;  // Orientation
+    start[7] = 0.0; start[8] = 0.0; start[9] = 0.0;  // Velocity
+    start[10] = 0.0; start[11] = 0.0; start[12] = 0.0;  // Acceleration
+    start[13] = 0.0; start[14] = 0.0; start[15] = 0.0;  // Angular Velocity
+    start[16] = 0.0; start[17] = 0.0; start[18] = 0.0;  // Angular Acceleration
+
+    ob::ScopedState<> goal(stateSpace);
+    goal[0] = 4.0; goal[1] = 4.0; goal[2] = 0.0;  // Position
+    goal[3] = sqrt(2) / 2; goal[4] = 0.0; goal[5] = 0.0; goal[6] = sqrt(2) / 2;  // Orientation
+    goal[7] = 0.0; goal[8] = 0.0; goal[9] = 0.0;  // Velocity
+    goal[10] = 0.0; goal[11] = 0.0; goal[12] = 0.0;  // Acceleration
+    goal[13] = 0.0; goal[14] = 0.0; goal[15] = 0.0;  // Angular Velocity
+    goal[16] = 0.0; goal[17] = 0.0; goal[18] = 0.0;  // Angular Acceleration
+
+    ss.setStartAndGoalStates(start, goal, 0.001);
+
+    ob::OptimizationObjectivePtr opt_obj = std::make_shared<ob::PathLengthOptimizationObjective>(ss.getSpaceInformation());
+    ss.setOptimizationObjective(opt_obj);
+
+    // Set planner
+    auto planner = std::make_shared<oc::RRT>(ss.getSpaceInformation());
+    ss.setPlanner(planner);
+
+    // Solve
+    ob::PlannerStatus solved = ss.solve(120.0);
+
+    if (solved)
+    {
+        ROS_INFO("Solution found!");
+        const auto &path = ss.getSolutionPath();
+        path.print(std::cout);
+
+        // Publish path
+        nav_msgs::Path path_msg;
+        path_msg.header.frame_id = "map";
+        path_msg.header.stamp = ros::Time::now();
+
+        visualization_msgs::Marker marker_msg;
+        marker_msg.header.frame_id = "map";
+        marker_msg.header.stamp = ros::Time::now();
+        marker_msg.ns = "ompl_solution";
+        marker_msg.type = visualization_msgs::Marker::LINE_LIST;
+        marker_msg.scale.x = 0.01;
+        marker_msg.color.a = 1.0;
+        marker_msg.color.r = 1.0f; marker_msg.color.g = 1.0f; marker_msg.color.b = 1.0f;
+
+        for (size_t i = 0; i < path.getStateCount(); ++i)
+        {
+            auto *state = path.getState(i)->as<ob::CompoundStateSpace::StateType>();
+            auto *position = state->as<ob::RealVectorStateSpace::StateType>(0);
+            auto *orientation = state->as<ob::SO3StateSpace::StateType>(1);
+
+            geometry_msgs::PoseStamped pose;
+            pose.pose.position.x = position->values[0];
+            pose.pose.position.y = position->values[1];
+            pose.pose.position.z = position->values[2];
+            pose.pose.orientation.x = orientation->x;
+            pose.pose.orientation.y = orientation->y;
+            pose.pose.orientation.z = orientation->z;
+            pose.pose.orientation.w = orientation->w;
+            path_msg.poses.push_back(pose);
+
+            // Visualize orientation axes
+            tf::Quaternion quat(
+                pose.pose.orientation.x,
+                pose.pose.orientation.y,
+                pose.pose.orientation.z,
+                pose.pose.orientation.w);
+            tf::Matrix3x3 rotation_matrix(quat);
+
+            tf::Vector3 x_axis(0.25, 0.0, 0.0);  // Red axis (X)
+            tf::Vector3 y_axis(0.0, 0.5, 0.0);  // Green axis (Y)
+            tf::Vector3 z_axis(0.0, 0.0, 1.0);  // Blue axis (Z)
+
+            tf::Vector3 rotated_x = rotation_matrix * x_axis;
+            tf::Vector3 rotated_y = rotation_matrix * y_axis;
+            tf::Vector3 rotated_z = rotation_matrix * z_axis;
+
+            // X-axis
+            marker_msg.points.push_back(pose.pose.position);
+            geometry_msgs::Point x_end;
+            x_end.x = pose.pose.position.x + rotated_x.x();
+            x_end.y = pose.pose.position.y + rotated_x.y();
+            x_end.z = pose.pose.position.z + rotated_x.z();
+            marker_msg.points.push_back(x_end);
+
+            // Y-axis
+            marker_msg.points.push_back(pose.pose.position);
+            geometry_msgs::Point y_end;
+            y_end.x = pose.pose.position.x + rotated_y.x();
+            y_end.y = pose.pose.position.y + rotated_y.y();
+            y_end.z = pose.pose.position.z + rotated_y.z();
+            marker_msg.points.push_back(y_end);
+
+            // Z-axis
+            marker_msg.points.push_back(pose.pose.position);
+            geometry_msgs::Point z_end;
+            z_end.x = pose.pose.position.x + rotated_z.x();
+            z_end.y = pose.pose.position.y + rotated_z.y();
+            z_end.z = pose.pose.position.z + rotated_z.z();
+            marker_msg.points.push_back(z_end);
+        }
+
+        path_pub.publish(path_msg);
+        marker_pub.publish(marker_msg);
+    }
+    else
+    {
+        ROS_WARN("No solution found.");
+    }
+}
+
+int main(int argc, char **argv)
+{
+    ros::init(argc, argv, "ompl_planner_node");
+    ros::NodeHandle nh;
+
+    ros::Publisher path_pub = nh.advertise<nav_msgs::Path>("ompl_solution_path", 1, true);
+    ros::Publisher marker_pub = nh.advertise<visualization_msgs::Marker>("ompl_solution_marker", 1, true);
+
+    ros::Timer timer = nh.createTimer(ros::Duration(121.0),
+                                      boost::bind(planWithControlSetup, path_pub, marker_pub));
+
+    ros::spin();
+    return 0;
+}

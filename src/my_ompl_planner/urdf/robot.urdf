@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<robot name="my_robot">
+  <!-- World Link -->
+  <link name="world" />
+
+  <!-- Robot Base -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://my_ompl_planner/meshes/drone_with_cylinders.stl" scale="1 1 1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://my_ompl_planner/meshes/drone_with_cylinders.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Map/Environment -->
+  <link name="map">
+    <visual>
+      <geometry>
+        <mesh filename="package://my_ompl_planner/meshes/map.stl" scale="1 1 1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://my_ompl_planner/meshes/map.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Connect the robot base to the world with a floating joint -->
+  <joint name="base_joint" type="floating">
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
+
+  <!-- Connect the map to the world -->
+  <joint name="map_joint" type="fixed">
+    <parent link="world"/>
+    <child link="map"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+</robot>
+

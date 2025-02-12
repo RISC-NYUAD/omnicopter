@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>my_ompl_planner</name>
+  <version>0.1.0</version>
+  <description>
+    A ROS package for OMPL-based path planning for drones, integrated with MoveIt.
+  </description>
+
+  <maintainer email="abdullah.ali@nyu.edu">Abdullah Ali</maintainer>
+  <author email="abdullah.ali@nyu.edu">Abdullah Ali</author>
+
+  <license>BSD</license>
+
+  <url type="website">http://moveit.ros.org/</url>
+  <url type="bugtracker">https://github.com/moveit/moveit/issues</url>
+  <url type="repository">https://github.com/moveit/moveit</url>
+
+  <!-- Build dependencies -->
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>moveit_core</build_depend>
+  <build_depend>moveit_ros_planning</build_depend>
+  <build_depend>moveit_ros_planning_interface</build_depend>
+  <build_depend>interactive_markers</build_depend>
+  <build_depend>python3</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>omni_firmware</build_depend> <!-- Added omni_firmware as a build dependency -->
+  <build_depend>ompl</build_depend> <!-- OMPL library dependency -->
+  <build_depend>libpcl-dev</build_depend> <!-- PCL library dependency -->
+
+  <!-- Runtime dependencies -->
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>moveit_core</exec_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <exec_depend>moveit_ros_planning</exec_depend>
+  <exec_depend>moveit_ros_planning_interface</exec_depend>
+  <exec_depend>interactive_markers</exec_depend>
+  <exec_depend>python3</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>omni_firmware</exec_depend>
+  <exec_depend>ompl</exec_depend> <!-- OMPL runtime dependency -->
+  <exec_depend>libpcl-dev</exec_depend> <!-- PCL runtime dependency -->
+
+  <!-- Test dependencies -->
+  <test_depend>rostest</test_depend>
+  <test_depend>gtest</test_depend>
+
+  <!-- Exported resources -->
+  <export>
+    <build_type>catkin</build_type>
+  </export>
+</package>

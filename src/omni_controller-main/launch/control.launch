@@ -1,0 +1,17 @@
+<launch>
+
+  <arg name="pose" default="pose_full"/>
+  <arg name="pose_d" default="pose_d"/>
+  <arg name="prop_cmd" default="MotorSpeed"/>
+  <arg name="prop_act" default="setActPos"/>
+
+
+  <node name="controller" pkg="controller" type="controller_node" output="screen">
+     <rosparam command="load" file="$(find controller)/config/controller_gains.yaml"/>
+     <param name="pose" value="$(arg pose)"/>
+     <param name="pose_d" value="$(arg pose_d)"/>
+     <param name="prop_cmd" value="$(arg prop_cmd)"/>
+     <param name="prop_act" value="$(arg prop_act)"/>
+  </node>
+
+</launch>

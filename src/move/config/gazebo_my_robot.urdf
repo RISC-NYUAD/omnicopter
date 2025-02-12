@@ -1,0 +1,68 @@
+<?xml version="1.0" ?>
+<robot name="my_robot">
+    <!-- World Link -->
+    <link name="world" />
+    <!-- Robot Base -->
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://my_ompl_planner/meshes/drone_with_cylinders.stl" scale="1 1 1" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://my_ompl_planner/meshes/drone_with_cylinders.stl" scale="1 1 1" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <!-- Map/Environment -->
+    <link name="map">
+        <visual>
+            <geometry>
+                <mesh filename="package://my_ompl_planner/meshes/map.stl" scale="1 1 1" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://my_ompl_planner/meshes/map.stl" scale="1 1 1" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <!-- Connect the robot base to the world with a floating joint -->
+    <joint name="base_joint" type="floating">
+        <parent link="world" />
+        <child link="base_link" />
+    </joint>
+    <!-- Connect the map to the world -->
+    <joint name="map_joint" type="fixed">
+        <parent link="world" />
+        <child link="map" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </joint>
+    <transmission name="trans_base_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="base_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="base_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+</robot>
+

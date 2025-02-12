@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: my_ompl_planner
+    relative_path: urdf/robot.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/my_robot.srdf
+  CONFIG:
+    author_name: Abdullah ALi
+    author_email: abdullah.ali@nyu.edu
+    generated_timestamp: 1737533144
