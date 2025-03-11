@@ -1,0 +1,8 @@
+<launch>
+
+	<include file="$(find uav_simulator)/launch/omnicopter.launch"/>
+    <include file="$(find controller)/launch/control.launch"/>
+	<include file="$(find maneuver)/launch/maneuver.launch"/>
+
+
+</launch>

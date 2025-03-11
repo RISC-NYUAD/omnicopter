@@ -1,0 +1,8 @@
+prefix=/opt/ros/noetic/flightSoftware/devel
+
+Name: libkdtp
+Description: Description of libkdtp
+Version: 1.0.0
+Cflags: -I/opt/ros/noetic/flightSoftware/src/libkdtp/include
+Libs: -L${prefix}/lib -llibkdtp
+Requires: 

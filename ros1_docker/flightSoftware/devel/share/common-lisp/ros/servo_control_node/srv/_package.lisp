@@ -1,0 +1,15 @@
+(cl:defpackage servo_control_node-srv
+  (:use )
+  (:export
+   "RELEASEARMS"
+   "<RELEASEARMS-REQUEST>"
+   "RELEASEARMS-REQUEST"
+   "<RELEASEARMS-RESPONSE>"
+   "RELEASEARMS-RESPONSE"
+   "SETANGLES"
+   "<SETANGLES-REQUEST>"
+   "SETANGLES-REQUEST"
+   "<SETANGLES-RESPONSE>"
+   "SETANGLES-RESPONSE"
+  ))
+

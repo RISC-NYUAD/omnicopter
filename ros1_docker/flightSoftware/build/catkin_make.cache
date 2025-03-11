@@ -1,0 +1,2 @@
+ina226_driver:libkdtp:my_ompl_planner:omni_controller-main:omni_firmware-main:omni_maneuver-main
+-DCATKIN_DEVEL_PREFIX=/opt/ros/noetic/flightSoftware/devel -DCMAKE_INSTALL_PREFIX=/opt/ros/noetic/flightSoftware/install -G Unix Makefiles

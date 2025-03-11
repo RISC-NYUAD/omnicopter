@@ -1,0 +1,16 @@
+docker-compose up -d                   //running deaaatched without building
+docker-compose up -d --build           //running deaaatched with building
+
+
+docker-compose down                   // closes all runung containers
+
+docker-compose exec omni bash        // atatching to a new session of running container
+
+
+
+docker-compose ps                   // listing all runing containers
+
+sudo service docker restart
+
+docker system prune -f           // delete all containers, images and networks
+

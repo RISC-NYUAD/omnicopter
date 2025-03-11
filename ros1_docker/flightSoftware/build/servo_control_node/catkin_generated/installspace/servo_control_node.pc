@@ -1,0 +1,8 @@
+prefix=/opt/ros/noetic/flightSoftware/install
+
+Name: servo_control_node
+Description: Description of servo_control_node
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: roscpp std_msgs std_srvs message_runtime

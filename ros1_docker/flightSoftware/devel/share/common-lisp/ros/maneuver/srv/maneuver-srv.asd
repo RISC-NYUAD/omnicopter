@@ -1,0 +1,23 @@
+
+(cl:in-package :asdf)
+
+(defsystem "maneuver-srv"
+  :depends-on (:roslisp-msg-protocol :roslisp-utils )
+  :components ((:file "_package")
+    (:file "ArmDisarm" :depends-on ("_package_ArmDisarm"))
+    (:file "_package_ArmDisarm" :depends-on ("_package"))
+    (:file "Ellipse5D" :depends-on ("_package_Ellipse5D"))
+    (:file "_package_Ellipse5D" :depends-on ("_package"))
+    (:file "FullFlip" :depends-on ("_package_FullFlip"))
+    (:file "_package_FullFlip" :depends-on ("_package"))
+    (:file "Goto6DPoint" :depends-on ("_package_Goto6DPoint"))
+    (:file "_package_Goto6DPoint" :depends-on ("_package"))
+    (:file "GotoPoint" :depends-on ("_package_GotoPoint"))
+    (:file "_package_GotoPoint" :depends-on ("_package"))
+    (:file "Land" :depends-on ("_package_Land"))
+    (:file "_package_Land" :depends-on ("_package"))
+    (:file "LiftOff" :depends-on ("_package_LiftOff"))
+    (:file "_package_LiftOff" :depends-on ("_package"))
+    (:file "RotateTo" :depends-on ("_package_RotateTo"))
+    (:file "_package_RotateTo" :depends-on ("_package"))
+  ))

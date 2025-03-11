@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="ina226_driver" type="ina226_driver" name="ina226_driver" output="screen"/>
+</launch>
+

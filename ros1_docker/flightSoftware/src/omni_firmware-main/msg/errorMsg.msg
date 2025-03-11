@@ -1,0 +1,12 @@
+geometry_msgs/Vector3 ex
+geometry_msgs/Vector3 ev
+geometry_msgs/Vector3 ea
+geometry_msgs/Vector3 eR
+geometry_msgs/Vector3 ew
+geometry_msgs/Vector3 Iex
+geometry_msgs/Vector3 Ier
+geometry_msgs/Vector3 Accd
+float32[] Wrench
+float32[] exWrench
+float32[] prop
+float32 weight

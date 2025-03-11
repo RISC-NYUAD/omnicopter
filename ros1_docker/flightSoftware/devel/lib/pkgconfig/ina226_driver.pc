@@ -1,0 +1,8 @@
+prefix=/opt/ros/noetic/flightSoftware/devel
+
+Name: ina226_driver
+Description: Description of ina226_driver
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

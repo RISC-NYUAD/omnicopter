@@ -1,0 +1,8 @@
+prefix=/opt/ros/noetic/flightSoftware/install
+
+Name: my_ompl_planner
+Description: Description of my_ompl_planner
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: roscpp std_msgs geometry_msgs omni_firmware

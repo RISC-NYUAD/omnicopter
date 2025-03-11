@@ -1,0 +1,2 @@
+set(omni_firmware_MESSAGE_FILES "/opt/ros/noetic/flightSoftware/src/omni_firmware-main/msg/errorMsg.msg;/opt/ros/noetic/flightSoftware/src/omni_firmware-main/msg/FullPose.msg;/opt/ros/noetic/flightSoftware/src/omni_firmware-main/msg/MotorSpeed.msg;/opt/ros/noetic/flightSoftware/src/omni_firmware-main/msg/Pose.msg;/opt/ros/noetic/flightSoftware/src/omni_firmware-main/msg/Uvector.msg")
+set(omni_firmware_SERVICE_FILES "/opt/ros/noetic/flightSoftware/src/omni_firmware-main/srv/ZeroUKF.srv")

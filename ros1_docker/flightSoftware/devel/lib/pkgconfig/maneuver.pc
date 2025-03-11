@@ -1,0 +1,8 @@
+prefix=/opt/ros/noetic/flightSoftware/devel
+
+Name: maneuver
+Description: Description of maneuver
+Version: 1.0.0
+Cflags: -I/opt/ros/noetic/flightSoftware/devel/include -I/usr/include/eigen3
+Libs: -L${prefix}/lib 
+Requires: 
