@@ -40,25 +40,26 @@
 class State {
 protected:
 	// containers for published and subscribed threads
-	omni_firmware::FullPose full_pose;
+    omni_firmware::FullPose full_pose;
     geometry_msgs::Pose pose_;
     geometry_msgs::Twist twist_;
     geometry_msgs::Accel accel_;
-
+    omni_firmware::MotorSpeed rpm_;
 	// publisher thread desired pose
 	ros::Publisher pose_pub;
 	ros::Publisher imu_pub;
 	ros::Publisher gps_pub;
     ros::Subscriber pose_sub;
     ros::Subscriber twist_sub;
-	ros::Subscriber cmd_sub;
+    ros::Subscriber cmd_sub;
+    ros::Publisher RPM_pub;
     //ros::Subscriber accel_sub;
 	
-	const int dataLength = 18+18+6+2;
+	const int dataLength = 18+18+6+2+32;
 	sensor_msgs::Imu imu_data;
 	sensor_msgs::NavSatFix gps_data;
 	float yaw;
-	uint8_t buffer_read[18+6+18+2];            
+	uint8_t buffer_read[18+6+18+2+32];            
 	uint8_t MSP_motor_buffer[22];
 	uint8_t MSP_motor_Idle_buffer[22];
 	bool initialized = false;

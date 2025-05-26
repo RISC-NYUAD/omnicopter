@@ -58,6 +58,7 @@ State::State() : nh_() {
 	//accel_sub = nh_.subscribe("/vrpn_client_node/Omnicopter/accel", 1000, &State::accelCallback, this);
 	cmd_sub = nh_.subscribe("/MotorSpeed",2,&State::MotorCmdCallback,this);
 	gps_pub = nh_.advertise<sensor_msgs::NavSatFix>("/Raw_GPS_baro",10);
+	RPM_pub = nh_.advertise<omni_firmware::MotorSpeed>("/RPM", 10);
 	
 		try
     {
@@ -627,8 +628,25 @@ void State::IMU_callback()
 		this->gps_pub.publish(gps_data);
 	
 	}
+	std::vector<std::string> motor_names;
+	std::vector<float> motor_velocities;
 
+	uint32_t motor_rpm = 0;
+	for (int i = 0; i < 8; i++)
+	{
+    	   uint32_t buffer_data_long = buffer_read[39+(i+1)*4] | (buffer_read[40 +(i+1)*4] << 8)
+                              | (buffer_read[41+(i+1)*4] << 16) | (buffer_read[42+(i+1)*4] << 24);
+    
+    	   motor_rpm = (uint32_t) buffer_data_long;
+    
+           motor_names.push_back("motor_" + std::to_string(i+1));  // Assign motor names
+           motor_velocities.push_back(static_cast<float>(motor_rpm));  // Store motor RPM as float
+}
 
+	this->rpm_.name = motor_names;
+	this->rpm_.velocity = motor_velocities;
+
+	this->RPM_pub.publish(rpm_);
 
 }
 

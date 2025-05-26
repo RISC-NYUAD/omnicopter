@@ -13,7 +13,7 @@ services:
     privileged: true  # Use privileged mode
     network_mode: host  # Use host network
     volumes:
-      - /home/${USER}/ros1_docker/flightSoftware:/opt/ros/noetic/flightSoftware  # Bind mount for the flightSoftware directory
+      - /home/${USER}/omnicopter/ros1_docker/flightSoftware:/opt/ros/noetic/flightSoftware  # Bind mount for the flightSoftware directory
       - /dev:/dev
 
     devices:
