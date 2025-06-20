@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="triangle_wall">
+    <static>true</static>
+    <link name="wall_link">
+      <!-- Left Triangle -->
+      <collision name="left_triangle_collision">
+        <geometry>
+          <mesh>
+            <uri>model://triangle_wall/meshes/left_triangle.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="left_triangle_visual">
+        <geometry>
+          <mesh>
+            <uri>model://triangle_wall/meshes/left_triangle.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Gray</name>
+          </script>
+        </material>
+      </visual>
+
+      <!-- Right Triangle -->
+      <collision name="right_triangle_collision">
+        <geometry>
+          <mesh>
+            <uri>model://triangle_wall/meshes/right_triangle.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="right_triangle_visual">
+        <geometry>
+          <mesh>
+            <uri>model://triangle_wall/meshes/right_triangle.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Gray</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
