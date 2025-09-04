@@ -85,11 +85,30 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+
 # Install Xpra server
 RUN apt-get update && \
     apt-get install -y xpra xpra-html5 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
+# Clean up any conflicting ROS repo entries
+RUN rm -f /etc/apt/sources.list.d/ros1-latest.list && \
+    rm -f /usr/share/keyrings/ros1-latest-archive-keyring.gpg
+
+# Add ROS repository with updated GPG key (no conflicts)
+RUN curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.key | \
+    gpg --dearmor | tee /etc/apt/keyrings/ros-archive-keyring.gpg > /dev/null && \
+    echo "deb [signed-by=/etc/apt/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros/ubuntu focal main" \
+    > /etc/apt/sources.list.d/ros-latest.list
+
+
+# Install RTAB-Map and its ROS wrapper
+RUN apt-get update && \
+    apt-get install -y ros-noetic-rtabmap ros-noetic-rtabmap-ros && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 
 # Copy your ROS1 workspace into the container
 COPY ./flightSoftware /opt/ros/noetic/flightSoftware/src
