@@ -21,8 +21,9 @@
           </geometry>
           <material>
             <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/DarkGreen</name>
+              <uri>model://wall_materials/materials/scripts</uri>
+              <uri>model://wall_materials/materials/textures</uri>
+              <name>Walls/Map8</name>
             </script>
           </material>
           <pose>0 0 -0.05 0 0 0</pose>
@@ -38,7 +39,7 @@
         <collision name="left_wall_part">
           <geometry>
             <box>
-              <size>9.65 1 5</size> <!-- Adjusted size for a 0.7m wide opening -->
+              <size>9.0 1 5</size> <!-- Adjusted size for a 0.7m wide opening -->
             </box>
           </geometry>
           <pose>-5.2 -6.0 2.5 0 0 0</pose> <!-- Adjusted position -->
@@ -46,13 +47,14 @@
         <visual name="left_wall_visual">
           <geometry>
             <box>
-              <size>9.65 1 5</size>
+              <size>9.0 1 5</size>
             </box>
           </geometry>
           <material>
             <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Gray</name>
+              <uri>model://wall_materials/materials/scripts</uri>
+              <uri>model://wall_materials/materials/textures</uri>
+              <name>Walls/Map1</name>
             </script>
           </material>
           <pose>-5.2 -6.0 2.5 0 0 0</pose>
@@ -62,7 +64,7 @@
         <collision name="right_wall_part">
           <geometry>
             <box>
-              <size>9.65 1 5</size>
+              <size>9.0 1 5</size>
             </box>
           </geometry>
           <pose>5.2 -6.0 2.5 0 0 0</pose> <!-- Adjusted position -->
@@ -70,13 +72,14 @@
         <visual name="right_wall_visual">
           <geometry>
             <box>
-              <size>9.65 1 5</size>
+              <size>9.0 1 5</size>
             </box>
           </geometry>
           <material>
             <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Gray</name>
+              <uri>model://wall_materials/materials/scripts</uri>
+              <uri>model://wall_materials/materials/textures</uri>
+              <name>Walls/Poster1</name>
             </script>
           </material>
           <pose>5.2 -6.0 2.5 0 0 0</pose>
@@ -104,8 +107,9 @@
           </geometry>
           <material>
             <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Blue</name> <!-- Colored wall -->
+              <uri>model://wall_materials/materials/scripts</uri>
+              <uri>model://wall_materials/materials/textures</uri>
+              <name>Walls/Map2</name>
             </script>
           </material>
           <pose>0 10 2.5 0 0 0</pose>
@@ -133,8 +137,9 @@
           </geometry>
           <material>
             <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Red</name> <!-- Colored wall -->
+              <uri>model://wall_materials/materials/scripts</uri>
+              <uri>model://wall_materials/materials/textures</uri>
+              <name>Walls/Map3</name>
             </script>
           </material>
           <pose>0 -10 2.5 0 0 0</pose>
@@ -162,8 +167,9 @@
           </geometry>
           <material>
             <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Green</name> <!-- Colored wall -->
+              <uri>model://wall_materials/materials/scripts</uri>
+              <uri>model://wall_materials/materials/textures</uri>
+              <name>Walls/Map4</name>
             </script>
           </material>
           <pose>-10 0 2.5 0 0 0</pose>
@@ -191,8 +197,9 @@
           </geometry>
           <material>
             <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Yellow</name> <!-- Colored wall -->
+              <uri>model://wall_materials/materials/scripts</uri>
+              <uri>model://wall_materials/materials/textures</uri>
+              <name>Walls/Map5</name>
             </script>
           </material>
           <pose>10 0 2.5 0 0 0</pose>
@@ -207,24 +214,25 @@
         <collision name="wall_collision">
           <geometry>
             <box>
-              <size>20 1 1.5</size> <!-- Adjusted size -->
+              <size>20 1.2 1.5</size> <!-- Adjusted size -->
             </box>
           </geometry>
-          <pose>0 6 4.25 0 0 0</pose>
+          <pose>0 6 4.15 0 0 0</pose>
         </collision>
         <visual name="wall_visual">
           <geometry>
             <box>
-              <size>20 1 1.5</size>
+              <size>20 1.2 1.5</size>
             </box>
           </geometry>
           <material>
             <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Gray</name>
+              <uri>model://wall_materials/materials/scripts</uri>
+              <uri>model://wall_materials/materials/textures</uri>
+              <name>Walls/Poster1</name>
             </script>
           </material>
-          <pose>0 6 4.25 0 0 0</pose>
+          <pose>0 6 4.15 0 0 0</pose>
         </visual>
       </link>
     </model>
@@ -249,15 +257,15 @@
           </geometry>
           <material>
             <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Orange</name>
+              <uri>model://wall_materials/materials/scripts</uri>
+              <uri>model://wall_materials/materials/textures</uri>
+              <name>Walls/Map7</name>
             </script>
           </material>
           <pose>0 0 1.5 0 0 0</pose>
         </visual>
       </link>
     </model>
-
 
     <!-- Include Robot -->
     <include>
