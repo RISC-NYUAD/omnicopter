@@ -105,21 +105,24 @@
     </joint> 
     -->
     <link name='camera_link'>
-      <pose>0.3 -1.0 0.9 -0.885 0 1.5708</pose> <!-- Initial position behind the drone -->
+      <!-- Keep the link pose zero; offset is in the joint below -->
+      <pose>0 0 0 0 0 0</pose>
+
+      <!-- RGB camera -->
       <sensor name="camera_sensor" type="camera">
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0 0 0 1.57080</pose>
         <update_rate>30</update_rate>
         <gravity>0</gravity>
         <camera>
-          <horizontal_fov>2.0944</horizontal_fov>
+          <horizontal_fov>1.5708</horizontal_fov>  <!-- 90° -->
           <image>
-            <width>1280</width>
-            <height>720</height>
+            <width>640</width>
+            <height>480</height>
             <format>R8G8B8</format>
           </image>
           <clip>
-            <near>0.1</near>
-            <far>100</far>
+            <near>0.6</near>
+            <far>6</far>
           </clip>
         </camera>
         <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
@@ -131,46 +134,60 @@
           <frameName>camera_link</frameName>
         </plugin>
       </sensor>
+
+      <!-- IMU co-located with the cameras -->
+      <sensor name="camera_imu" type="imu">
+        <pose>0 0 0 -1.5708 0 -1.5708</pose>
+        <always_on>true</always_on>
+        <update_rate>400</update_rate>   <!-- 200 Hz like many IMUs -->
+        <plugin name="camera_imu_plugin" filename="libgazebo_ros_imu_sensor.so">
+          <robotNamespace>/omnicopter</robotNamespace>
+          <updateRateHZ>200</updateRateHZ>
+          <topicName>/camera/imu</topicName>     <!-- IMU topic -->
+          <frameName>camera_link</frameName>     <!-- IMU data stamped in camera_link -->
+          <gaussianNoise>0.001</gaussianNoise>  <!-- optional -->
+        </plugin>
+      </sensor>
+
+
+      <!-- Depth camera -->
+      <sensor name="depth_camera_sensor" type="depth">
+        <pose>0 0 0 0 0 1.5708</pose>
+        <update_rate>30</update_rate>
+        <camera>
+          <horizontal_fov>1.5708</horizontal_fov>  <!-- 90° -->
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.6</near>
+            <far>6.0</far>
+          </clip>
+        </camera>
+        <plugin name="depth_camera_controller" filename="libgazebo_ros_depth_camera.so">
+          <robotNamespace>/omnicopter_depth_camera</robotNamespace>
+          <alwaysOn>true</alwaysOn>
+          <updateRate>30</updateRate>
+          <cameraName>depth_camera</cameraName>
+          <imageTopicName>/omnicopter_depth_camera/image_raw</imageTopicName>
+          <depthImageTopicName>/omnicopter_depth_camera/depth/image_raw</depthImageTopicName>
+          <pointCloudTopicName>/omnicopter_depth_camera/points</pointCloudTopicName>
+          <cameraInfoTopicName>/omnicopter_depth_camera/camera_info</cameraInfoTopicName>
+          <frameName>camera_link</frameName>
+        </plugin>
+      </sensor>
     </link>
 
-<!-- Add this just before </model> -->
+    <!-- Attach camera_link to base_link so both frames appear in TF -->
+    <joint name="camera_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>camera_link</child>
+      <!-- camera_link relative to base_link -->
+      <pose>0 -0.16 0 1.5708 3.14160 0</pose>
+    </joint>
 
-<link name='depth_camera_link'>
-  <pose>0 0.3 0 0 0 1.5708</pose> <!-- Facing -Y -->
-  <sensor name="depth_camera_sensor" type="depth">
-    <pose>0 0 0 0 0 0</pose>
-    <update_rate>30</update_rate>
-    <camera>
-      <horizontal_fov>1.047</horizontal_fov>
-      <image>
-        <width>640</width>
-        <height>480</height>
-        <format>R8G8B8</format>
-      </image>
-      <clip>
-        <near>0.1</near>
-        <far>10.0</far>
-      </clip>
-    </camera>
-<plugin name="depth_camera_controller" filename="libgazebo_ros_depth_camera.so">
-  <robotNamespace>/omnicopter_depth_camera</robotNamespace>
-  <alwaysOn>true</alwaysOn>
-  <updateRate>30</updateRate>
-  <cameraName>depth_camera</cameraName>
-  <imageTopicName>/omnicopter_depth_camera/image_raw</imageTopicName>
-  <depthImageTopicName>/omnicopter_depth_camera/depth/image_raw</depthImageTopicName>
-  <pointCloudTopicName>/omnicopter_depth_camera/points</pointCloudTopicName>
-  <cameraInfoTopicName>/omnicopter_depth_camera/camera_info</cameraInfoTopicName>
-  <frameName>depth_camera_link</frameName>
-</plugin>
-
-  </sensor>
-</link>
-
-<joint name='depth_camera_joint' type='fixed'>
-  <parent>base_link</parent>
-  <child>depth_camera_link</child>
-</joint>
 	
 
     <link name='imu_link'>
@@ -816,9 +833,10 @@
   		<turning_directions>0 1 0 1 0 1 0 1</turning_directions>
   	</plugin>
 
+	<!--
   <plugin name="follow_camera_plugin" filename="libFollowCamera.so"/>
 
-	<!--
+
 
     <plugin name="betaflight_plugin" filename="libBetaflightPlugin.so">
       <imuName>imu_link::imu_sensor</imuName>
