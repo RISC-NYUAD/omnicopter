@@ -1,0 +1,217 @@
+// Full-wall texture using map1.png
+material Walls/Map1
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      ambient 1 1 1 1
+      diffuse 1 1 1 1
+      specular 0 0 0 0
+      texture_unit
+      {
+        texture map1.png
+        tex_address_mode wrap
+	filtering trilinear
+        max_anisotropy 800
+        // Optional tuning:
+        scale 1 1       // tile 4x horizontally, 1x vertically
+        // rotate 90       // rotate texture 90 degrees
+      }
+    }
+  }
+}
+
+// A poster-style texture with alpha (transparent PNG areas)
+material Walls/Poster1
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      ambient 1 1 1 1
+      diffuse 1 1 1 1
+      specular 0 0 0 0
+      scene_blend alpha_blend  // respect PNG alpha
+      depth_write off
+      texture_unit
+      {
+        texture poster1.png
+        tex_address_mode wrap
+	filtering trilinear
+        max_anisotropy 800
+        scale 1 1
+      }
+    }
+  }
+}
+
+material Walls/Map2
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      ambient 1 1 1 1
+      diffuse 1 1 1 1
+      specular 0 0 0 0
+      texture_unit
+      {
+        texture map2.png
+        tex_address_mode wrap
+	filtering trilinear
+        max_anisotropy 800
+        // Optional tuning:
+        scale 1 1       // tile 4x horizontally, 1x vertically
+        // rotate 90       // rotate texture 90 degrees
+      }
+    }
+  }
+}
+
+material Walls/Map3
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      ambient 1 1 1 1
+      diffuse 1 1 1 1
+      specular 0 0 0 0
+      texture_unit
+      {
+        texture map3.png
+        tex_address_mode wrap
+	filtering trilinear
+        max_anisotropy 800
+        // Optional tuning:
+        scale 1 1       // tile 4x horizontally, 1x vertically
+        // rotate 90       // rotate texture 90 degrees
+      }
+    }
+  }
+}
+
+material Walls/Map4
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      ambient 1 1 1 1
+      diffuse 1 1 1 1
+      specular 0 0 0 0
+      texture_unit
+      {
+        texture map4.png
+        tex_address_mode wrap
+	filtering trilinear
+        max_anisotropy 800
+        // Optional tuning:
+        scale 1 1       // tile 4x horizontally, 1x vertically
+        // rotate 90       // rotate texture 90 degrees
+      }
+    }
+  }
+}
+
+material Walls/Map5
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      ambient 1 1 1 1
+      diffuse 1 1 1 1
+      specular 0 0 0 0
+      texture_unit
+      {
+        texture map5.png
+        tex_address_mode wrap
+	filtering trilinear
+        max_anisotropy 800
+        // Optional tuning:
+        scale 1 1       // tile 4x horizontally, 1x vertically
+        // rotate 90       // rotate texture 90 degrees
+      }
+    }
+  }
+}
+
+material Walls/Map6
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      ambient 1 1 1 1
+      diffuse 1 1 1 1
+      specular 0 0 0 0
+      texture_unit
+      {
+        texture map6.png
+        tex_address_mode wrap
+	filtering trilinear
+        max_anisotropy 800
+        // Optional tuning:
+        scale 1 1       // tile 4x horizontally, 1x vertically
+        // rotate 90       // rotate texture 90 degrees
+      }
+    }
+  }
+}
+
+material Walls/Map7
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      ambient 1 1 1 1
+      diffuse 1 1 1 1
+      specular 0 0 0 0
+      texture_unit
+      {
+        texture map7.png
+        tex_address_mode wrap
+	filtering trilinear
+        max_anisotropy 800
+        // Optional tuning:
+        scale 1 1       // tile 4x horizontally, 1x vertically
+        // rotate 90       // rotate texture 90 degrees
+      }
+    }
+  }
+}
+
+material Walls/Map8
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      ambient 1 1 1 1
+      diffuse 1 1 1 1
+      specular 0 0 0 0
+      texture_unit
+      {
+        texture map8.png
+        tex_address_mode wrap
+	filtering trilinear
+        max_anisotropy 800
+        // Optional tuning:
+        scale 1 1       // tile 4x horizontally, 1x vertically
+        // rotate 90       // rotate texture 90 degrees
+      }
+    }
+  }
+}
