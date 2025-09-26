@@ -38,7 +38,7 @@ int main(int argc, char** argv)
   	
   std::string namespc = argv[1];
     
-  std::string pose_topic = namespc + "/odometry";
+  std::string pose_topic = namespc + "/odometry_adjusted";
   std::string cmd_topic = namespc + "/command_motor_speed";
   std::string setpoint_topic = namespc + "/attitude_setpoint" ;
   std::string pose_new = "pose_full";
