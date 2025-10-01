@@ -229,7 +229,7 @@
             <script>
               <uri>model://wall_materials/materials/scripts</uri>
               <uri>model://wall_materials/materials/textures</uri>
-              <name>Walls/Poster1</name>
+              <name>Walls/New</name>
             </script>
           </material>
           <pose>0 6 4.15 0 0 0</pose>
