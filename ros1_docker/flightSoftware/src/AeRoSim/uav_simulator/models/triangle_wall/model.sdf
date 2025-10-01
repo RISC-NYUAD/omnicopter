@@ -14,13 +14,14 @@
       <visual name="left_triangle_visual">
         <geometry>
           <mesh>
-            <uri>model://triangle_wall/meshes/left_triangle.stl</uri>
+            <uri>model://triangle_wall/meshes/left_triangle.obj</uri>
           </mesh>
         </geometry>
         <material>
           <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Gray</name>
+            <uri>model://wall_materials/materials/scripts</uri>
+            <uri>model://wall_materials/materials/textures</uri>
+            <name>Walls/New</name>
           </script>
         </material>
       </visual>
@@ -36,13 +37,14 @@
       <visual name="right_triangle_visual">
         <geometry>
           <mesh>
-            <uri>model://triangle_wall/meshes/right_triangle.stl</uri>
+            <uri>model://triangle_wall/meshes/right_triangle.obj</uri>
           </mesh>
         </geometry>
         <material>
           <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Gray</name>
+            <uri>model://wall_materials/materials/scripts</uri>
+            <uri>model://wall_materials/materials/textures</uri>
+            <name>Walls/New</name>
           </script>
         </material>
       </visual>
