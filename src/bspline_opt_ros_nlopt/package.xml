@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>bspline_opt_ros</name>
+  <version>0.0.1</version>
+  <description>BSpline optimization with NLopt and quaternion orientation, ROS Path + PointCloud2 publishers.</description>
+
+  <maintainer email="dev@example.com">dev</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>roslib</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>std_msgs</build_depend>
+
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>roslib</exec_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+  <build_depend>libpcl-dev</build_depend>
+  <exec_depend>libpcl-dev</exec_depend>
+  
+  <depend>octomap</depend>
+  <depend>octomap_ros</depend>
+  <depend>octomap_msgs</depend>
+  <depend>nlopt</depend>
+  <depend>omni_firmware</depend>
+  
+  <build_depend>dynamicEDT3D</build_depend>
+  <exec_depend>dynamicEDT3D</exec_depend>
+</package>

@@ -1,0 +1,67 @@
+<launch>
+  <!-- Include the packaged rtabmap.launch with only common args -->
+  <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
+    <arg name="visual_odometry" value="true"/>
+    <arg name="publish_tf_odom" value="true"/>
+
+    <!-- Frames -->
+    <arg name="frame_id" value="base_link"/>
+    <arg name="odom_frame_id" value="odom"/>
+    <arg name="map_frame_id" value="map"/>
+
+    <!-- Sync/queues (older files use 'queue_size') -->
+    <arg name="approx_sync" value="true"/>
+    <arg name="queue_size" value="30"/>
+
+    <!-- Topics -->
+    <arg name="rgb_topic" value="/omnicopter_camera/camera/image_raw"/>
+    <arg name="depth_topic" value="/omnicopter_depth_camera/depth/image_raw"/>
+    <arg name="camera_info_topic" value="/omnicopter_camera/camera/camera_info"/>
+
+    <!-- GUI -->
+    <arg name="rtabmapviz" value="false"/>
+
+    <!-- Mapping args (supported as a single string) -->
+    <arg name="rtabmap_args"
+         value="--delete_db_on_start --Grid/FromDepth true --Grid/3D true --Grid/RangeMin 0.1 --Grid/RangeMax 6.0 --Grid/CellSize 0.05 --Optimizer/GravitySigma 0.0 --Odom/GuessMotion true"/>
+  </include>
+
+  <!-- Push the rest as parameters to the nodes created inside rtabmap.launch -->
+
+  <!-- rgbd_odometry settings -->
+  <rosparam param="/rtabmap/rgbd_odometry/subscribe_rgb">true</rosparam>
+  <rosparam param="/rtabmap/rgbd_odometry/subscribe_depth">true</rosparam>
+  <rosparam param="/rtabmap/rgbd_odometry/subscribe_imu">false</rosparam>
+  <rosparam param="/rtabmap/rgbd_odometry/approx_sync">true</rosparam>
+  <rosparam param="/rtabmap/rgbd_odometry/queue_size">30</rosparam>
+  <rosparam param="/rtabmap/rgbd_odometry/wait_for_transform_duration">8.0</rosparam>
+  <rosparam param="/rtabmap/rgbd_odometry/wait_imu_to_init">false</rosparam>
+  <rosparam param="/rtabmap/rgbd_odometry/approx_sync">true</rosparam>
+  <rosparam param="/rtabmap/rgbd_odometry/approx_sync_max_interval">0.04</rosparam>
+
+<rosparam param="/rtabmap/approx_sync">true</rosparam>
+<rosparam param="/rtabmap/approx_sync_max_interval">0.04</rosparam>
+
+  <remap    from="/rtabmap/rgbd_odometry/imu" to="/camera/imu"/>
+
+  <!-- Your odom tuning -->
+  <rosparam param="/rtabmap/rgbd_odometry/Kp/DetectorStrategy">0</rosparam>
+  <rosparam param="/rtabmap/rgbd_odometry/Kp/MaxFeatures">1500</rosparam>
+  <rosparam param="/rtabmap/rgbd_odometry/Vis/MinInliers">20</rosparam>
+  <rosparam param="/rtabmap/rgbd_odometry/Vis/CorNNDR">0.8</rosparam>
+  <rosparam param="/rtabmap/rgbd_odometry/Vis/MaxDepth">6.0</rosparam>
+  <rosparam param="/rtabmap/rgbd_odometry/Odom/MinInliers">12</rosparam>
+  <rosparam param="/rtabmap/rgbd_odometry/Odom/ResetCountdown">1</rosparam>
+  <rosparam param="/rtabmap/rgbd_odometry/Odom/GuessMotion">true</rosparam>
+  <rosparam param="/rtabmap/rgbd_odometry/Odom/ImageDecimation">1</rosparam>
+  <rosparam param="/rtabmap/rgbd_odometry/OdomF2M/MaxNewFeatures">1000</rosparam>
+  <rosparam param="/rtabmap/rgbd_odometry/OdomF2M/MaxSize">2000</rosparam>
+
+  <!-- rtabmap (mapping) node extras -->
+  <rosparam param="/rtabmap/subscribe_rgb">true</rosparam>
+  <rosparam param="/rtabmap/subscribe_depth">true</rosparam>
+  <rosparam param="/rtabmap/approx_sync">true</rosparam>
+  <rosparam param="/rtabmap/queue_size">30</rosparam>
+  <rosparam param="/rtabmap/wait_for_transform_duration">8.0</rosparam>
+</launch>
+

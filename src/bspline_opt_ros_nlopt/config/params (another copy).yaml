@@ -1,0 +1,38 @@
+# Config for bspline_opt_ros (NLopt version)
+
+# problem size
+dim: 7
+num_ctrl_pts: 19
+N_samples: 20
+
+# safety ellipsoid radii (body frame)
+d_safe_xy: 0.7
+d_safe_z: 0.5
+
+# weights
+C_geom: 40.0
+C_slack: 1000.0
+C_goal:  10.0
+C_theta: 0.1
+C_len:   25.5
+C_acc:   5.5
+C_jerk:  1.5
+C_quat:  1.0
+
+# endpoints (7D: x y z qx qy qz qw)
+x0: [ -2.0, -4.0, 1.0, 0, 0, 0, 1]
+xf: [ 2.0, 0.0, 1.0, 0, 0, 0, 1]
+
+# bounds per-dimension for each interior control point
+lb7: [-5.0, -5,  0, -1, -1, -1, -1]
+ub7: [ 5.0,  5,  1.8,  1,  1,  1,  1]
+
+# relative path to CSV (inside package)
+pointcloud_relative: "pointcloud/fixed_map.csv"
+
+
+# circulation (log-barrier on D^2)
+omega: [0.0, 0.0, 1.0]   # global swirl axis (unit vector)
+ds_nom: 0.2              # nominal sample spacing [m]
+D2_margin: 0.2          # offset margin for log barrier
+eps_barrier: 1e-8        # numerical floor to keep log positive

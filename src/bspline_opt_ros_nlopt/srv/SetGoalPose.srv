@@ -1,0 +1,8 @@
+# Request
+geometry_msgs/Pose pose
+
+---
+# Response
+bool accepted
+string message
+

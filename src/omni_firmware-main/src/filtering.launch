@@ -1,0 +1,29 @@
+<launch>
+  <!-- Pick the exact depth topic you have -->
+  <arg name="depth_image"      default="/camera/depth/image_rect_raw"/>  <!-- or /camera/depth/image_raw -->
+  <arg name="depth_camera_info" default="/camera/depth/camera_info"/>
+  <arg name="output_cloud"     default="/camera/depth/points_minclipped"/>
+
+  <!-- Nodelet manager -->
+  <node pkg="nodelet" type="nodelet" name="pcl_manager" args="manager"/>
+
+  <!-- Convert depth image -> PointCloud2 (XYZ) -->
+  <node pkg="nodelet" type="nodelet" name="depth_to_cloud"
+        args="load depth_image_proc/point_cloud_xyz pcl_manager" output="screen">
+    <remap from="depth/image"     to="$(arg depth_image)"/>
+    <remap from="depth/camera_info" to="$(arg depth_camera_info)"/>
+    <remap from="cloud"           to="/camera/depth/points_from_image"/>
+  </node>
+
+  <!-- Now filter by Z range -->
+  <node pkg="nodelet" type="nodelet" name="pass_z"
+        args="load pcl/PassThrough pcl_manager" output="screen">
+    <remap from="~input"  to="/camera/depth/points_from_image"/>
+    <remap from="~output" to="$(arg output_cloud)"/>
+    <param name="filter_field_name" value="z"/>
+    <param name="filter_limit_min"  value="0.47"/>
+    <param name="filter_limit_max"  value="5.0"/>
+    <param name="filter_limit_negative" value="false"/>
+  </node>
+</launch>
+

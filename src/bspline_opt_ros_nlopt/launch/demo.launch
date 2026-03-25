@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="bspline_opt_ros" type="bspline_opt_node" name="bspline_opt_node" output="screen">
+    <rosparam file="$(find bspline_opt_ros)/config/params.yaml" command="load"/>
+  </node>
+</launch>
