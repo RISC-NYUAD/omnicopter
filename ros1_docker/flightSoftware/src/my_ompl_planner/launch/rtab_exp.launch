@@ -1,0 +1,46 @@
+<launch>
+  <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+    <arg name="enable_color" value="true"/>
+    <arg name="enable_depth" value="true"/>
+    <arg name="color_width" value="848"/>
+    <arg name="color_height" value="480"/>
+    <arg name="color_fps" value="30"/>
+    <arg name="depth_width" value="848"/>
+    <arg name="depth_height" value="480"/>
+    <arg name="depth_fps" value="30"/>
+    <arg name="enable_gyro" value="true"/>
+    <arg name="enable_accel" value="true"/>
+    <arg name="unite_imu_method" value="linear_interpolation"/>
+    <arg name="align_depth" value="true"/>
+    <arg name="enable_pointcloud" value="false"/>
+  </include>
+
+  <node pkg="tf2_ros"
+        type="static_transform_publisher"
+        name="body_to_camera_tf"
+        args="0 -0.13 0 -1.57079632679 0 0 body_frame camera_link" />
+
+  <node pkg="imu_filter_madgwick"
+        type="imu_filter_node"
+        name="imu_filter_node"
+        output="screen">
+    <param name="use_mag" value="false"/>
+    <param name="publish_tf" value="false"/>
+    <remap from="imu/data_raw" to="/camera/imu"/>
+    <remap from="imu/data" to="/camera/imu_filtered"/>
+  </node>
+
+  <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
+    <arg name="rtabmap_args" value="--delete_db_on_start --Grid/FromDepth true --Grid/3D true --Grid/RangeMin 0.5 --Grid/RangeMax 6.0 --Grid/CellSize 0.05 --Grid/MinObstacleHeight 0.0 --Optimizer/Strategy 0 --Odom/GuessMotion true"/>
+    <arg name="rgb_topic" value="/camera/color/image_raw"/>
+    <arg name="depth_topic" value="/camera/aligned_depth_to_color/image_raw"/>
+    <arg name="camera_info_topic" value="/camera/color/camera_info"/>
+    <arg name="approx_sync" value="true"/>
+    <arg name="visual_odometry" value="true"/>
+    <arg name="frame_id" value="body_frame"/>
+    <arg name="odom_frame_id" value="odom"/>
+    <arg name="map_frame_id" value="map"/>
+    <arg name="imu_topic" value="/camera/imu_filtered"/>
+    <arg name="rtabmapviz" value="false"/>
+  </include>
+</launch>
