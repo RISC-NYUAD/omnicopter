@@ -31,7 +31,7 @@
   </node>
 
   <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
-    <arg name="rtabmap_args" value="--delete_db_on_start --Grid/FromDepth true --Grid/3D true --Grid/RangeMin 0.5 --Grid/RangeMax 6.0 --Grid/CellSize 0.05 --Grid/MinObstacleHeight 0.0 --Optimizer/Strategy 0 --Odom/GuessMotion true"/>
+    <arg name="rtabmap_args" value="--delete_db_on_start --Grid/FromDepth true --Grid/3D true --Grid/RangeMin 0.5 --Grid/RangeMax 6.0 --Grid/CellSize 0.05 --Grid/MinObstacleHeight 0.0 --Optimizer/Strategy 0 --Odom/GuessMotion true --Odom/ImageDecimation 2 --Vis/MaxFeatures 400 --OdomF2M/MaxSize 800"/>
     <arg name="rgb_topic" value="/camera/color/image_raw"/>
     <arg name="depth_topic" value="/camera/aligned_depth_to_color/image_raw"/>
     <arg name="camera_info_topic" value="/camera/color/camera_info"/>
