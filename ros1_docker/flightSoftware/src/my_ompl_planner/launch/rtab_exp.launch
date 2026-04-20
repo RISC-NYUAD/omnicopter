@@ -1,4 +1,5 @@
 <launch>
+  <!-- RealSense -->
   <include file="$(find realsense2_camera)/launch/rs_camera.launch">
     <arg name="enable_color" value="true"/>
     <arg name="enable_depth" value="true"/>
@@ -15,11 +16,13 @@
     <arg name="enable_pointcloud" value="false"/>
   </include>
 
+  <!-- Static TF -->
   <node pkg="tf2_ros"
         type="static_transform_publisher"
         name="body_to_camera_tf"
         args="0 -0.13 0 -1.57079632679 0 0 body_frame camera_link" />
 
+  <!-- IMU filter -->
   <node pkg="imu_filter_madgwick"
         type="imu_filter_node"
         name="imu_filter_node"
@@ -30,8 +33,23 @@
     <remap from="imu/data" to="/camera/imu_filtered"/>
   </node>
 
+  <!-- RTAB-Map -->
   <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
-    <arg name="rtabmap_args" value="--delete_db_on_start --Grid/FromDepth true --Grid/3D true --Grid/RangeMin 0.5 --Grid/RangeMax 6.0 --Grid/CellSize 0.05 --Grid/MinObstacleHeight 0.0 --Optimizer/Strategy 0 --Odom/GuessMotion true --Odom/ImageDecimation 2 --Vis/MaxFeatures 400 --OdomF2M/MaxSize 800"/>
+
+    <arg name="rtabmap_args"
+         value="--delete_db_on_start
+                --Grid/FromDepth true
+                --Grid/3D true
+                --Grid/RangeMin 0.5
+                --Grid/RangeMax 6.0
+                --Grid/CellSize 0.05
+                --Grid/MinObstacleHeight 0.0
+                --Optimizer/Strategy 0
+                --Odom/GuessMotion true
+                --Odom/ImageDecimation 2
+                --Vis/MaxFeatures 400
+                --OdomF2M/MaxSize 800"/>
+
     <arg name="rgb_topic" value="/camera/color/image_raw"/>
     <arg name="depth_topic" value="/camera/aligned_depth_to_color/image_raw"/>
     <arg name="camera_info_topic" value="/camera/color/camera_info"/>
@@ -42,5 +60,10 @@
     <arg name="map_frame_id" value="map"/>
     <arg name="imu_topic" value="/camera/imu_filtered"/>
     <arg name="rtabmapviz" value="false"/>
+
+    <arg name="use_odom_features" value="true"/>
+    <arg name="odom_guess_min_translation" value="0.01"/>
+    <arg name="odom_guess_min_rotation" value="0.01"/>
+
   </include>
 </launch>
