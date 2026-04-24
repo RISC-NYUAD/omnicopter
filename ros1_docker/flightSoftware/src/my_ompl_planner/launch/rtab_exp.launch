@@ -44,8 +44,8 @@
                 --Grid/RangeMax 6.0
                 --Grid/CellSize 0.05
                 --Grid/MinObstacleHeight 0.0
-                --Optimizer/Strategy 0
-                --Odom/GuessMotion true
+                --Optimizer/Strategy 2
+                --Odom/GuessMotion false
                 --Odom/ImageDecimation 2
                 --Vis/MaxFeatures 400
                 --OdomF2M/MaxSize 800"/>
