@@ -1,5 +1,0 @@
-bool roll_bool
-bool pitch_bool
-float32 duration
----
-bool status
