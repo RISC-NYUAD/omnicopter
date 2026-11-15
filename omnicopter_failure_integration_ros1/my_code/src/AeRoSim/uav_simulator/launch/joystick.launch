@@ -1,0 +1,9 @@
+<launch>
+
+<node name="joy" pkg="joy" type="joy_node" output="screen">
+	  <param name="dev" value="/dev/input/js0" />
+	</node>
+
+	<node name="joy_map" pkg="uav_simulator" type="joystick_mapper.py" output="screen"/>
+	
+</launch>

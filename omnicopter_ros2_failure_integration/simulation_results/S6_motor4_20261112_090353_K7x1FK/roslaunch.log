@@ -1,0 +1,31 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-11-12-09-03-55-615381-vicon-pc-ubuntu-14351
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gz-1]: process started with pid [14354]
+[INFO] [gz-2]: process started with pid [14355]
+[INFO] [failure_aware_node-3]: process started with pid [14356]
+[INFO] [maneuver_node-4]: process started with pid [14357]
+[gz-2] QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+[gz-2] QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+[gz-1] [INFO] [1794474236.020312869] [beta_motor_plugin]: Motor dynamics tau_up=0.150, tau_down=0.210, direct thrust=1
+[gz-2] libEGL warning: pci id for fd 70: 10de:2684, driver (null)
+[gz-2] 
+[gz-2] pci id for fd 71: 10de:2684, driver (null)
+[gz-2] pci id for fd 72: 10de:2684, driver (null)
+[gz-2] libEGL warning: egl: failed to create dri2 screen
+[gz-2] libEGL warning: pci id for fd 70: 10de:2684, driver (null)
+[gz-2] 
+[gz-2] pci id for fd 71: 10de:2684, driver (null)
+[gz-2] pci id for fd 72: 10de:2684, driver (null)
+[gz-2] libEGL warning: egl: failed to create dri2 screen
+[gz-2] libEGL warning: pci id for fd 70: 10de:2684, driver (null)
+[gz-2] 
+[maneuver_node-4] [ERROR] [1794474243.281800242] [maneuver]: Armed Maneuver true
+[maneuver_node-4] [ERROR] [1794474314.880157318] [maneuver]: Armed Maneuver false
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[failure_aware_node-3] [INFO] [1794474318.055056981] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[maneuver_node-4] [INFO] [1794474318.055059305] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[gz-1] [INFO] [1794474318.055202231] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [failure_aware_node-3]: process has finished cleanly [pid 14356]
+[INFO] [maneuver_node-4]: process has finished cleanly [pid 14357]
+[INFO] [gz-1]: process has finished cleanly [pid 14354]
+[INFO] [gz-2]: process has finished cleanly [pid 14355]

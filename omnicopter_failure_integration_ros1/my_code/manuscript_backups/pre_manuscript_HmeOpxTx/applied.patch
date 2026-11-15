@@ -1,0 +1,274 @@
+--- a/src/omni_controller-main/include/governed_allocator.hpp
++++ b/src/omni_controller-main/include/governed_allocator.hpp
+@@ -33,2 +33,3 @@
+ class GovernedAllocator : public FeasibleAllocator {
++  friend class ManuscriptAllocator; // Reuse static projection without changing governed dispatch.
+  public:
+--- /dev/null
++++ b/src/omni_controller-main/include/manuscript_allocator.hpp
+@@ -0,0 +1,187 @@
++#pragma once
++#include "governed_allocator.hpp"
++
++namespace omni {
++struct ManuscriptSettings {
++  double force_slack_weight=1000, moment_slack_weight=100;
++  double reference_max_rate=0.35, reference_max_acceleration=0.7;
++  double reference_gain=2.0;
++  int max_evaluations=120;
++};
++struct ManuscriptResult : RecoveryResult {
++  bool manuscript=false;
++  V6 wrench_slack=V6::Zero();
++  Eigen::Matrix3d transition_reference=Eigen::Matrix3d::Identity();
++  Eigen::Vector3d reference_rate_world=Eigen::Vector3d::Zero();
++  double joint_objective=0;
++};
++
++class ManuscriptAllocator : public GovernedAllocator {
++ public:
++  bool manuscript_enabled=false;
++  ManuscriptSettings manuscript;
++  explicit ManuscriptAllocator(const A68& a,Options o=Options(),
++       RecoverySettings r=RecoverySettings(),ManuscriptSettings m=ManuscriptSettings())
++      :GovernedAllocator(a,o,r),manuscript(m) {
++    const double sum=m.force_slack_weight+m.moment_slack_weight+
++      m.reference_max_rate+m.reference_max_acceleration+m.reference_gain;
++    if(!std::isfinite(sum)||m.force_slack_weight<=0||m.moment_slack_weight<=0||
++       m.reference_max_rate<=0||m.reference_max_acceleration<=0||m.reference_gain<=0||m.max_evaluations<1)
++      throw std::invalid_argument("Invalid manuscript controller settings");
++  }
++ private:
++  mutable bool reference_initialized_=false;
++  mutable Eigen::Matrix3d filtered_=Eigen::Matrix3d::Identity();
++  mutable Eigen::Vector3d rate_world_=Eigen::Vector3d::Zero();
++  static Eigen::Vector3d limitNorm(const Eigen::Vector3d& v,double limit) {
++    const double n=v.norm();return n>limit?v*(limit/n):v;
++  }
++ public:
++  void resetTransition() const {reference_initialized_=false;rate_world_.setZero();}
++  // Integrate a bounded WORLD angular velocity. Changes of that vector are
++  // acceleration limited even when a moving target changes its rotation axis.
++  Eigen::Matrix3d advanceReference(const Eigen::Matrix3d& target,
++                                  const Eigen::Matrix3d& current,double dt) const {
++    if(!std::isfinite(dt)||dt<=0)throw std::invalid_argument("Reference timestep must be positive");
++    if(!reference_initialized_){filtered_=current;rate_world_.setZero();reference_initialized_=true;}
++    const Eigen::AngleAxisd error(target*filtered_.transpose());
++    const double angle=error.angle();
++    const double speed=std::min(manuscript.reference_max_rate,
++        std::min(manuscript.reference_gain*angle,std::sqrt(2*manuscript.reference_max_acceleration*angle)));
++    const Eigen::Vector3d desired=error.axis()*speed;
++    rate_world_+=limitNorm(desired-rate_world_,manuscript.reference_max_acceleration*dt);
++    rate_world_=limitNorm(rate_world_,manuscript.reference_max_rate);
++    const double advance=rate_world_.norm()*dt;
++    if(advance>0)filtered_=Eigen::AngleAxisd(advance,rate_world_.normalized()).toRotationMatrix()*filtered_;
++    return filtered_;
++  }
++
++  // Eq. (26), reduced exactly to variables z=[v(2),u(8)]. Let w_hat(v)
++  // be Eq. (16)'s wrench. Then xi=A*u-w_hat(v), x=B^T*u, and
++  // u_c=P*w_hat+B*x. Thus u_c+P*xi=u for nominal row-rank-six A.
++  // Gamma is applied to PRE-SLACK u_c exactly as written in Eq. (26).
++  struct JointProblem {
++    Map map;
++    A68 A;
++    Eigen::Matrix<double,8,6> P;
++    Eigen::Matrix<double,8,8> null_projector;
++    ManuscriptSettings settings;
++    void evaluate(const Eigen::Matrix<double,10,1>& z,V8& uc,V6& slack,
++                  Eigen::Matrix<double,8,2>& D) const {
++      const Eigen::Vector2d v=z.head<2>();
++      const double root=std::sqrt(std::max(1e-12,1-v.squaredNorm()));
++      const Eigen::Vector3d d=map.C*v+map.d*root;
++      const V8 particular=map.Pf*(map.force*d)+map.base+map.M*v;
++      D=map.Pf*map.force*(map.C-map.d*v.transpose()/root)+map.M;
++      uc=particular+null_projector*z.tail<8>();
++      slack=A*z.tail<8>()-A*particular;
++    }
++    static double objective(unsigned,const double* data,double* gradient,void* context) {
++      const auto& q=*static_cast<JointProblem*>(context);
++      const Eigen::Map<const Eigen::Matrix<double,10,1>> z(data);
++      V8 uc;V6 xi;Eigen::Matrix<double,8,2> D;q.evaluate(z,uc,xi,D);
++      V6 weighted=xi;weighted.head<3>()*=q.settings.force_slack_weight;
++      weighted.tail<3>()*=q.settings.moment_slack_weight;
++      const V8 smooth=uc-q.map.previous;
++      const V8 null_input=q.null_projector*z.tail<8>();
++      const Eigen::Vector2d delta=z.head<2>()-q.map.reference;
++      if(gradient) {
++        Eigen::Map<Eigen::Matrix<double,10,1>> g(gradient);
++        g.head<2>()=q.map.opts.alpha*delta+q.map.opts.gamma*D.transpose()*smooth-
++            (q.A*D).transpose()*weighted;
++        g.tail<8>()=q.map.opts.beta*null_input+
++            q.map.opts.gamma*q.null_projector*smooth+q.A.transpose()*weighted;
++      }
++      return .5*(q.map.opts.alpha*delta.squaredNorm()+q.map.opts.beta*null_input.squaredNorm()+
++          q.map.opts.gamma*smooth.squaredNorm()+xi.dot(weighted));
++    }
++    static double disk(unsigned,const double* z,double* gradient,void* context) {
++      const auto& q=*static_cast<JointProblem*>(context);
++      if(gradient){std::fill(gradient,gradient+10,0.0);gradient[0]=2*z[0];gradient[1]=2*z[1];}
++      return z[0]*z[0]+z[1]*z[1]-q.map.radius*q.map.radius;
++    }
++  };
++  JointProblem problem(const Eigen::Vector3d& f,const Eigen::Matrix3d& R,
++       const Eigen::Matrix3d& ref,const Eigen::Vector3d& w,const Eigen::Matrix3d& J,
++       const Eigen::Vector3d& kp,const Eigen::Vector3d& kd,const V8& prev,
++       const V8& lo,const V8& hi) const {
++    JointProblem q;q.A=A;q.P=P;q.null_projector=B*B.transpose();q.settings=manuscript;
++    if(f.norm()>1e-8)q.map=makeMap(f,R,ref,w,J,kp,kd,prev,lo,hi);
++    else {
++      q.map.opts=options;q.map.Pf.setZero();q.map.C.setZero();q.map.M.setZero();
++      q.map.d=Eigen::Vector3d::UnitZ();q.map.reference.setZero();
++      const Eigen::Matrix3d E=.5*(ref.transpose()*R-R.transpose()*ref);
++      const Eigen::Vector3d error(E(2,1),E(0,2),E(1,0));
++      q.map.base=P.rightCols<3>()*(w.cross(J*w)-kp.cwiseProduct(error)-kd.cwiseProduct(w));
++      q.map.previous=prev;
++    }
++    return q;
++  }
++  ManuscriptResult step(const Eigen::Vector3d& force,const Eigen::Matrix3d& R,
++       const Eigen::Matrix3d& reference,const Eigen::Vector3d& omega,const Eigen::Matrix3d& J,
++       const Eigen::Vector3d& kp,const Eigen::Vector3d& kd,const V8& previous,
++       const V8& lower,const V8& upper,double dt=.004) const {
++    ManuscriptResult result;
++    if(!manuscript_enabled){
++      static_cast<RecoveryResult&>(result)=GovernedAllocator::step(force,R,reference,omega,J,kp,kd,previous,lower,upper);
++      result.transition_reference=result.attitude_target;
++      return result;
++    }
++    validateBounds(lower,upper);
++    if(!force.allFinite()||!R.allFinite()||!reference.allFinite()||!omega.allFinite()||
++       !J.allFinite()||!kp.allFinite()||!kd.allFinite()||!previous.allFinite())
++      throw std::invalid_argument("Nonfinite manuscript input");
++    const auto start=std::chrono::steady_clock::now();
++    result.manuscript=true;result.governed=true;
++    // Until offline data is supplied, use the already available online static
++    // projection. This is explicitly a surrogate for manuscript Eqs. (27)-(28).
++    result.attitude_target=feasibleTarget(force,reference,R,lower,upper,result);
++    result.governor_seconds=std::chrono::duration<double>(std::chrono::steady_clock::now()-start).count();
++    result.transition_reference=advanceReference(result.attitude_target,R,dt);
++    result.reference_rate_world=rate_world_;
++    JointProblem q=problem(force,R,result.transition_reference,omega,J,kp,kd,previous,lower,upper);
++    result.radius=q.map.radius;
++    Eigen::Matrix<double,10,1> initial=Eigen::Matrix<double,10,1>::Zero();
++    initial.tail<8>()=previous.cwiseMax(lower).cwiseMin(upper);
++    auto candidate=initial;
++    Eigen::Matrix<double,10,1> lb,ub;
++    lb.head<2>().setConstant(-q.map.radius);ub.head<2>().setConstant(q.map.radius);
++    lb.tail<8>()=lower;ub.tail<8>()=upper;
++    const auto allocation_start=std::chrono::steady_clock::now();
++    if((ub-lb).norm()>1e-12){
++      Handle solver(10);
++      require(nlopt_set_lower_bounds(solver.p,lb.data()));require(nlopt_set_upper_bounds(solver.p,ub.data()));
++      require(nlopt_set_min_objective(solver.p,JointProblem::objective,&q));
++      if(q.map.radius>1e-10)require(nlopt_add_inequality_constraint(solver.p,JointProblem::disk,&q,options.tolerance));
++      require(nlopt_set_ftol_abs(solver.p,1e-9));require(nlopt_set_xtol_abs1(solver.p,1e-8));
++      require(nlopt_set_maxeval(solver.p,manuscript.max_evaluations));require(nlopt_set_maxtime(solver.p,options.max_seconds));
++      double value;result.status=static_cast<int>(nlopt_optimize(solver.p,candidate.data(),&value));
++    }else result.status=1;
++    result.solver_seconds=std::chrono::duration<double>(std::chrono::steady_clock::now()-allocation_start).count();
++    result.allocation_converged=result.status>0&&result.status<5;
++    bool usable=candidate.allFinite();
++    if(usable){
++      candidate=candidate.cwiseMax(lb).cwiseMin(ub);
++      candidate.head<2>()=limitNorm2(candidate.head<2>(),q.map.radius);
++      usable=JointProblem::objective(10,candidate.data(),nullptr,&q)<=
++             JointProblem::objective(10,initial.data(),nullptr,&q)+1e-8;
++    }
++    if(!usable)candidate=initial;
++    result.accepted=usable;result.command_reused=!usable;result.fallback=!usable;
++    result.u=candidate.tail<8>();result.v=candidate.head<2>();
++    result.candidate_step_norm=result.v.norm();
++    result.direction=q.map.C*result.v+q.map.d*std::sqrt(std::max(0.0,1-result.v.squaredNorm()));
++    V8 uc;Eigen::Matrix<double,8,2> D;q.evaluate(candidate,uc,result.wrench_slack,D);
++    result.force_tracking_error=result.wrench_slack.head<3>().norm();
++    result.moment_tracking_error=result.wrench_slack.tail<3>().norm();
++    result.wrench_error=result.wrench_slack.norm();
++    result.joint_objective=JointProblem::objective(10,candidate.data(),nullptr,&q);
++    result.elapsed=std::chrono::duration<double>(std::chrono::steady_clock::now()-start).count();
++    return result;
++  }
++ private:
++  static Eigen::Vector2d limitNorm2(const Eigen::Vector2d& v,double max) {
++    const double n=v.norm();return n>max?v*(max/n):v;
++  }
++};
++}
+--- a/src/omni_controller-main/msg/AllocatorStatus.msg
++++ b/src/omni_controller-main/msg/AllocatorStatus.msg
+@@ -34 +34,10 @@
+ float64 moment_tracking_error
++
++# Manuscript mode: raw projected target is feasible_attitude_xyzw;
++# transition reference is rate/acceleration limited and need not be statically feasible.
++float64[4] transition_reference_xyzw
++# xi = A*u - w_hat(v); N then Nm, body frame. Not measured plant residual.
++float64[6] wrench_slack
++float64[3] local_direction_body
++float64[3] reference_rate_world
++float64 joint_objective
+--- a/src/omni_controller-main/src/failure_aware_node.cpp
++++ b/src/omni_controller-main/src/failure_aware_node.cpp
+@@ -1,2 +1,2 @@
+-#include "governed_allocator.hpp"
++#include "manuscript_allocator.hpp"
+ #include <ros/ros.h>
+@@ -15,3 +15,3 @@
+   ros::ServiceServer service;
+-  std::unique_ptr<omni::GovernedAllocator> allocator;
++  std::unique_ptr<omni::ManuscriptAllocator> allocator;
+   std::string allocation_mode;
+@@ -59,3 +59,3 @@
+     armed=s->data;
+-    if(!armed) {integral.setZero(); previous.setZero(); reference_valid=false;}
++    if(!armed) {allocator->resetTransition(); integral.setZero(); previous.setZero(); reference_valid=false;}
+   }
+@@ -91,4 +91,4 @@
+     priv.param<std::string>("allocation_mode",allocation_mode,"paper");
+-    if(allocation_mode!="paper" && allocation_mode!="governed")
+-      throw std::runtime_error("allocation_mode must be paper or governed");
++    if(allocation_mode!="paper" && allocation_mode!="governed" && allocation_mode!="manuscript")
++      throw std::runtime_error("allocation_mode must be paper, governed or manuscript");
+     omni::RecoverySettings recovery;
+@@ -100,3 +100,11 @@
+     priv.param("recovery_max_evaluations",recovery.max_evaluations,120);
+-    allocator.reset(new omni::GovernedAllocator(A,o,recovery));
++    omni::ManuscriptSettings joint;
++    priv.param("slack_force_weight",joint.force_slack_weight,1000.0);
++    priv.param("slack_moment_weight",joint.moment_slack_weight,100.0);
++    priv.param("reference_max_rate",joint.reference_max_rate,0.35);
++    priv.param("reference_max_acceleration",joint.reference_max_acceleration,0.7);
++    priv.param("reference_gain",joint.reference_gain,2.0);
++    priv.param("joint_max_evaluations",joint.max_evaluations,120);
++    allocator.reset(new omni::ManuscriptAllocator(A,o,recovery,joint));
++    allocator->manuscript_enabled=allocation_mode=="manuscript";
+     allocator->enabled=allocation_mode=="governed";
+@@ -137,3 +145,3 @@
+         try {
+-          auto result=allocator->step(force,R,Rr,omega,J,kr,kw,previous,lower,upper);
++          auto result=allocator->step(force,R,Rr,omega,J,kr,kw,previous,lower,upper,dt);
+           if(result.accepted) integral=proposed; // freeze on infeasible solve
+@@ -146,2 +154,13 @@
+           status.allocation_mode=allocation_mode;
++          const Eigen::Quaterniond transition_q(result.transition_reference);
++          status.transition_reference_xyzw[0]=transition_q.x();
++          status.transition_reference_xyzw[1]=transition_q.y();
++          status.transition_reference_xyzw[2]=transition_q.z();
++          status.transition_reference_xyzw[3]=transition_q.w();
++          for(int i=0;i<6;i++)status.wrench_slack[i]=result.wrench_slack[i];
++          for(int i=0;i<3;i++) {
++            status.reference_rate_world[i]=result.reference_rate_world[i];
++            status.local_direction_body[i]=result.direction[i];
++          }
++          status.joint_objective=result.joint_objective;
+           status.feasible_attitude_found=result.feasible_attitude_found;
+@@ -177,3 +196,3 @@
+           if(result.governed && result.command_reused)
+-            ROS_WARN_THROTTLE(1.0,"Governed allocator reused the bounded previous command: status=%d",result.status);
++            ROS_WARN_THROTTLE(1.0,"Recovery allocator reused the bounded previous command: status=%d",result.status);
+           if(!result.governed && result.fallback) ROS_WARN_THROTTLE(1.0,
+@@ -185,3 +204,3 @@
+         } catch(const std::exception& e) {ROS_ERROR_THROTTLE(1.0,"Allocator: %s",e.what()); previous.setZero();}
+-      } else {previous.setZero(); integral.setZero();}
++      } else {allocator->resetTransition(); previous.setZero(); integral.setZero();}
+       thrust_pub.publish(thrust); rate.sleep();

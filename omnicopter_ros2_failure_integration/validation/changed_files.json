@@ -1,0 +1,200 @@
+[
+  {
+    "path": "Dockerfile",
+    "kind": "modified",
+    "original_sha256": "dceae40cfacb113a734023efc04e86bf6757626268aa70e808f3b145b5223a2b",
+    "new_sha256": "09b316dd31532d02bcc58548481ff2e0ed039a1d8d13a97f7455711ecc322bba"
+  },
+  {
+    "path": "README.md",
+    "kind": "modified",
+    "original_sha256": "4e43aa404d383a4df5d2e4d215aa8cb8347e039dad416477ed0319b4b341b7a6",
+    "new_sha256": "752b9b6d76209646668fbe4c277f2acde59cb9848a4af7e894dc4cd0fbb633dc"
+  },
+  {
+    "path": "ROS2_FAILURE_README.md",
+    "kind": "added",
+    "original_sha256": null,
+    "new_sha256": "ba551993d00f272b2ae550dc6142e9833dae9d7cbfb452ba3083c3d9be6d4c16"
+  },
+  {
+    "path": "bash_Scripts/run_S1.sh",
+    "kind": "added",
+    "original_sha256": null,
+    "new_sha256": "3f33373e65ddaa5d1e07145a13670dc53b233876b2cf89aacfe4426f07c0ecea"
+  },
+  {
+    "path": "bash_Scripts/run_S2.sh",
+    "kind": "added",
+    "original_sha256": null,
+    "new_sha256": "751ab1b0c50a85569556e6be13ade0d149f4054b06d95a93daf589cdfb5ced87"
+  },
+  {
+    "path": "docker-compose.yml",
+    "kind": "modified",
+    "original_sha256": "623323de572b874d29a1ed32a81108da6002ed748637d031c5c03b00241d9475",
+    "new_sha256": "45c83db1078e4a10d23097812c78dbeee1d51e545e85a8390e93e83443058b8b"
+  },
+  {
+    "path": "src/controller/CMakeLists.txt",
+    "kind": "modified",
+    "original_sha256": "f9d5accaab190f9fb688bb38fc7eeb0dcd6ffd644f6e1ed1e9c65df5bf0fafde",
+    "new_sha256": "38a2702a5fc40f3a0f56ee617944609bd64e2fdef40ea0b9661ba36b6e9e37c5"
+  },
+  {
+    "path": "src/controller/config/failure_aware.yaml",
+    "kind": "added",
+    "original_sha256": null,
+    "new_sha256": "076a28a3e859f137cb87893efd6899f5588ba4dba54179e61afd6ad7ebdd9de9"
+  },
+  {
+    "path": "src/controller/include/controller/feasible_allocator.hpp",
+    "kind": "added",
+    "original_sha256": null,
+    "new_sha256": "0a457956061eef1379fd6b617a0cb42f47908132f94f0a488a375c705b6f7e77"
+  },
+  {
+    "path": "src/controller/include/controller/governed_allocator.hpp",
+    "kind": "added",
+    "original_sha256": null,
+    "new_sha256": "b92f9ebfbf59196f3877309cb14f9830d572c940d1ce54ac23ef6a44ff113f7e"
+  },
+  {
+    "path": "src/controller/msg/AllocatorStatus.msg",
+    "kind": "added",
+    "original_sha256": null,
+    "new_sha256": "7b7ddcb8b49de29c0fd9e0376bd6f7f7d11fd90117eda70a05bd542d68316f50"
+  },
+  {
+    "path": "src/controller/package.xml",
+    "kind": "modified",
+    "original_sha256": "cc1f5824f8357d78e687004ae93a95a37972454acb7f0a6d544043727c132f6b",
+    "new_sha256": "676e103026fed410245e6b1ed483bf707b44c6d6dcebfa690813a776e740ed70"
+  },
+  {
+    "path": "src/controller/src/failure_aware_node.cpp",
+    "kind": "added",
+    "original_sha256": null,
+    "new_sha256": "db8c2e5d9051510e9d40bdd54ed90c26a41061a69ed179c09fee89adbb24d631"
+  },
+  {
+    "path": "src/controller/srv/SetMotorLimits.srv",
+    "kind": "added",
+    "original_sha256": null,
+    "new_sha256": "37389f53aee29e5150184d7b795bd17460f6b5c57919819c1c4df348e5cc05d1"
+  },
+  {
+    "path": "src/controller/test/governed_checks.cpp",
+    "kind": "added",
+    "original_sha256": null,
+    "new_sha256": "f1244324340d1b6d3d10816db77080da04a0fdb67c3dbc4d92c7f02fbdc187f1"
+  },
+  {
+    "path": "src/controller/test/model_fixture.hpp",
+    "kind": "added",
+    "original_sha256": null,
+    "new_sha256": "f661bc141ec78a745e94fb8b8f9967fd8be7365faace3195a152195266d83206"
+  },
+  {
+    "path": "src/controller/tools/model_config.py",
+    "kind": "added",
+    "original_sha256": null,
+    "new_sha256": "ba9308dbb6065fbb48db10ace0b90f97fd096b15e11fb758558c67769370e309"
+  },
+  {
+    "path": "src/firmware/CMakeLists.txt",
+    "kind": "modified",
+    "original_sha256": "d13cac7068582a64db2bbd6d9992af9d5947da9fc96fbc393f2b4c4b1e3b52ad",
+    "new_sha256": "3b1a3490e1a31126d40032af1098abf26d5af761db5f6df9f0a2bee210efae0a"
+  },
+  {
+    "path": "src/firmware/launch/failure_aware.launch.py",
+    "kind": "added",
+    "original_sha256": null,
+    "new_sha256": "b62d9e4724463dd4b1716bbd2f561a3ab5da72ad6d99b252f2f4fa43d6c4b8e5"
+  },
+  {
+    "path": "src/firmware/package.xml",
+    "kind": "modified",
+    "original_sha256": "1e755c8063794e89036139cb639763630cf7a1959ab009897f5149d18f45e326",
+    "new_sha256": "f8c9b6e320688fed6ca291ff2b41b0b37d24703615ab5af4d29154b1e4782ba0"
+  },
+  {
+    "path": "src/firmware/scripts/run_failure_scenario.py",
+    "kind": "added",
+    "original_sha256": null,
+    "new_sha256": "960dfa02376f736f8195717146b5c0a304d785728571325bce604764a53e5c11"
+  },
+  {
+    "path": "src/firmware/scripts/set_motor_failure.py",
+    "kind": "added",
+    "original_sha256": null,
+    "new_sha256": "2a9555fed9fbf65b82584702bd978a080001aff16c62549b2a1b5ba5df1491e6"
+  },
+  {
+    "path": "src/maneuver/include/maneuver/maneuver.hpp",
+    "kind": "modified",
+    "original_sha256": "cbd09bc87fd89d21700e2acea2f4ce45962947d7601b538346441f2f4e7ca980",
+    "new_sha256": "cff058d4c3bc6bea596f8d1550ec00c57e70c302a0e614cf26d6c3c00abfc65a"
+  },
+  {
+    "path": "src/maneuver/src/maneuver.cpp",
+    "kind": "modified",
+    "original_sha256": "d293e74032f4ba3802567df4c1902b56ad5117424ca361c609380370e46af46a",
+    "new_sha256": "4aeae1b4d56548e9db710192d9a886f4e1ad5981e83d6fc34eccd9683cd0c321"
+  },
+  {
+    "path": "src/uav_simulator/CMakeLists.txt",
+    "kind": "modified",
+    "original_sha256": "2c8e6844b5d416f27ef55b1533bd586dd07cfd7caa9fa6f5d022883e737d6bf5",
+    "new_sha256": "89a3e3e7f4a7037ccb188907e258541ad4c3f523bb4e62d546e53b322a71144a"
+  },
+  {
+    "path": "src/uav_simulator/package.xml",
+    "kind": "modified",
+    "original_sha256": "2186b7663d63d246a529112e877725a5b2dd7fa841235d13dde72bc8cb5b8062",
+    "new_sha256": "9534390aa5a1ebaa43dbeb1257920a2b8ff1db50d5a83ace56ddc92bd039ee98"
+  },
+  {
+    "path": "src/uav_simulator/src/beta_motor_plugin.cpp",
+    "kind": "modified",
+    "original_sha256": "584d80d985b48947c10029930b3b4d66393f9db70f244dc5e9af28ecafc47a25",
+    "new_sha256": "dbad000cd0d8dd285397b199ee3575200904061fded9e2ed1761870d47321adb"
+  },
+  {
+    "path": "src/uav_simulator/src/odometry_plugin.cpp",
+    "kind": "modified",
+    "original_sha256": "8638968f27d265b0134eae871171ba109b6bc778f35e361637609493292882bc",
+    "new_sha256": "d00223467b6060618ffc51b8308b6ca733112150e2fc866b84d4f44171d5fc61"
+  },
+  {
+    "path": "src/uav_simulator/src/thrust_dynamics.hpp",
+    "kind": "added",
+    "original_sha256": null,
+    "new_sha256": "ad33c16907b33582df961962861b589b5f318d6516d349be3e082ba1d95ddbab"
+  },
+  {
+    "path": "src/uav_simulator/test/thrust_checks.cpp",
+    "kind": "added",
+    "original_sha256": null,
+    "new_sha256": "ec213de01f5c464a1df8645880ca550582e301d3760a239ca7d57418942bbfe0"
+  },
+  {
+    "path": "src/uav_simulator/worlds/failure.world",
+    "kind": "added",
+    "original_sha256": null,
+    "new_sha256": "97c0a2f2e518f8f3874aebf8f42c859cf8b356a90f315a920178d003e7dd9563"
+  },
+  {
+    "path": "src/uav_simulator/worlds/models/omnicopter_failure/model.config",
+    "kind": "added",
+    "original_sha256": null,
+    "new_sha256": "c11b1601bc28b355bb8463a1f2416ba7b27057b2c3a8cd3d10624c18acb8c4a2"
+  },
+  {
+    "path": "src/uav_simulator/worlds/models/omnicopter_failure/model.sdf",
+    "kind": "added",
+    "original_sha256": null,
+    "new_sha256": "2af8a8a78a699335e0dbe7d8300e91718f8e78486b683fefed3a9eae182bdcb5"
+  }
+]

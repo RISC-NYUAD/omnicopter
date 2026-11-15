@@ -1,0 +1,2 @@
+20 s rigid-body simulation: max position error=0.33183 m; accepted=4759/5000; fallback=241; max step wall time=2.22676 ms
+Final position:    0.421846 -0.00883412    0.999855; body rates: -0.0617461  -0.109417 0.00554298

@@ -1,0 +1,38 @@
+std_msgs/Header header
+  uint32 seq
+  time stamp
+  string frame_id
+bool accepted
+bool fallback
+int32 solver_status
+float64 solve_seconds
+float64 candidate_constraint_violation
+float64 issued_wrench_error
+float64 step_radius
+float64[2] tangent_step
+float64[8] thrust
+float64 motor_bound_violation
+float64 direction_violation
+float64 candidate_step_norm
+float64 solver_seconds
+bool rejected_by_status
+bool rejected_by_constraints
+bool rejected_by_time
+float64[3] desired_force_world
+float64[3] allocated_force_world
+string allocation_mode
+bool feasible_attitude_found
+bool allocation_converged
+bool command_reused
+float64[4] feasible_attitude_xyzw
+float64 governor_seconds
+float64 static_force_residual
+float64 static_moment_residual
+float64 force_tracking_error
+float64 moment_tracking_error
+float64[4] transition_reference_xyzw
+float64[6] wrench_slack
+float64[3] local_direction_body
+float64[3] reference_rate_world
+float64 joint_objective
+

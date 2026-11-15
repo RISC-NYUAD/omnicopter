@@ -1,0 +1,43 @@
+{
+  "scenario": "S4",
+  "motor_number": 6,
+  "rotor_index": 5,
+  "effectiveness": 0.0,
+  "height_m": 1.5,
+  "takeoff_seconds": 8.0,
+  "pre_failure_hover_seconds": 10.0,
+  "post_failure_seconds": 30.0,
+  "detection_delay_seconds": 0.0,
+  "video": false,
+  "topics": [
+    "/pose_full",
+    "/pose_d",
+    "/failure_controller/status",
+    "/omnicopter/motor_thrust",
+    "/omnicopter/motor_thrust_actual",
+    "/omnicopter/motor_limits",
+    "/clock",
+    "/toggle_topic",
+    "/rosout",
+    "/parameter_events",
+    "/simulation_scenarios/events"
+  ],
+  "physical_model": "worlds/models/omnicopter_failure/model.sdf",
+  "tau_up": 0.15,
+  "tau_down": 0.21,
+  "note": "Failure remains active through landing; sequence completion is not a performance pass.",
+  "maneuver_service": "/goto_6d_point",
+  "maneuver_target": {
+    "x": 2.0096717717736117,
+    "y": 1.0053685984991485,
+    "z": 1.7,
+    "roll": 0.17453292519943295,
+    "pitch": -0.17453292519943295,
+    "yaw": 0.3490658503988659,
+    "duration": 20.0
+  },
+  "failure_after_maneuver_start_seconds": 10.0,
+  "intended_settled_observation_after_maneuver_seconds": 20.0,
+  "trajectory_sample_period_ms": 10,
+  "midtrajectory_reference_check": true
+}

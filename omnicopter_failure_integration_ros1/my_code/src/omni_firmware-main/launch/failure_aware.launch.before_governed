@@ -1,0 +1,11 @@
+<launch>
+  <!-- Alternative to simulate.launch: never run both controller nodes. -->
+  <rosparam command="load" file="$(find controller)/config/failure_sim.yaml" ns="omnicopter_sim"/>
+  <include file="$(find uav_simulator)/launch/omnicopter.launch">
+    <arg name="direct_thrust" value="true"/>
+  </include>
+  <node name="failure_controller" pkg="controller" type="failure_aware_node" output="screen">
+    <rosparam command="load" file="$(find controller)/config/failure_aware.yaml"/>
+  </node>
+  <include file="$(find maneuver)/launch/maneuver.launch"/>
+</launch>

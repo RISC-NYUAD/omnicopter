@@ -1,0 +1,9 @@
+{
+  "CONTROLLER_HANDOFF.md": "3302a13ddf4ccf51dc160b099d4519ba7c35399b9c2973f039c16bd59ef20ade",
+  "matlab_reference/pos_cntrl.m": "d7cde39fa77b6d838026dafd3d267bcaa38ddeb6b9f2e803cad99ad958eb3c0d",
+  "matlab_reference/att_cntrl.m": "958e6e8a6c85cdcacc584a725b0a2209c45447f6e021110705c45130fe681849",
+  "matlab_reference/OptimalControlPathInput.m": "a774b4d1094adbd67a916fa1b5d3c34c8a6db9e241af50b2508c5b5276d5e537",
+  "matlab_reference/init_FA.m": "ea5f79a653bb82cb5e2839637f1098c0e2d474771a529a89430f9d957e16f8b3",
+  "matlab_reference/skew.m": "0520a91ed3bbafe7f78711df2548c8a96cb2bdb7c9c18cb1e7eb7e16e4f257bb",
+  "README.txt": "95da3a998aec348146e49a4f838681941ce1cc2308bd3ac430755f2a845b163e"
+}

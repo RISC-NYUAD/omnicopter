@@ -1,0 +1,14 @@
+<launch>
+  <include file="$(find omni_firmware)/launch/failure_aware.launch">
+    <arg name="allocation_mode" value="governed"/>
+  </include>
+  <param name="/failure_controller/allocation_mode" value="governed"/>
+  <param name="/failure_controller/actuator_reserve" value="1.5"/>
+  <param name="/failure_controller/allocation_force_weight" value="100.0"/>
+  <param name="/failure_controller/allocation_moment_weight" value="10.0"/>
+  <param name="/failure_controller/beta" value="0.00001"/>
+  <param name="/failure_controller/gamma" value="0.1"/>
+  <param name="/failure_controller/frequency" value="250.0"/>
+  <param name="/omnicopter_sim/thrust_tau_up" value="0.15"/>
+  <param name="/omnicopter_sim/thrust_tau_down" value="0.21"/>
+</launch>

@@ -1,0 +1,16 @@
+<launch>
+
+	<arg name="mav_type" default="omnicopter"/>
+
+	<include file="$(find uav_simulator)/launch/$(arg mav_type).launch">
+		<arg name="init_z" value="0.34"/>
+		<arg name="paused" value="false"/>
+	</include>
+	
+	<include file="$(find uav_simulator)/launch/joystick.launch"/>
+
+	<node name="rc_sim" pkg="uav_simulator" type="joy_vel_node" args="$(arg mav_type)"/>
+	
+	<node name="vel_ctrl" pkg="uav_simulator" type="vel_ctrl_node" output="screen" args="$(arg mav_type)"/>
+	
+</launch>

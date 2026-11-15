@@ -1,0 +1,25 @@
+[INFO] [1794468341.734002262] [rosbag2_recorder]: Event publisher thread: Started
+[INFO] [1794468341.736948804] [rosbag2_recorder]: Starting recording to '/ros_ws/simulation_results/S2_motor1_20261112_072537_b2nwVd/S2_motor1'
+[INFO] [1794468341.738045109] [rosbag2_storage]: Opened database '/ros_ws/simulation_results/S2_motor1_20261112_072537_b2nwVd/S2_motor1/S2_motor1_0.db3' for READ_WRITE.
+[INFO] [1794468341.738937116] [rosbag2_recorder]: Subscribed to topic '/rosout'
+[INFO] [1794468341.739012115] [rosbag2_recorder]: Listening for topics...
+[INFO] [1794468341.739019508] [rosbag2_recorder]: Recording...
+[INFO] [1794468341.739059122] [rosbag2_recorder]: Topics discovery started.
+[INFO] [1794468341.840174123] [rosbag2_recorder]: Subscribed to topic '/parameter_events'
+[INFO] [1794468341.840754220] [rosbag2_recorder]: Overriding subscription profile for /clock
+[INFO] [1794468342.175945415] [rosbag2_recorder]: Subscribed to topic '/clock'
+[INFO] [1794468342.178215230] [rosbag2_recorder]: Subscribed to topic '/failure_controller/status'
+[INFO] [1794468342.178547086] [rosbag2_recorder]: Overriding subscription profile for /omnicopter/motor_limits
+[INFO] [1794468342.179017830] [rosbag2_recorder]: Subscribed to topic '/omnicopter/motor_limits'
+[INFO] [1794468342.179393057] [rosbag2_recorder]: Subscribed to topic '/omnicopter/motor_thrust'
+[INFO] [1794468342.179763224] [rosbag2_recorder]: Subscribed to topic '/omnicopter/motor_thrust_actual'
+[INFO] [1794468342.181269251] [rosbag2_recorder]: Subscribed to topic '/pose_d'
+[INFO] [1794468342.181759200] [rosbag2_recorder]: Subscribed to topic '/pose_full'
+[INFO] [1794468342.182307849] [rosbag2_recorder]: Subscribed to topic '/toggle_topic'
+[INFO] [1794468342.183156214] [rosbag2_recorder]: Subscribed to topic '/simulation_scenarios/events'
+[INFO] [1794468342.183171894] [rosbag2_recorder]: All requested topics are subscribed. Stopping discovery...
+[INFO] [1794468342.183176272] [rosbag2_recorder]: Topics discovery stopped.
+[INFO] [1794468406.711878410] [rosbag2_recorder]: Pausing recording.
+[INFO] [1794468406.711946817] [rosbag2_cpp]: Writing remaining messages from cache to the bag. It may take a while
+[INFO] [1794468406.715091077] [rosbag2_recorder]: Recording stopped
+[INFO] [1794468406.716416979] [rosbag2_recorder]: Event publisher thread: Exited

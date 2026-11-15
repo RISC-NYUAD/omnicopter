@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>libkdtp</name>
+  <version>1.0.0</version>
+  <description>
+    Refer to in library documentation
+  </description>
+  <maintainer email="mahmoudhamandi@gmail.com">PR-foobar</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  
+</package>

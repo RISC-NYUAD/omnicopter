@@ -1,0 +1,10 @@
+std_msgs/Header header
+bool accepted
+bool fallback
+int32 solver_status
+float64 solve_seconds
+float64 candidate_constraint_violation
+float64 issued_wrench_error
+float64 step_radius
+float64[2] tangent_step
+float64[8] thrust

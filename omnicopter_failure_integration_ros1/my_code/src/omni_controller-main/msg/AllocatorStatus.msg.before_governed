@@ -1,0 +1,22 @@
+std_msgs/Header header
+bool accepted
+bool fallback
+int32 solver_status
+float64 solve_seconds
+float64 candidate_constraint_violation
+float64 issued_wrench_error
+float64 step_radius
+float64[2] tangent_step
+float64[8] thrust
+
+# Additional diagnostics; allocator command policy is unchanged.
+float64 motor_bound_violation          # N, maximum positive candidate bound violation
+float64 direction_violation            # maximum positive (norm(v)^2 - radius^2)
+float64 candidate_step_norm
+float64 solver_seconds                # elapsed at acceptance check, before fallback
+bool rejected_by_status
+bool rejected_by_constraints
+bool rejected_by_time
+# World-frame force vectors in N; allocated force excludes actuator lag.
+float64[3] desired_force_world
+float64[3] allocated_force_world

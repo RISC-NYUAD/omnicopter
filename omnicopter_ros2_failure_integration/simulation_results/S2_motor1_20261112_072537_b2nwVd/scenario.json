@@ -1,0 +1,29 @@
+{
+  "scenario": "S2",
+  "motor_number": 1,
+  "rotor_index": 0,
+  "effectiveness": 0.0,
+  "height_m": 1.5,
+  "takeoff_seconds": 7.0,
+  "pre_failure_hover_seconds": 10.0,
+  "post_failure_seconds": 30.0,
+  "detection_delay_seconds": 0.0,
+  "video": false,
+  "topics": [
+    "/pose_full",
+    "/pose_d",
+    "/failure_controller/status",
+    "/omnicopter/motor_thrust",
+    "/omnicopter/motor_thrust_actual",
+    "/omnicopter/motor_limits",
+    "/clock",
+    "/toggle_topic",
+    "/rosout",
+    "/parameter_events",
+    "/simulation_scenarios/events"
+  ],
+  "physical_model": "worlds/models/omnicopter_failure/model.sdf",
+  "tau_up": 0.15,
+  "tau_down": 0.21,
+  "note": "Failure remains active through landing; sequence completion is not a performance pass."
+}

@@ -1,0 +1,45 @@
+{
+  "scenario": "S1",
+  "motor_number": 4,
+  "rotor_index": 3,
+  "remaining_effectiveness": 0.0,
+  "height_m": 1.5,
+  "takeoff_seconds": 7.0,
+  "pre_failure_hover_seconds": 10.0,
+  "post_failure_seconds": 30.0,
+  "added_detection_delay_seconds": 0.0,
+  "healthy_lower_N": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "healthy_upper_N": [
+    38.63365518267137,
+    38.63365518267137,
+    38.63365518267137,
+    38.63365518267137,
+    38.63365518267137,
+    38.63365518267137,
+    38.63365518267137,
+    38.63365518267137
+  ],
+  "topics": [
+    "/pose_full",
+    "/pose_d",
+    "/failure_controller/status",
+    "/omnicopter/motor_thrust",
+    "/omnicopter/motor_thrust_actual",
+    "/omnicopter/motor_limits",
+    "/clock",
+    "/toggle_topic",
+    "/gazebo/model_states",
+    "/rosout_agg",
+    "/simulation_scenarios/events"
+  ],
+  "note": "Motor remains failed during landing. Failure time is relative to hover, not simulator startup. See events.jsonl and recorded limit change."
+}

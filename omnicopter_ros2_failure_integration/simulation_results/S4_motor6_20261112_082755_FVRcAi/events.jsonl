@@ -1,0 +1,13 @@
+{"event": "recording_ready", "sim_time": 0.63, "wall_time_unix": 1794472079.650042}
+{"event": "arm_requested", "sim_time": 6.0875, "wall_time_unix": 1794472085.1073842}
+{"event": "takeoff_requested", "sim_time": 6.59, "wall_time_unix": 1794472085.607427, "height": 1.5, "duration": 8.0}
+{"event": "pre_failure_hover_start", "sim_time": 14.605, "wall_time_unix": 1794472093.625208}
+{"event": "maneuver_requested", "sim_time": 24.605, "wall_time_unix": 1794472103.625524, "x": 2.0096717717736117, "y": 1.0053685984991485, "z": 1.7, "roll": 0.17453292519943295, "pitch": -0.17453292519943295, "yaw": 0.3490658503988659, "duration": 20.0}
+{"event": "maneuver_accepted", "sim_time": 24.605, "wall_time_unix": 1794472103.6271894}
+{"event": "maneuver_pre_failure_check", "sim_time": 34.6075, "wall_time_unix": 1794472113.6276364, "elapsed_seconds": 10.002500000000001, "reference_speed_m_s": 0.1133827962985608, "distance_to_goal_m": 1.1236359901612056, "reference_displacement_m": 1.1213584420123803}
+{"event": "failure_requested", "sim_time": 34.6075, "wall_time_unix": 1794472113.627839, "motor": 6, "rotor_index": 5, "upper_N": 0.0}
+{"event": "failure_confirmed", "sim_time": 34.6075, "wall_time_unix": 1794472113.62927, "motor": 6}
+{"event": "post_failure_maneuver_observation_end", "sim_time": 64.6075, "wall_time_unix": 1794472143.6276536}
+{"event": "landing_requested", "sim_time": 64.6075, "wall_time_unix": 1794472143.6278338}
+{"event": "disarm_requested", "sim_time": 78.6075, "wall_time_unix": 1794472157.630654}
+{"event": "scenario_complete", "sim_time": 81.6075, "wall_time_unix": 1794472160.6306362}

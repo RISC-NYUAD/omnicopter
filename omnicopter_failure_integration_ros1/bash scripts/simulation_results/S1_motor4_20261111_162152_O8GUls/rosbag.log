@@ -1,0 +1,12 @@
+[0m[INFO] [1794399744.930486774]: Subscribing to /clock[0m
+[0m[INFO] [1794399744.931759813]: Subscribing to /failure_controller/status[0m
+[0m[INFO] [1794399744.932729514]: Subscribing to /gazebo/model_states[0m
+[0m[INFO] [1794399744.933892294]: Subscribing to /omnicopter/motor_limits[0m
+[0m[INFO] [1794399744.934827119]: Subscribing to /omnicopter/motor_thrust[0m
+[0m[INFO] [1794399744.936043866]: Subscribing to /omnicopter/motor_thrust_actual[0m
+[0m[INFO] [1794399744.937085641]: Subscribing to /pose_d[0m
+[0m[INFO] [1794399744.938089216]: Subscribing to /pose_full[0m
+[0m[INFO] [1794399744.939103660]: Subscribing to /rosout_agg[0m
+[0m[INFO] [1794399744.939916404]: Subscribing to /simulation_scenarios/events[0m
+[0m[INFO] [1794399744.940746042]: Subscribing to /toggle_topic[0m
+[0m[INFO] [1794399745.174251353, 3.105000000]: Recording to '/home/ama10362/Downloads/omnicopter_failure_integration/bash scripts/simulation_results/S1_motor4_20261111_162152_O8GUls/S1_motor4.bag'.[0m

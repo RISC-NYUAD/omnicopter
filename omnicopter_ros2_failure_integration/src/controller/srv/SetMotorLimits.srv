@@ -1,0 +1,7 @@
+# Eight thrust bounds in N, motor order rotor_0 ... rotor_7.
+# A stopped motor has lower[i] = upper[i] = 0.
+float64[8] lower
+float64[8] upper
+---
+bool success
+string message

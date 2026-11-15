@@ -1,0 +1,20 @@
+
+S1: motor 4 (rotor_3), complete failure; 1.5 m horizontal hover.
+Recording starts now. One Enter starts arm -> takeoff -> 10 s hover -> failure -> 30 s hover -> land.
+The failure remains active through landing. Ctrl+C stops this simulation and closes the bag.
+
+{"event": "recording_ready", "sim_time": 3.1125}
+Press [Enter] to run S1: {"event": "arm_requested", "sim_time": 3.115}
+/ArmDisarm: success: True
+{"event": "takeoff_requested", "sim_time": 3.635, "height": 1.5, "duration": 7.0}
+/lift_off: status: True
+{"event": "pre_failure_hover_start", "sim_time": 10.69}
+{"event": "failure_requested", "sim_time": 20.7125, "motor": 4, "rotor_index": 3, "upper_N": 0.0}
+/failure_controller/set_motor_limits: success: True; message: "Thrust limits updated"
+{"event": "failure_confirmed", "sim_time": 20.725, "motor": 4}
+{"event": "post_failure_hover_end", "sim_time": 50.725}
+{"event": "landing_requested", "sim_time": 50.725}
+/land: status: True
+{"event": "disarm_requested", "sim_time": 64.7425}
+/ArmDisarm: success: True
+{"event": "scenario_complete", "sim_time": 67.7675}

@@ -1,0 +1,14 @@
+#
+# libkdtp pkg-config file
+#
+Name: libkdtp
+Description: Kinematic and dynamic trajectory planner
+Version: @PACKAGE_VERSION@
+
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Cflags: -I${includedir}
+Libs: -L${libdir} -lkdtp

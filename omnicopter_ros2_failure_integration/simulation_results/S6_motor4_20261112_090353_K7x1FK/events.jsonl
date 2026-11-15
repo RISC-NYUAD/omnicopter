@@ -1,0 +1,14 @@
+{"event": "recording_ready", "sim_time": 0.655, "wall_time_unix": 1794474238.3811712}
+{"event": "arm_requested", "sim_time": 5.555, "wall_time_unix": 1794474243.2807853}
+{"event": "takeoff_requested", "sim_time": 6.0575, "wall_time_unix": 1794474243.7812161, "height": 1.5, "duration": 8.0}
+{"event": "pre_failure_hover_start", "sim_time": 14.0675, "wall_time_unix": 1794474251.7911165}
+{"event": "tilted_attitude_requested", "sim_time": 24.07, "wall_time_unix": 1794474261.7944052, "x": 0.009671771773611643, "y": 0.00536859849914841, "z": 1.5, "roll": 0.4363323129985824, "pitch": -0.3490658503988659, "yaw": 0.5235987755982988, "duration": 12.0}
+{"event": "tilted_hover_confirmed", "sim_time": 41.075, "wall_time_unix": 1794474278.7985463, "tilt_degrees": 31.605894342176317}
+{"event": "failure_requested", "sim_time": 41.075, "wall_time_unix": 1794474278.798755, "motor": 4, "motors": [4], "rotor_indices": [3], "upper_N": 0.0}
+{"event": "failure_confirmed", "sim_time": 41.075, "wall_time_unix": 1794474278.8003643, "motor": 4, "motors": [4]}
+{"event": "horizontal_attitude_requested", "sim_time": 43.075, "wall_time_unix": 1794474280.7984617, "x": 0.009671771773611643, "y": 0.00536859849914841, "z": 1.5, "roll": 0.0, "pitch": 0.0, "yaw": 0.5235987755982988, "duration": 10.0}
+{"event": "horizontal_recovery_confirmed", "sim_time": 63.075, "wall_time_unix": 1794474300.7984767, "tilt_degrees": 6.557959812547711e-06}
+{"event": "post_failure_hover_end", "sim_time": 63.075, "wall_time_unix": 1794474300.798686}
+{"event": "landing_requested", "sim_time": 63.075, "wall_time_unix": 1794474300.7987485}
+{"event": "disarm_requested", "sim_time": 77.075, "wall_time_unix": 1794474314.798576}
+{"event": "scenario_complete", "sim_time": 80.155, "wall_time_unix": 1794474317.87849}

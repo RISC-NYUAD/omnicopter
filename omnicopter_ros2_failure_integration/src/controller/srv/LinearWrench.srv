@@ -1,0 +1,10 @@
+float32 fx1
+float32 fy1
+float32 fz1
+float32 fx2
+float32 fy2
+float32 fz2
+float32 ramp
+float32 duration
+---
+bool status

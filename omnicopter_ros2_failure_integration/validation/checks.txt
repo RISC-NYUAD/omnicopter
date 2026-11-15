@@ -1,0 +1,7 @@
+PASS: nominal hover, exact reference retention, two fault targets, static residuals, hard bounds, zero failed motor, restoration, eight known-wrench feasibility cases, zero force, total loss, original paper-mode parity and bad bounds.
+PASS: acceleration, zero-braking decay, residual thrust and timestep invariance
+PASS: syntax, physical-parameter parity, identical allocator core, scenario configuration
+PASS: diagnostic message field coverage
+PASS: independent failure launch
+
+NOT RUN: colcon build, ROS 2 DDS integration, Gazebo Harmonic flight, actual S1/S2 scenario runs. ROS 2 and Gazebo are not installed in the authoring environment.
